@@ -1,0 +1,39 @@
+
+<style  type="text/css">
+<!-- 
+.time00{
+ font-family  :  Comic  Sans  Ms;
+ font-size  :  20pt;
+ font-weight  :  bold;
+ color:  #000000;
+}
+-->
+</style>
+<script  Language="JavaScript">
+<!--
+var  ctimer;
+function  init(){
+if  (document.all){
+time2.style.left=time1.style.posLeft;                     
+time2.style.top=time1.style.posTop+time1.offsetHeight-6;  
+settimes();
+}
+}
+function  settimes(){
+var time=new Date();                                     
+hours=time.getHours();                                 
+mins=time.getMinutes();                                
+secs=time.getSeconds();                                
+if(mins<10)                                             
+mins="0"+mins;
+if  (secs<10)                                           
+secs="0"+secs;
+time1.innerHTML=hours+":"+mins+":"+secs                  
+time2.innerHTML=hours+":"+mins+":"+secs                  
+ctimer=setTimeout('settimes()',1000);}                  
+//-->
+</script>
+<body  onLoad="init()">
+<div  align="center"  Id="time1"  Style="position:absolute;  width:10;  height:10;  top:10;  left:50" class="time00"></div>
+<div  Id="time2" Style="position:absolute;  filter:flipv()  alpha(opacity=20);  font-style:italic" class="time00"></div>
+

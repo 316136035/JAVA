@@ -1,0 +1,134 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var mappath = new Array(
+"11111111111111111111",
+"10000000000000000001",
+"10010000000000000001",
+"10010020000000000001",
+"10010000000000000301",
+"10010111110000003001",
+"10000001000000000301",
+"10000001000010000001",
+"10000001000000000001",
+"10000001000000111001",
+"10000000000000000001",
+"10000000011110000001",
+"10020200000000000001",
+"10000000000000000001",
+"11111111111111111111"
+)                   // 初始化地图信息，0代表移动区域，1代表固定区域，2代表箱子的位置，3代表箱子最终位置
+
+var mapData =new Array(15);
+var pboxX=0;
+pboxY=0;
+var winbox=0;
+
+function readMap(){        // 读取地图信息
+for(var i=0;i<15;i++){
+mapData[i]=new Array(20);
+for(var j=0;j<20;j++){
+mapData[i][j]=mappath[i].substr(j,1);
+}
+}
+}
+
+function CreateMap(){      // 创建地图
+var x=30;
+var y=30;
+var cbox=0;
+for (var i=0;i<15;i++){    // 循环出地图的高
+for (var j=0;j<20;j++){    // 循环出地图的宽
+var oe=document.createElement("div");
+oe.id="box"+i+"_"+j;
+oe.className="map"+mapData[i][j];
+oe.style.pixelLeft=x;
+oe.style.pixelTop=y;
+gameArea.appendChild(oe);
+x+=19;
+}
+y+=19;
+x=30;
+}
+}
+
+function move(dir){             // 移动函数
+var dx=0;
+var dy=0;
+if(dir=="Left") dx=-1;
+if(dir=="Right") dx=1;
+if(dir=="Up") dy=-1;
+if(dir=="Down") dy=1;
+if(mapData[pboxY+dy][pboxX+dx]=="1" ) return;
+if(mapData[pboxY+dy][pboxX+dx]=="2" ) {
+if(mapData[pboxY+dy*2][pboxX+dx*2]=="0" || mapData[pboxY+dy*2][pboxX+dx*2]=="3"){
+if(mapData[pboxY+dy*2][pboxX+dx*2]=="3"){
+mapData[pboxY+dy*2][pboxX+dx*2]="1";
+winbox++;
+if(winbox==3) win();            // 如果三个箱子全部到位则获胜
+}
+else 
+mapData[pboxY+dy*2][pboxX+dx*2]="2";
+mapData[pboxY+dy][pboxX+dx]="0";
+eval("box"+(pboxY+dy)+"_"+(pboxX+dx)).style.backgroundColor='#333333';      // 移动路线的颜色
+eval("box"+(pboxY+dy*2)+"_"+(pboxX+dx*2)).style.backgroundColor='#3333FF';  // 移动箱子的颜色
+pboxX+=dx;
+pboxY+=dy;
+pbox.style.pixelLeft+=dx*19;
+pbox.style.pixelTop+=dy*19;
+}
+}else{
+pboxX+=dx;
+pboxY+=dy;
+pbox.style.pixelLeft+=dx*19;
+pbox.style.pixelTop+=dy*19;
+}
+}
+
+function win(){                // 获胜过关
+alert("您已经过关！");
+}
+
+function fnKeydown(){          // 控制键盘按键
+var key=event.keyCode;
+switch(key){
+case 37:                       // 向左移动
+move("Left");
+break;
+case 39:                       // 向右移动
+move("Right");
+break;
+case 38:                       // 向上移动
+move("Up");
+break;
+case 40:                       // 向下移动
+move("Down");
+break;
+}
+return false;
+}
+
+function init(){               // 页面加载的函数
+readMap();                     // 读取地图信息
+CreateMap();                   // 创建地图
+pbox.style.pixelLeft=49;       // 初始化推箱人的位置
+pbox.style.pixelTop=49;
+pboxX=1;
+pboxY=1;
+}
+document.onkeydown=fnKeydown;  // 鼠标按下触发函数
+//-->
+</script>
+
+<STYLE TYPE="text/css">
+.map0{position:absolute;border:1px solid #999999;width:20;height:20;background-color:#333333}
+.map1{position:absolute;border:2px outset #FFFFFF;width:20;height:20;background-color:#999999}
+.map2{position:absolute;border:1px solid #999999;width:20;height:20;background-color:#3333FF}
+.map3{position:absolute;border:0px solid #999999;width:20;height:20;background-color:#006600}
+.box{position:absolute;border:1px outset #ffffff;width:20;height:20;background-color:#0000cc}
+}
+</STYLE>
+
+<body bgColor=#333333 onload="init()">
+<div id=gameArea></div>
+<div id="pbox" style="position:absolute"><img src="boy.gif" height=14 width=20></div>
+</body>

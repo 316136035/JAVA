@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中表单标签form的下拉框和文本域</title>
+</head>
+<body>
+<form action="##" method="post">
+  选择城市：  <select name="province" id="js">
+        <option  name="广东省" >广东省</option>
+        <option name="北京省" >北京省</option>
+        <option selected="selected" name="广西省">广西省</option>
+        <option  name="辽宁省">辽宁省</option>
+    </select><br>
+    个人简历： <textarea cols="100" rows="50" name="servet" id="js1"> 个人简历：</textarea>
+</form>
+</body>
+</html>
+<!--注意：-->
+<!--下拉框和文本域不是input的type属性能够决定的。-->
+
+<!--select 标签-->
+<!--name="province" 将来用于服务器取值使用-->
+<!--id="province" 将来用于js获取值使用-->
+<!--|&#45;&#45;option 标签-->
+<!--value="湖北省" 服务器实际获取的值-->
+<!--selected="selected" 默认选中项-->
+<!--multiple：把select标签展开，可以多选-->
+<!--size="6"：设置select展开的行数-->
+
+<!--textarea 标签-->
+<!--cols="40" 列数-->
+<!--rows="10" 行数-->
+<!--name="myself" 将来用于服务器取值使用-->
+<!--id="myself" 将来用于js获取值使用-->
+<!--不具有value的属性，值写在元素中间-->

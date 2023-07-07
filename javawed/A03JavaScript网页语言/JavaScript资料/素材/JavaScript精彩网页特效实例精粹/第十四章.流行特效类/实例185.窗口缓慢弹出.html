@@ -1,0 +1,23 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var sizer;                   
+var winwidth = window.screen.Width-310; 
+var winheight = window.screen.Height;  
+function expandingWindow(website) {
+sizer = window.open("","","left=" + winwidth + ",top=" + winheight + ",width=300,height=300,scrollbars=no");
+sizer.location = website; 
+movewindow()               
+}
+
+function movewindow() {                            
+if (winheight>=window.screen.availHeight-300) { 
+sizer.moveTo(winwidth,winheight) 
+winheight-=10                         
+timer= setTimeout("movewindow()",20)
+}
+else {clearTimeout(timer)}
+}
+expandingWindow('185.html');
+//-->
+</script>
+<p align=center>сроб╫г╩╨бЩ╣╞ЁЖ╢╟©з</p>

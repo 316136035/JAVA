@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>httpServlet</servlet-name>
+        <servlet-class>创建HttpServlet的第一种方法.HttpServlet1</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>httpServlet</servlet-name>
+        <url-pattern>/httpservlet</url-pattern>
+    </servlet-mapping>
+
+    <!--============================================================-->
+    <!--=====================Servlet创建顺序===============================-->
+    <servlet>
+        <servlet-name>HttpServlet1</servlet-name>
+        <servlet-class>HttpServlet的的创建顺序.myServlet1</servlet-class>
+        <!--当值为0或者大于0时，表示容器在应用启动时就加载这个servlet  先创建1 ，再创建2,再创建3； -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServlet1</servlet-name>
+        <url-pattern>/HttpServlet1</url-pattern>
+    </servlet-mapping>
+    <!--======================================================================-->
+    <servlet>
+        <servlet-name>HttpServlet2</servlet-name>
+        <servlet-class>HttpServlet的的创建顺序.myServlet2</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServlet2</servlet-name>
+        <url-pattern>/HttpServlet2</url-pattern>
+    </servlet-mapping>
+    <!--======================================================================-->
+    <servlet>
+        <servlet-name>HttpServlet3</servlet-name>
+        <servlet-class>HttpServlet的的创建顺序.myServlet3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServlet3</servlet-name>
+        <url-pattern>/HttpServlet3</url-pattern>
+    </servlet-mapping>
+
+
+
+
+</web-app>

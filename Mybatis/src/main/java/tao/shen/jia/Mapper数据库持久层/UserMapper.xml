@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 绑定接口-->
+<mapper namespace="tao.shen.jia.Mapper数据库持久层.UserMapper">
+    <!-- 查询全部用户-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <select id="getUserList" resultType="User">#  使用别名请先在mybatis-config.xml中配置
+        select * from MyBatis.user
+    </select>
+
+
+
+<!--  通过结果集(当数据库字段和实体类字段不同的时候使用) 查询全部用户-->
+<!--   id="结果集映射" resultType="返回类型"  -->
+    <resultMap id="UserMap" type="User">
+<!--  property="实体类的字段"    column="数据库中的字段"   -->
+        <result property="userId" column="User_id" ></result>
+        <result property="userName" column="User_name" ></result>
+        <result property="userPassword" column="User_password" ></result>
+    </resultMap>
+    <!--    id="接口的方法名 结果集映射resultMap="UserMap"  parameterType="传参数类型"-->
+    <select id="getUserList_resultMap" resultMap="UserMap"> #  使用别名请先在mybatis-config.xml中配置
+    select * from MyBatis.user   ;
+    </select>
+
+
+    <!-- 模糊和分页查询全部用户-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <select id="getUserList_like_limit" resultType="User" parameterType="map"> #  使用别名请先在mybatis-config.xml中配置
+        select *  from MyBatis.user where User_name like '%' #{like} '%' limit #{begin},#{end}
+    </select>
+
+
+
+    <!-- 查询用户总数-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <select id="getCount" resultType="int">
+        SELECT COUNT(1) FROM MyBatis.user
+    </select>
+
+
+    <!--通过id查询用户-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <select id="getid_User" resultType="User" parameterType="int"> #  使用别名请先在mybatis-config.xml中配置
+        <!--获取传参的参数#{userId} -->
+        select * from MyBatis.user where User_id =#{userId}
+    </select>
+
+
+    <!--    插入用户数据-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <insert id="insert_User" parameterType="User"> #  使用别名请先在mybatis-config.xml中配置
+        insert into MyBatis.user(user_id, user_name, user_password, dep_id, creation_time, updated_by, update_time) values (#{userId}, #{userName}, #{userPassword}, #{depId}, #{creationTime}, #{updatedBy}, #{updateTime})
+    </insert>
+
+    <!-- 修改用户数据-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <update id="update_User" parameterType="User"> #  使用别名请先在mybatis-config.xml中配置
+        UPDATE MyBatis.user SET user_name=#{userName},  user_password=#{userPassword} where User_id = #{userId}
+    </update>
+
+    <!-- 删除用户数据*-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <delete id="delete_User" parameterType="int"> #  使用别名请先在mybatis-config.xml中配置
+       delete from MyBatis.user  where User_id=#{userid}
+    </delete>
+
+</mapper>
+

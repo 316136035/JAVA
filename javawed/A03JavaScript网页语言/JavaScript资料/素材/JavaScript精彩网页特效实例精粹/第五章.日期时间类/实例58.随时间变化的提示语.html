@@ -1,0 +1,60 @@
+
+<SCRIPT language="JavaScript">
+<!--
+   today = new Date();                                            
+   var day;   
+   var date;
+   if(today.getDay()==0)     day = "星期日"                    
+   if(today.getDay()==1)     day = "星期一"
+   if(today.getDay()==2)     day = "星期二"
+   if(today.getDay()==3)     day = "星期三"
+   if(today.getDay()==4)     day = "星期四"
+   if(today.getDay()==5)     day = "星期五"
+   if(today.getDay()==6)     day = "星期六"
+   date1 = "<font size=2 color=red>" + (today.getYear())  + "年" + (today.getMonth() + 1 ) + "月" + today.getDate() + "日  " + "</font>"; 
+   date2 = "<font size=1 color=red>" +  day + "</font>";                   
+   document.write("<center>" + date1 + date2 + "</center>");            
+   
+//-->
+</SCRIPT>
+<br>
+<SCRIPT language="JavaScript">
+<!--
+document.write("<center><font color=#0000ff> ")
+day = new Date()                            
+if (day.getHours() ==1)                                  
+document.write("凌晨一点已过，别忘了休息喔！")               
+if (day.getHours() ==2)
+document.write("该休息了，身体可是本钱啊！")
+if (day.getHours() ==3)
+document.write("夜深人静，只有你敲击鼠标的声音...")
+if (day.getHours() ==4)
+document.write("四点过了，你明天不上班？？？")
+if (day.getHours() ==5)
+document.write("该去晨运了！！！")
+if (day.getHours() ==6)
+document.write("你知道吗，此时是国内网络速度最快的时候！")
+if (day.getHours() ==7)
+document.write("新的一天又开始了，祝你过得快乐！")
+if ((day.getHours() ==8) || (day.getHours() == 9) || (day.getHours() ==10))
+document.write("上午好！今天你看上去好精神哦！")
+if (day.getHours() ==11)
+document.write("十一点过了，快下班了吧？")
+if (day.getHours() ==12)
+document.write("十二点过了，还不下班？")
+if ((day.getHours()==13) || (day.getHours()==14))
+document.write("你不睡午觉？")
+if ((day.getHours()==15) || (day.getHours()==16) || (day.getHours()==17))
+document.write("下午好！")
+if ((day.getHours()==18) || (day.getHours()==19))
+document.write("吃晚饭了吧？")
+if ((day.getHours()==20) || (day.getHours()==21) || (day.getHours()==22))
+document.write("今晚又在学习javascript了？")
+if (day.getHours()==23)
+document.write("真是越学越有兴趣，不打算睡了？")
+if (day.getHours()==0)
+document.write("凌晨了，还不睡？")
+document.write("</font></center>")
+//--->
+</SCRIPT>
+

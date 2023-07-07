@@ -1,0 +1,36 @@
+<script language="Javascript">
+<!-- 
+num=4;
+quoteArray = new Array(num);
+quoteArray[0]="您喜欢学习javascript吗？";
+quoteArray[1]="您喜欢学习vbscript吗？"
+quoteArray[2]="您喜欢学习asp吗？"
+quoteArray[3]="您喜欢学习asp.net吗？"
+quoteArray[4]="您喜欢学习jsp吗？"
+
+quoteS=-1;
+function next()
+{
+  if (quoteS >= num) quoteS=-1;
+  quoteS++;
+  document.quoteForm.quoteHere.value = quoteArray[quoteS];
+}
+function prev()
+{
+  if (quoteS <= 0) quoteS=num+1;
+  quoteS--;
+  document.quoteForm.quoteHere.value = quoteArray[quoteS];
+}
+function rand()
+{ 
+  quoteS = Math.ceil(Math.random() * num);
+  document.quoteForm.quoteHere.value = quoteArray[quoteS];
+}
+//-->
+</script>
+<form name="quoteForm">
+  <textarea name="quoteHere" Rows=3 Cols=50>点击查看信息</textarea><br>
+  <input type=button value="下一条" onClick="next();">
+  <input type=button value="上一条" onClick="prev();">
+  <input type=button value="随机" onclick="rand();">
+</form>

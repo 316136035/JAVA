@@ -1,0 +1,72 @@
+<body bgcolor="#000000" onload="guiji();prepos();">
+<script language="JavaScript">
+<!-- 
+
+var a_color='fff000';           
+var b_color='00ff00';
+var c_color='ff0000';
+var Size=100;                     
+
+var YD=new Array(),
+XD=new Array(),
+xpos=0,
+ypos=0,
+currentstep=0;
+step=0.6;
+function ieMouse(){
+xpos = document.body.scrollLeft+event.x+6;    
+ypos = document.body.scrollTop+event.y+16;    
+}
+document.onmousemove = ieMouse;       
+
+function guiji(){
+for (i = 0; i < 3; i++)
+ { 
+ YD[i]=ypos+Size*Math.sin((1*Math.sin((currentstep)/10))+i*2)*Math.sin((currentstep)/4);
+ XD[i]=xpos+Size*Math.cos((1*Math.sin((currentstep)/10))+i*2)*Math.sin((currentstep)/4); 
+ }
+currentstep+=step;                          
+setTimeout('guiji()',10);
+}
+
+var amount=9;        
+
+document.write('<div id="ODiv" style="position:absolute;top:0px;left:0px">'
++'<div id="IDiv" style="position:relative">');
+for (i = 0; i < amount; i++)
+{
+document.write('<div id=x style="position:absolute;top:0px;left:0px;width:'+i/2+';height:'+i/2+';background:'+a_color+';font-size:'+i/2+'"></div>');
+document.write('<div id=y style="position:absolute;top:0px;left:0px;width:'+i/2+';height:'+i/2+';background:'+b_color+';font-size:'+i/2+'"></div>');
+document.write('<div id=z style="position:absolute;top:0px;left:0px;width:'+i/2+';height:'+i/2+';background:'+c_color+';font-size:'+i/2+'"></div>');
+}
+document.write('</div></div>');
+
+function prepos(){
+var ie=document.all;
+for (i = 0; i <  amount; i++)
+{
+ if (i < amount-1) 
+ {
+ ie.x[i].style.top=ie.x[i+1].style.top;         
+ ie.x[i].style.left=ie.x[i+1].style.left;
+ ie.y[i].style.top=ie.y[i+1].style.top;
+ ie.y[i].style.left=ie.y[i+1].style.left;
+ ie.z[i].style.top=ie.z[i+1].style.top;
+ ie.z[i].style.left=ie.z[i+1].style.left;
+ } 
+else 
+ {
+ ie.x[i].style.top=YD[0]; 
+ ie.x[i].style.left=XD[0];
+ ie.y[i].style.top=YD[1];
+ ie.y[i].style.left=XD[1];
+ ie.z[i].style.top=YD[2];
+ ie.z[i].style.left=XD[2];
+ }
+}
+setTimeout("prepos()",10);
+}
+// -->
+</script>
+
+ 

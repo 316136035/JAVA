@@ -1,0 +1,44 @@
+<style>
+input{width:30;border:0;text-align:center}
+</style>
+<SCRIPT language=JavaScript>
+<!--
+function mask(obj){
+obj.value=obj.value.replace(/[^\d]/g,'')          
+key1=event.keyCode
+if (key1==37 || key1==39)               
+{
+nextip=parseInt(obj.name.substr(2,1))
+nextip=key1==37?nextip-1:nextip+1;
+nextip=nextip>=5?1:nextip
+nextip=nextip<=0?4:nextip
+eval("ip"+nextip+".focus()")                             
+} 
+if(obj.value.length>=3)                           
+if(parseInt(obj.value)>=256 || parseInt(obj.value)<=0) 
+{
+alert(parseInt(obj.value)+"IPµÿ÷∑¥ÌŒÛ£°")    
+obj.value=""                                       
+obj.focus()                               
+return false;
+}
+else 
+{
+nextip=parseInt(obj.name.substr(2,1))+1
+nextip=nextip>=5?1:nextip
+nextip=nextip<=0?4:nextip
+eval("ip"+nextip+".focus()")     
+}
+}
+
+//-->
+</script>
+
+<body>IPµÿ÷∑ ‰»Î
+<div style="border-width:1;border-color:balck;border-style:solid;width:165;font-size:9pt">
+<input type=text name=ip1 maxlength=3 onkeyup="mask(this)">.
+<input type=text name=ip2 maxlength=3 onkeyup="mask(this)">.
+<input type=text name=ip3 maxlength=3 onkeyup="mask(this)">.
+<input type=text name=ip4 maxlength=3 onkeyup="mask(this)">
+</div>
+</body>

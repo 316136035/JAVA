@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="Dog" class="vip.tao.A05_IOC_三种装配benans.A05_A01_xml手动装配.A05_A01_Dog"></bean>
+
+    <bean name="Cat" class="vip.tao.A05_IOC_三种装配benans.A05_A01_xml手动装配.A05_A01_Cat"></bean>
+
+    <!--    xml的自动装配
+    自动装配本类中set方法对应的参数
+    autowire="类型，名字，构造器"-->
+    <bean name="Person" class="vip.tao.A05_IOC_三种装配benans.A05_A01_xml手动装配.A05_A01_Person"
+          autowire="byType">
+        <property name="name" value="周先生"></property>
+    </bean>
+
+
+</beans>

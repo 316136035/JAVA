@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js函数</title>
+
+    <script type="text/javascript">
+        // 函数的声明
+        /*
+            使用function关键字声明函数，函数名称
+
+        function show(str){
+            // 编写方法体
+            alert("传入数据为："+str);
+            // 方法的返回值
+        }
+        // 调用方法
+        show("张三");
+        */
+
+        /*
+        // 方法第二种定义方式
+        var show = function(str){
+            alert("数据："+str);
+            // 方法的返回值
+        }
+        // 调用方法
+        show("赵四");
+        */
+
+        // 方法含有返回值
+        function add(num1,num2){
+            // 做加法
+            var sum = num1 + num2;
+            // 方法的返回值
+            return sum;
+        }
+
+        // 调用方法
+        // var s = add(10,20);
+        // 弹出结果
+        // alert("结果："+s);
+
+        // 如果传入了多个参数
+        // js没有方法重载
+        var s = add(1,2,50);
+        alert("结果："+s);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

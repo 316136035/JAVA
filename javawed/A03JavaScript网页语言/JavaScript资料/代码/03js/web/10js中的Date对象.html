@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js中Data对象</title>
+
+    <script type="text/javascript">
+        // 创建日期对象
+        // 获取到当前日期时间
+        var date = new Date();
+        // // 把data转换日期格式
+        //  var s = date.toLocaleString();
+        // // 转换格式
+        // var s = date.toLocaleDateString();
+        // // 打印数据
+        // document.write( date.toLocaleString());
+        // document.write("<br>");
+
+
+        // 获取到年、月、日数据
+        // var s = date.getFullYear();
+        // document.write(s);
+
+        // 获取到毫秒数
+         //var m = date.getTime();
+        // document.write(m);
+        //
+        // // 解析字符串
+        // var m = Date.parse("2018/11/11");
+        // // 创建成日期对象
+        // var date2 = new Date(m);
+        // // 转换成数据格式
+        // var s = date2.toLocaleDateString();
+        // document.write(s);
+        //
+
+
+        function DateTime() {
+            var Time = new Date();
+            var year = Time.getFullYear();
+            var month = Time.getMonth() + 1;
+            var day = Time.getDate();
+            var hour = Time.getHours();
+            var min = Time.getMinutes();
+            var sec = Time.getSeconds();
+            document.getElementById('id').innerHTML = "当前系统时间:" + year + "年" + month + "月" + day + "日" + "---" + hour + "时" + min + "分" + sec + "秒";
+            setTimeout("DateTime()", 1000);
+        }
+
+    </script>
+
+</head>
+<body onload="DateTime()">
+<h1 id="id" ></h1>
+</body>
+</html>

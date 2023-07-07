@@ -1,0 +1,31 @@
+<style type="text/css">
+#float {
+position: absolute;
+}</style>
+<div ID="float" style="left:5px; top:5px">
+<img SRC="011.jpg" border="0">
+</div>
+<SCRIPT language=JavaScript>
+<!--
+Scroll_X = 0;
+function floatcenter() {
+diffX = document.body.scrollLeft; 
+if(diffX != Scroll_X) {
+percent = .1 * (diffX - Scroll_X);
+if(percent > 0) 
+ {percent = Math.ceil(percent);}
+else 
+ {percent = Math.floor(percent);}
+ document.all.float.style.pixelLeft += percent;
+ Scroll_X = Scroll_X + percent;
+}
+}
+window.setInterval("floatcenter()",1);                   // 1毫秒执行函数一次
+//-->
+</script>
+<nobr>sadffffffffffffffffffffffffffffffffffffffffffffffffffff</nobr>
+<br>
+<br>
+<br>
+<br>
+<br>

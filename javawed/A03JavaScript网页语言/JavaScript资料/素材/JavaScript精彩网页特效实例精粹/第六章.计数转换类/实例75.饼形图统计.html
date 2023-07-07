@@ -1,0 +1,43 @@
+<style>
+td {font-size:13px;}
+</style>
+<SCRIPT language="JavaScript">
+<!--
+function drawc(a,b,c,d,e)
+{
+var i,n;
+var w=200,h=160;                  // 设置控件的宽和高
+var arrData=new Array(a,b,c,d,e); // 设置饼图的数据
+document.write('<OBJECT ID="DAControl" onerror=alert("您的系统未安装DirectX") style="WIDTH='+w+';HEIGHT='+h+';border:0 solid black" CLASSID="CLSID:B6FFC24C-7E13-11D0-9B47-00C04FC2F51D"></OBJECT>');  // 画出DAControl
+var m=DAControl.PixelLibrary;
+var arrCol=new Array(m.Red, m.Green, m.Blue, m.Aqua, m.Fuchsia, m.Gray,m.Lime, m.Maroon, m.Navy, m.Olive, m.Purple, m.Silver, m.Teal, m.Cyan, m.Magenta, m.Yellow, m.Black, m.White);//设置颜色数组
+var iSum=0;for(i=0;i<arrData.length;i++)iSum+=arrData[i];   // 求出各数据的累加和
+var ds=m.NewDrawingSurface();
+var iFrom=0,iTo=0;
+var iMax=4;                // 设置重画次数
+var px=0,py=6;             // 设置x,y轴的倾斜度
+for(n=0;n<=iMax;n+=0.5)    // 重画可产生立体感
+for(i=0;i<arrData.length;i++){
+ds.FillColor(arrCol[i]);   // 设置填充颜色
+ds.BorderColor(arrCol[i]); // 设置边框颜色
+iTo+=arrData[i];           // 设置终止地点相关系数
+ds.PieDegrees(-w/2+n*px,-h/2+(iMax-n)*py,iFrom/iSum*360,iTo/iSum*360,w-iMax*px,h-iMax*py);  // 画小块饼图
+iFrom=iTo;                 // 设置下一个数据初始位置相关系数
+}
+DAControl.Image=ds.Image;  // 设置DAControl的图形
+
+ds.Image.Transform(m.Rotate2Rate(3)) 
+DAControl.Start();         // 执行
+}
+//-->
+</script>
+
+
+<TABLE width="400" align=center border=0 cellspacing=0 cellpadding=0>
+<TR><TD><p>&nbsp;&nbsp;成绩饼形图</p><FONT color=Fuchsia>■</FONT>不及格人数：8人<BR><FONT color=Aqua>■</FONT>60-69分：21<BR><FONT color=Blue>■</FONT>70-79分：13人<BR><FONT color=Green>■</FONT>80-89分：14人<BR><FONT color=Red>■</FONT>90-100分：5人<BR>&nbsp;&nbsp;&nbsp;&nbsp;总人数:61人</TD>
+<TD><SCRIPT language="JavaScript">
+<!--
+drawc(8,21,13,14,5)
+//-->
+</script></TD></TR>
+</TABLE>

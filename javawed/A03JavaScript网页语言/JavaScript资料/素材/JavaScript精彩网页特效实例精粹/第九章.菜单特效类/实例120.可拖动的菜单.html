@@ -1,0 +1,80 @@
+<style>
+body,td,a {font-size:9pt;color:black}
+.none{border:black 1px solid;background:D9D9D9;padding-top:2}
+.over {border:black 1px solid;background:336699;color:white;padding-top:2}
+</style>
+
+<body onmousemove="move()">
+<div style="position:absolute; left: 100; top: 100; width: 1; height: 1;cursor: hand" ID=plane onmousedown="down=true;divleft=event.clientX-parseInt(plane.style.left);divtop=event.clientY-parseInt(plane.style.top)" onmouseup="down=false">
+<div align=center style="position:absolute; left:150px; top:33px; width:100px; height:19px; z-index:1;color:white;background:336699;cursor:move"onmouseover='stopTimerline();menuItemIn()' onmouseout='runTimerline()'class="none">可拖动的菜单</div>
+<div align=center id="item11" style="position:absolute; left:50px; top:55px; width:99px; height:19px; z-index:2; filter:alpha(opacity=0)"class="none" onmouseover="this.className='over';stopTimerline()" onmouseout="this.className='none';runTimerline()">我的邮箱</div>
+<div align=center id="item12" style="position:absolute; left:250px; top:77px; width:99px; height:19px; z-index:3;filter:alpha(opacity=0)"class=none onmouseover="this.className='over';stopTimerline()" onmouseout="this.className='none';runTimerline()">便签夹</div>
+<div align=center id="item13" style="position:absolute; left:50px; top:99px; width:99px; height:19px; z-index:4; filter:alpha(opacity=0)"class=none onmouseover="this.className='over';stopTimerline()" onmouseout="this.className='none';runTimerline()">我的公文包</div>
+<div align=center id="item14" style="position:absolute; left:250px; top:121px; width:99px; height:19px; z-index:5;filter:alpha(opacity=0)"class=none onmouseover="this.className='over';stopTimerline()" onmouseout="this.className='none';runTimerline()">音乐天地</div>
+<div align=center id="item15" style="position:absolute; left:50px; top:143px; width:99px; height:19px; z-index:6; filter:alpha(opacity=0)"class=none onmouseover="this.className='over';stopTimerline()" onmouseout="this.className='none';runTimerline()">休闲娱乐</div>
+
+</div>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var currTimerlinePoint=0             
+var totalTimerlineFrames=2
+var timerlineTimer
+var leftLine = 50
+var timerIn
+var timerOut
+var timerlineArray = new Array()
+timerlineArray[0]=''
+timerlineArray[1]='menuItemOut()'
+
+
+function runTimerline(){            
+ window.timerlineTimer = setTimeout('menuItemOut()',500) 
+}
+
+function stopTimerline(){      
+ clearTimeout(window.timerlineTimer)
+}
+function menuItemIn(){           
+ if( leftLine != 150){
+  item11.style.pixelLeft += 20; item11.filters.alpha.opacity += 15    
+  item12.style.pixelLeft -= 20; item12.filters.alpha.opacity += 15
+  item13.style.pixelLeft += 20; item13.filters.alpha.opacity += 15
+  item14.style.pixelLeft -= 20; item14.filters.alpha.opacity += 15
+  item15.style.pixelLeft += 20; item15.filters.alpha.opacity += 15
+  leftLine += 20
+ }
+ else{
+  clearTimeout(window.timerIn)
+  return false
+ }
+ timerIn=window.setTimeout('menuItemIn()',1)         
+}
+
+function menuItemOut(){     
+ clearTimeout(window.timerIn)
+ if (leftLine != 50){
+  item11.style.pixelLeft -= 20; item11.filters.alpha.opacity -= 15  
+  item12.style.pixelLeft += 20; item12.filters.alpha.opacity -= 15
+  item13.style.pixelLeft -= 20; item13.filters.alpha.opacity -= 15
+  item14.style.pixelLeft += 20; item14.filters.alpha.opacity -= 15
+  item15.style.pixelLeft -= 20; item15.filters.alpha.opacity -= 15
+  leftLine -= 20
+ }
+ else{
+  clearTimeout(window.timerOut)
+  return false;
+ }
+ timerOut=window.setTimeout("menuItemOut()",1)  
+}
+
+var over=false,down=false,divleft,divtop;
+
+function move(){
+ if(down){
+  plane.style.left=event.clientX-divleft;
+  plane.style.top=event.clientY-divtop;
+ }
+}
+//-->
+</script>

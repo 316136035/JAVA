@@ -1,0 +1,14 @@
+<SCRIPT LANGUAGE=javascript>
+<!--
+function picload(){
+	obj.filters.revealTrans.apply()                          // 冻结图片
+	obj.filters.revealTrans.Transition=12                    // 固定渐出效果
+	obj.src='m2.jpg'                       // 显示图片
+	obj.filters.revealTrans.play()                          // 启动转化
+	}
+//-->	
+</SCRIPT>
+<body onload="picload();">
+<img src=beijing.gif id="obj" style="FILTER: revealTrans(Duration=1,Transition=23);">
+</body>
+

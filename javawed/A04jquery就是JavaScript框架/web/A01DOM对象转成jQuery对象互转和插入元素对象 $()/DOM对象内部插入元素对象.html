@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对象内部插入元素对象</title>
+    <script src="../jquery/jquery-1.8.3.min.js"  ></script>
+    <script>
+
+
+            <!--在元素的内部后面插入元素-->
+            function  内部后面插入元素() {
+
+
+                $("div[id=id1]").append("<a href=\"https://item.jd.com/848852.html\">内部后面插入元素</a>");
+            };
+            function  内部前面插入元素() {
+                $("div[id=id2]").prepend("<a href=\"https://item.jd.com/848852.html\">内部前面插入元素</a>")
+            };
+
+
+
+
+
+    </script>
+    <style>
+
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="id1">DOM对象内部后面插入元素对象</div>
+<div id="id2">DOM对象内部后面前面元素对象</div>
+
+<input type="button"  value="内部后面插入元素" onclick=" 内部后面插入元素()"></br>
+<input type="button"  value="内部前面插入元素" onclick=" 内部前面插入元素()"><br>
+</body>
+</html>

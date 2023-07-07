@@ -1,0 +1,13 @@
+<script language=javascript>
+<!--
+function t_onkeypress() {     // 用户按键ctrl+enter时发送信息
+if (event.keyCode ==10 ){
+thetalkcontent.submit();
+}
+}
+//-->
+</script>
+<form action="#"  method="post" name="thetalkcontent">
+<textarea rows="4" onkeypress="t_onkeypress()" ></textarea>
+<input type="submit" value="送讯息" name="B1">
+</form>

@@ -1,0 +1,38 @@
+<style type="text/css">
+.huanrao {font-size:9pt; color=#ff0000; POSITION: absolute;}
+</style>
+<script language="JavaScript">
+<!--
+msg="欢迎大家学习JavaScript这门语言"  
+mousex=0
+mousey=0
+mspeed=Math.PI/60        
+mradius=70              
+mousems=new Array()
+if(document.layers){
+for(i=0;i<=msg.length;i++)
+document.write("<layer name='mousetext"+i+"'>"+msg.charAt(i)+"</layer>")
+}
+else
+for(i=0;i<=msg.length;i++)
+document.write("<span id='mousetext"+i+"' class='huanrao'>"+msg.charAt(i)+"</span>")
+for(i=0;i<=msg.length;i++){
+mousems[i]=document.all["mousetext"+i].style
+mousems[i].deg=Math.PI*2/msg.length*i}
+document.onmousemove=function m(e){
+if(!e)e=event
+mousex=document.body.scrollLeft+e.clientX       
+mousey=document.body.scrollTop+e.clientY     
+run()}
+
+function run(){
+for(i=mousems.length-1;i>=0;i--){
+  mousems[i].deg+=mspeed
+  mousems[i].left=mousex-Math.sin(mousems[i].deg)*mradius      
+  mousems[i].top=mousey+Math.cos(mousems[i].deg)*mradius}  
+}
+setInterval(run,100)      
+//-->
+</script>
+
+

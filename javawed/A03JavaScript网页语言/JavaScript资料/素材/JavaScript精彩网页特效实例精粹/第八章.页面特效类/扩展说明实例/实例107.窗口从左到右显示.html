@@ -1,0 +1,44 @@
+<body bgcolor="#fef4d9" onLoad="showWindow()">
+<SCRIPT LANGUAGE=javascript>
+<!-- 
+var popwindow
+var popwindowwidth=200                                // 窗口宽度
+var popwindowheight=200                               // 窗口高度
+var popwindowtop=200                                  // 窗口的上边距
+var popwindowURL="107.html"
+var popwindowleft=-popwindowheight-50                 // 窗口的左边距
+var marginright
+var pagecenter
+var timer   
+function showWindow() {
+popwindow = window.open(popwindowURL, "popwindow", "toolbar=no,width="+popwindowwidth+",height="+popwindowheight+",top="+popwindowtop+",left="+(-popwindowwidth)+"");                   // 弹出窗口
+marginright = screen.height+50                        // 定义出现位置
+pagecenter=Math.floor(marginright/2)-Math.floor(popwindowwidth/2)         // 窗口停留位置
+movewindow()
+}
+function movewindow() {                               // 窗口向下移动
+if (popwindowleft<=pagecenter) {
+popwindow.moveTo(popwindowleft,popwindowtop)          // 移动的位置
+popwindowleft+=40                                     // 位置累加
+timer= setTimeout("movewindow()",20)                  // 窗口移动
+}
+else {
+clearTimeout(timer)                                   // 清空定时器
+timer= setTimeout("movewindow2()",4000)               // 窗口停留时间
+}
+}
+
+function movewindow2() {                           // 窗口继续向下移动，直到消失
+if (popwindowleft<=marginright) {
+popwindow.moveTo(popwindowleft,popwindowtop)            // 移动的位置
+popwindowleft+=40                                       // 窗口继续向下移动
+timer= setTimeout("movewindow2()",20)                   // 窗口移动
+}
+else {
+clearTimeout(timer)                                      // 清空定时器
+popwindow.close()                                        // 关闭窗口
+}
+}
+// -->
+</script>
+</body>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js事件</title>
+
+    <script type="text/javascript">
+
+        // 改变事件，省市联动效果
+        function show1(){
+            alert("方法执行了...");
+        }
+
+        function show2(){
+            alert("方法执行了...");
+        }
+
+        // 页面加载事件，页面加载完成后，...
+        window.onload = function(){
+            // 获取到文本框的值，input标签没有被加载
+            // alert(document.getElementById("uname").value);
+        }
+
+        // 阻止表单提交
+        function show3(){
+            // 如果方法返回ture，正常提交表单
+            // return true;
+            // 如果返回false，不提交表单
+            return false;
+        }
+
+    </script>
+
+</head>
+<body>
+
+<select onchange="show1()">
+    <option>北京</option>
+    <option>上海</option>
+</select>
+
+<input type="button" ondblclick="show2()" value="双击事件">
+
+<input type="text" name="uname" id="uname" value="张三" />
+
+<hr/>
+
+<form action="http://www.baidu.com" method="post" onsubmit="return show3()">
+    <input type="text" name="username" />
+    <input type="submit" value="提交"/>
+</form>
+
+</body>
+</html>

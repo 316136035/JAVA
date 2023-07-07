@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript创建对象</title>
+
+    <script type="text/javascript">
+          //JavaScript创建对象
+        var  obj =new Object();
+          obj.name="张三";
+          obj.age=30;
+              //对象定义方法
+              obj.show =function () {
+
+                  window.alert("对象定义方法");
+              };
+          //调用对象定义方法
+          obj.show();
+
+        //JavaScript创建对象
+        function obj() {
+            var ccc = new Object();
+            ccc.name = "周先生";
+            ccc.age = 19;
+            return ccc;
+        }
+
+        var ccc = obj();
+        alert(ccc.name + ccc.age);
+
+        //JavaScript创建人(this代表本类)
+        function person() {
+            this.name = "黄先生";
+            this.age = "20";
+            this.show =function () {
+              alert("我是this方法")
+
+            };
+            return this
+        }
+
+        var p = person();
+        alert(p.name + p.age);
+        p.show();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

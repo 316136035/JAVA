@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery删除节点就是删除元素对象</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+
+        function remove() {
+            // 删除元素对象
+            $("#div1").remove()
+
+        }
+        // 删除#div2下面的全部子元素对象
+        function empty() {
+            $("#div2").empty()
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+
+<div id="div1">我是要被删除的元素</div>
+<div id="div2">
+
+    <p>宝马</p>
+    <p>大虫</p>
+    <p>奥迪</p>
+    <p>宝马</p>
+
+</div>
+
+<input type="button" value="删除的元素" onclick=remove()>
+
+<input type="button" value="删除的元素下面的全部子元素" onclick=empty()>
+
+</body>
+</html>

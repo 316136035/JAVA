@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--   id="结果集映射" resultType="返回类型"  -->
+<!--命名空间 绑定接口-->
+<mapper namespace="com.cn.mapper.UserMapper1">
+    <resultMap id="resultMap" type="user1">
+        <result property="User_id" column="User_id"></result>
+        <result property="User_name" column="User_name"></result>
+        <result property="User_password" column="User_password"></result>
+        <result property="Creation_time" column="Creation_time"></result>
+        <result property="Updated_by" column="Updated_by"></result>
+        <result property="Update_time" column="Update_time"></result>
+    </resultMap>
+    <select id="selectUser" resultMap="resultMap">
+        select *
+        from MyBatis.user
+    </select>
+    <select id="selectUserId" parameterType="int" resultType="user1">
+        select *
+        from MyBatis.user
+        where User_id = #{User_id}
+    </select>
+    <insert id="insretUser" parameterType="user1">
+        insert into MyBatis.user(User_id, User_name, User_password, Dep_id, Creation_time, Updated_by, Update_time)
+        VALUES (#{User_id}, #{User_name}, #{User_password}, #{Dep_id,}, #{Creation_time}, #{Updated_by}, #{Update_time})
+    </insert>
+    <delete id="deleteUser" parameterType="int">
+        delete
+        from MyBatis.user
+        where User_id = ${User_id}
+    </delete>
+    <update id="updateUser" parameterType="user1">
+        update MyBatis.user
+        set User_name=${User_name},
+            User_password=${User_password},
+            Dep_id=${Dep_id}
+        where User_id = #{User_id}
+    </update>
+</mapper>

@@ -1,0 +1,126 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+function Juge(theForm) 
+{ 
+if (theForm.username.value == "") 
+{
+alert("请您输入您的姓名!"); 
+theForm.username.focus(); 
+return (false); 
+}
+
+if (theForm.pwd.value == "") 
+{
+alert("请您输入您的密码!"); 
+theForm.pwd.focus(); 
+return (false); 
+}
+
+var strDate=theForm.vdate.value;
+re=/\d{4}\/\d{2}\/\d{2}/g
+if(re.test(strDate))
+{
+	var DateArray=strDate.split("/");
+	var dateElement=new Date(DateArray[0],parseInt(DateArray[1])-1,DateArray[2]);      
+	if(!((dateElement.getYear()==parseInt(DateArray[0]))&&((dateElement.getMonth()+1)==parseInt(DateArray[1]))&&(dateElement.getDate()==parseInt(DateArray[2])))) 
+	{
+		alert("不符合日期逻辑")
+		strDate='';
+		theForm.vdate.focus(); 
+		return (false); 
+	}
+}
+else
+{
+	alert("日期格式输入错误")
+	strDate='';
+	theForm.vdate.focus(); 
+	return (false); 
+}
+
+
+if(isNaN(theForm.old.value)){
+ 	alert("请您输入正确而且符合条件的年龄数字");
+ 	theForm.old.focus();
+ 	theForm.old.value=""
+  	return (false);
+}
+
+
+if (theForm.email.value == "") 
+{
+alert("请您输入email地址!"); 
+theForm.email.focus(); 
+return (false); 
+}
+var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_@."; 
+var checkStr = theForm.email.value;
+var allValid = true; 
+
+for (i = 0; i < checkStr.length; i++)           
+{ 
+ch = checkStr.charAt(i);                        
+for (j = 0; j < checkOK.length; j++)          
+if (ch == checkOK.charAt(j))                  
+	break;                                
+	if (j == checkOK.length)
+	{ 
+		allValid = false; 
+		break;                    
+	} 
+} 
+
+
+if (theForm.email.value.length < 6)
+{ 
+allValid = false; 
+} 
+
+if (!allValid) 
+{ 
+alert("您输入的 \"电子邮件地址\" 无效!"); 
+theForm.email.focus(); 
+return (false); 
+} 
+
+address=theForm.email.value; 
+if(address.length>0) 
+{ 
+i=address.indexOf("@"); 
+if(i==-1) 
+{ 
+alert("对不起！您输入的电子邮件地址是错误的！")
+theForm.email.focus();
+return false; 
+} 
+p=address.indexOf(".") 
+if(p==-1) 
+{ 
+alert("对不起！您输入的电子邮件地址是错误的！") 
+theForm.email.focus(); 
+return false; 
+} 
+} 
+
+obj=theForm.ip.value      
+var exp=/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
+var reg = obj.match(exp); 
+if(reg==null) 
+{ 
+alert("IP地址不合法!"); 
+theForm.ip.focus(); 
+return false; 
+} 
+} 
+//-->
+</script> 
+<form method="post" onSubmit="return Juge(PostTopic)" name="PostTopic">
+&nbsp;&nbsp;姓名:<input type=text name=username size=20><br>
+&nbsp;&nbsp;密码:<input type=password name=pwd size=20><br>
+&nbsp;&nbsp;日期:<input type=text name=vdate size=20>&nbsp;格式:YYYY/MM/DD<br>
+&nbsp;&nbsp;年龄:<input type=text name=old size=5><br>
+&nbsp;&nbsp;邮件:<input type=text name=email size=20><br>
+IP地址:<input type=text name=ip size=20><br><br>
+&nbsp;&nbsp;<input type=submit value=校验 name=b1>
+
+</form>

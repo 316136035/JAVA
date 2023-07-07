@@ -1,0 +1,60 @@
+<div id=img>
+[教程类]<a href="#">Javascript教程</a><BR>
+[教程类]<a href="#">VBscript教程</a><BR>
+[代码类]<a href="#">Javascript代码</a><BR>
+[代码类]<a href="#">VBscript代码</a><BR>
+[实例类]<a href="#">Javascript实例分析</a><BR>
+[实例类]<a href="#">VBscript实例分析</a><BR>
+</div>
+
+<SCRIPT language=JavaScript>
+<!--
+marHeight=50;                           // 设定高度
+stopscroll=false;
+with(img)
+{
+style.height=marHeight;
+style.overflowX="visible";
+style.overflowY="hidden";
+noWrap=true;
+onmouseover=new Function("stopscroll=true");          // 鼠标悬停停止滚动
+onmouseout=new Function("stopscroll=false");          // 鼠标离开开始滚动
+}
+preTop=0;
+currentTop=50;                          // 设定滚动高度
+stoptime=0;
+img.innerHTML += img.innerHTML;         // 赋值
+function scrollimg()
+{
+img.scrollTop=0;
+setInterval("scrollUp()",20);          // 设定图片滚动时间
+}
+
+function scrollUp() 
+{
+if(stopscroll==true) return;
+currentTop+=1;
+if(currentTop>50)                       // 判断滚动高度
+    {
+	stoptime+=1;
+	currentTop-=1;
+	    if(stoptime==30)                // 设定图片停留时间
+		{
+		currentTop=0;
+		stoptime=0;
+		}
+	}
+	else
+	{
+	preTop=img.scrollTop;
+	img.scrollTop+=1;
+        if(preTop==img.scrollTop) 
+	      { 
+		  img.scrollTop=0;
+		  img.scrollTop+=1;
+	    }
+    }
+}
+scrollimg();
+//-->
+</script>

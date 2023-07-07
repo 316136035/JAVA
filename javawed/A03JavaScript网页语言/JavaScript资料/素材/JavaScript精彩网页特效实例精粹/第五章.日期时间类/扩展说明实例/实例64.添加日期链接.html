@@ -1,0 +1,78 @@
+<STYLE TYPE="text/css"> 
+td{font-size: 10pt;} 
+</STYLE>
+<script language="JavaScript">
+<!--
+monthnames = new Array("1月","2月","3月","4月","5月","6月","7月","8月","10月","11月","12月");      // 定义月份表数组
+monthdays = new Array(12);           // 定义存储每个月的天数数组
+monthdays[0]=31;
+monthdays[1]=28;
+monthdays[2]=31;
+monthdays[3]=30;
+monthdays[4]=31;
+monthdays[5]=30;
+monthdays[6]=31;
+monthdays[7]=31;
+monthdays[8]=30;
+monthdays[9]=31;
+monthdays[10]=30;
+monthdays[11]=31;
+todayDate=new Date();                // 获得当前时间
+thisday=todayDate.getDay();          // 获得当前日
+thismonth=todayDate.getMonth();      // 获得当前月份
+thisdate=todayDate.getDate();        // 获得当前日期
+thisyear=todayDate.getYear();        // 获得当前年份
+thisyear = thisyear % 100;
+thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
+// 年份转换成标准格式
+if (((thisyear % 4 == 0) && !(thisyear % 100 == 0)) ||(thisyear % 400 == 0)) monthdays[1]++;
+startspaces=thisdate;
+while (startspaces > 7) startspaces-=7;              // 求出当前日期对应的星期几
+startspaces = thisday - startspaces + 1;
+if (startspaces < 0) startspaces+=7;                 // 计算本月1号对应星期几
+document.write("<table border=1 style='border-collapse: collapse' bordercolor='#000000' width=160>");
+document.write("<tr><td colspan=7 bgcolor=#0A246A align=center><font color=#ffffff>" + thisyear +"年"+monthnames[thismonth]+"</font></td></tr>");     
+// 显示当前年份和月份
+document.write("<tr>");
+document.write("<td align=center>日</td>");
+document.write("<td align=center>一</td>");
+document.write("<td align=center>二</td>");
+document.write("<td align=center>三</td>");
+document.write("<td align=center>四</td>");
+document.write("<td align=center>五</td>");
+document.write("<td align=center>六</td>"); 
+document.write("</tr>");
+document.write("<tr>");
+for (s=0;s<startspaces;s++) {
+document.write("<td>&nbsp</td>"); 
+}
+count=1;
+while (count <= monthdays[thismonth]) { 
+for (b = startspaces;b<7;b++) {
+
+if (count==thisdate) {
+document.write("<td bgcolor=#0A246A>");
+document.write("<font color='fffffff'><b>"); } 
+else
+{document.write("<td>");
+}
+if (count <= monthdays[thismonth]) {
+document.write("<a href='blog.asp?date=" + count + "&month="+ (thismonth+1) + "&year=" + thisyear+ "'>" + count + "</a>");                // 添加年月日链接
+}
+else {
+document.write("&nbsp");
+}
+if (count==thisdate) {
+document.write("</b></font>");
+}
+document.write("</td>");
+count++;
+}
+document.write("</tr>");
+startspaces=0;
+
+}
+document.write("</table></p>");
+//-->
+</script>
+</body>

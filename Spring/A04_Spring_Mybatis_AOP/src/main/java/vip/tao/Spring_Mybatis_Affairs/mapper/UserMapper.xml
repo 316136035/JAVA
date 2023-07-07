@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--   id="结果集映射" resultType="返回类型"  -->
+<!--命名空间 绑定接口-->
+<mapper namespace="vip.com.Spring_Mybatis_Affairs.mapper.UserMapper">
+    <select id="SelectUser" resultMap="resultMap">
+   select * from MyBatis.user
+</select>
+    <resultMap id="resultMap" type="vip.com.Spring_Mybatis_Affairs.oom.User">
+        <result property="User_id" column="User_id"></result>
+        <result property="User_name" column="User_name"></result>
+        <result property="User_password" column="User_password"></result>
+        <result property="Creation_time" column="Creation_time"></result>
+        <result property="Updated_by" column="Updated_by"></result>
+        <result property="Update_time" column="Update_time"></result>
+    </resultMap>
+
+
+    <insert id="InsretUser" parameterType="vip.com.Spring_Mybatis_Affairs.oom.User">
+   insert into MyBatis.user(User_id, User_name, User_password, Dep_id, Creation_time, Updated_by, Update_time)
+                 values (#{User_id},#{User_name},#{ User_password},#{Dep_id},#{Creation_time},#{Updated_by},#{Update_time})
+
+    </insert>
+
+    <delete id="DeleteUser" parameterType="_int">
+        delete from MyBatis.user where User_id=#{id}
+    </delete>
+
+
+
+</mapper>

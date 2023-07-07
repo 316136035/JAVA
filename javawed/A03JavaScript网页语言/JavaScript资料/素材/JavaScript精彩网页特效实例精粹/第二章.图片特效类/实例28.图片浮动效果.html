@@ -1,0 +1,26 @@
+<style type="text/css">
+#float {
+position: absolute;
+}</style>
+<div ID="float" style="left:5px; top:5px">
+<img SRC="011.jpg" border="0">
+</div>
+<SCRIPT language=JavaScript>
+<!--
+Scroll_Y = 0;
+function floatcenter() {
+diffY = document.body.scrollTop;
+if(diffY != Scroll_Y) {
+percent = .1 * (diffY - Scroll_Y);
+if(percent > 0) percent = Math.ceil(percent);
+else percent = Math.floor(percent);
+ document.all.float.style.pixelTop += percent;
+Scroll_Y = Scroll_Y + percent;
+}
+}
+window.setInterval("floatcenter()",1);
+//-->
+</script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>

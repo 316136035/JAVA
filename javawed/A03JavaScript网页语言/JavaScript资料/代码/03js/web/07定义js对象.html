@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对象定义</title>
+
+    <script type="text/javascript">
+        /*
+        // 定义js对象
+        var obj = new Object();
+        // 指定属性
+        obj.name = "张三";
+        // 指定属性
+        obj.age = 30;
+        // 定义方法
+        obj.show = function(){
+            alert(obj.name);
+        }
+        // 打印对象的属性值
+        // alert(obj.name+" - "+obj.age);
+        // 调用obj对象的方法
+        obj.show();
+        */
+
+        /*
+        // 定义js对象
+        function createObj(){
+            // 创建obj对象
+            var obj = new Object();
+            // 设置属性
+            obj.username = "赵四";
+            obj.age = 100;
+            // 返回对象
+            return obj;
+        }
+        // 获取到obj对象
+        var obj = createObj();
+        alert(obj.username);
+        */
+
+        // 定义person对象
+        function Person(){
+            // 使用关键字，this 和java是一样，当前正在运行的对象
+            // 创建Person对象，赋值给this
+            this.name = "老六";
+            this.age = 200;
+            // 方法
+            this.get = function(){
+                alert("我是get方法");
+            };
+            // 返回Person对象
+            return this;
+        }
+        // 获取到Person对象
+        var p = new Person();
+        // 获取到属性值
+        // alert(p.age);
+        // 调用方法
+        p.get();
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

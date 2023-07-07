@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery常用获取子节点</title>
+
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script >
+        function 获取全部子节点() {
+           var lis= $("#table").children();
+            lis.each(function () {
+               // 复制每一个元素
+               var v= $(this).clone();
+                // 在显示端中添加每一个元素
+                $("#显示端").after(v)
+
+            })
+
+        }
+
+        function 获取前一个兄弟节点() {
+            var next= $("#id2").prev();
+            var v= $(next).clone();
+            $("#显示端").after(v)
+
+        }
+
+        function 获取后一个兄弟节点() {
+           var next= $("#id2").next();
+            var v= $(next).clone();
+            $("#显示端").after(v)
+
+        }
+
+    </script>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<table id="table">
+    <tr> <td> 我是子节点1</td></tr>
+    <tr id="id2"> <td  > 我是子节点2</td></tr>
+    <tr> <td> 我是子节点3</td></tr>
+    <tr> <td> 我是子节点4</td></tr>
+    <tr> <td> 我是子节点5</td></tr>
+
+
+</table>
+
+
+
+
+<span></span>
+<input type="button" value="获取全部子节点" onclick="获取全部子节点()" >
+
+<input type="button" value="获取前一个兄弟节点" onclick="获取前一个兄弟节点()" >
+<input type="button" value="获取后一个兄弟节点" onclick="获取后一个兄弟节点()" >
+<div id="显示端">
+
+
+
+
+</div>
+
+
+<!--$("#test1").parent(); // 父节点
+$("#test1").parents(); // 全部父节点
+$("#test1").parents(".mui-content");
+$("#test").children(); // 全部子节点
+$("#test").children("#test1");
+$("#test").contents(); // 返回#test里面的所有内容，包括节点和文本
+$("#test").contents("#test1");
+$("#test1").prev(); // 上一个兄弟节点
+$("#test1").prevAll(); // 之前所有兄弟节点
+$("#test1").next(); // 下一个兄弟节点
+$("#test1").nextAll(); // 之后所有兄弟节点
+$("#test1").siblings(); // 所有兄弟节点
+$("#test1").siblings("#test2");
+$("#test").find("#test1");-->
+
+
+
+</body>
+</html>

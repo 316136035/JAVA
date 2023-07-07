@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 绑定接口-->
+<mapper namespace="vip.tao.Mapper.Mapper1.MyBatis_Role_Mapper1">
+    <!--通过id查询用户-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型" # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="getSelectRole" resultType="mybatis_Role1" parameterType="_int">
+        <!--获取传参的参数#{userId} -->
+        select * from MyBatis.role where role.Dep_id =#{userId}
+    </select>
+
+</mapper>
+

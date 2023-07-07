@@ -1,0 +1,49 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var wwidth, wheight;           
+var ydir = '++';
+var xdir = '++';
+var x = 1;
+var y = 1;
+
+
+function getwindowsize() {
+
+
+wwidth = document.body.clientWidth - 55;        
+wheight = document.body.clientHeight - 50;    
+
+setTimeout('randomdir()', 20000);              
+restarte();                           
+}
+
+
+function randomdir() {
+if (Math.floor(Math.random()*2)) {
+(Math.floor(Math.random()*2)) ? xdir='--': xdir='++';
+} else {
+(Math.floor(Math.random()*2)) ? ydir='--': ydir='++';
+} 
+setTimeout('randomdir()', 20000);      
+}
+
+
+function restarte() {
+eval('x'+xdir);
+eval('y'+ydir);
+document.all.pic1.style.pixelLeft = x+document.body.scrollLeft;  
+document.all.pic1.style.pixelTop = y+document.body.scrollTop;   
+
+if (document.all.pic1.style.pixelTop <= 5+document.body.scrollTop) ydir = '++';
+if (document.all.pic1.style.pixelTop >= wheight+document.body.scrollTop) ydir = '--';
+if (document.all.pic1.style.pixelLeft >= wwidth+document.body.scrollLeft) xdir = '--';
+if (document.all.pic1.style.pixelLeft <= 5+document.body.scrollLeft) xdir = '++';
+
+setTimeout('restarte()', 30);
+}
+//-->
+</script>
+<div id="pic1" style="position:absolute; visibility:visible; left:0px; top:0px; z-index:-1">
+<img src="4.jpg" border="0">
+</div>
+<body OnLoad="getwindowsize()" OnResize="getwindowsize()">

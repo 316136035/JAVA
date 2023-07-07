@@ -1,0 +1,45 @@
+<table width=160 border="0" cellpadding="0" cellspacing="0" >
+<tr>
+	<td colspan=3 height=24 bgcolor="#ffffff"><table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td height=24 background="bg_1.gif" id="bt0" onmouseover="javascript:showPage(0);javascript:checkbr0(0);" STYLE='cursor:hand' width=80 align=center>网络</td>
+			<td background="bg_2.gif" STYLE='cursor:hand' id="bt1" onmouseover="javascript:showPage(1);javascript:checkbr0(1);" width=80 align=center>信息</td>
+			<td background="bg_2.gif" STYLE='cursor:hand' id="bt2" onmouseover="javascript:showPage(2);javascript:checkbr0(2);" width=80 align=center>编程</td>
+			<td background="bg_2.gif" STYLE='cursor:hand' id="bt3" onmouseover="javascript:showPage(3);javascript:checkbr0(3);" width=80 align=center>通信</td>
+		</tr>
+	</table></td>
+</tr>
+
+<tr>
+	<td width=1 bgcolor="#6BA2DE"></td>
+	<td height=1 bgcolor="#AEB8C3"></td>
+	<td width=1 bgcolor="#6BA2DE"></td>
+</tr>
+<tr>
+	<td><div id="b2bContent"></div></td>
+</tr>
+<script language="javascript">
+<!--
+	b2bStr = new Array(); 
+	b2bStr[0]= "<br>网络相关信息";
+	b2bStr[1]= "<br>信息时代相关主题";
+	b2bStr[2]= "<br>javascript脚本语言";
+	b2bStr[3]= "<br>通讯技术广泛应用";
+	function showPage(id){ 
+	b2bContent.innerHTML=b2bStr[id];
+	}
+	function checkbr0(id){
+	for(var i=0;i<4;i++){ 
+	btObj=eval('bt'+i);
+	if(id==i){ 
+	btObj.style.backgroundImage="url(bg_1.gif)"; 
+	}
+	else{ 
+	btObj.style.backgroundImage="url(bg_2.gif)"; 
+	}
+	}
+	}
+	showPage(0)
+	//-->
+	</script>
+</table>

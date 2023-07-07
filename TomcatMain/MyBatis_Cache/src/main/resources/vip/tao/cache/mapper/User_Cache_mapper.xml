@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--   id="结果集映射" resultType="返回类型"  -->
+<!--命名空间 绑定接口-->
+<mapper namespace="vip.tao.cache.mapper.User_Cache_mapper">
+
+    <!--    这个方法测试mybatis一级缓存-->
+    <!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型"  # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="selectUser" resultType="user_Cache"  parameterType="_int">
+    select  * from MyBatis.user
+<where>
+    <if test="userId!=null">
+        AND User_id=#{userId}
+    </if>
+</where>
+ </select>
+
+
+        <!--    这个方法测试mybatis二级缓存-->
+<!--缓存会被视为读/写缓存，这意味着获取到的对象并不是共享的，可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改。
+这个更高级的配置创建了一个 FIFO 缓存，每隔 60 秒刷新，最多可以存储结果对象或列表的 512 个引用，而且返回的对象被认为是只读的，因此对它们进行修改可能会在不同线程中的调用者产生冲突。-->
+<!--<cache-->
+<!--        eviction="FIFO"-->
+<!--        flushInterval="60000"-->
+<!--        size="512"-->
+<!--        readOnly="true"/>-->
+<!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型" useCache="使用缓存" # 使用别名请先在mybatis-config.xml中配置-->
+<select id="selectUser_Cache" resultType="user_Cache"  parameterType="_int" useCache="true">
+    select  * from MyBatis.user
+    <where>
+        <if test="userId!=null">
+            AND User_id=#{userId}
+        </if>
+    </where>
+
+</select>
+
+<!--自定义缓存《在ehcache.xml中配置》-->
+<cache type="org.mybatis.caches.ehcache.EhcacheCache"></cache>
+<!--    customUserList_CustomCache-->
+    <!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型" useCache="使用缓存" # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="customsSelectUserList_CustomCache" resultMap="resultMap"  >
+        select  * from MyBatis.user
+        <where>
+            <if test="userId!=null">
+                AND User_id=#{userId}
+            </if>
+        </where>
+
+    </select>
+
+    <!--   id="复杂类型结果集映射" resultType="返回类型"  -->
+    <resultMap id="resultMap" type="user_Cache">
+        <!--  property="实体类的字段"    column="数据库中的字段"   -->
+        <result property="userId" column="User_id"></result>
+        <result property="userName" column="User_name"></result>
+        <result property="userPassword" column="User_password"></result>
+        <result property="depId" column="Dep_id"></result>
+        <result property="creationTime" column="Creation_time"></result>
+        <result property="updatedBy" column="Updated_by"></result>
+        <result property="updateTime" column="Update_time"></result>
+    </resultMap>
+
+</mapper>
+
+

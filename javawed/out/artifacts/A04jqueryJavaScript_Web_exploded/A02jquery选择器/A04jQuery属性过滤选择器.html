@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A04jQuery属性过滤选择器</title>
+
+    <script src="../jquery/jquery-1.8.3.min.js" ></script>
+
+    <script>
+
+
+
+        function 属性过滤选择器1(){
+         $("input[type]").each(function (){
+
+
+             alert( $(this).val())
+
+         })
+       }
+
+
+
+       function 属性过滤选择器2(){
+           $("input[type=button]").each(function (){
+
+               alert( $(this).val())
+
+           })
+       }
+
+       function 属性过滤选择器3(){
+
+           $("input[type][value='属性过滤选择器3']").each(function (){
+
+               alert( $(this).val())
+
+           })
+       }
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+
+<form >
+    <input type="text" name="usemane" value="账号">
+    <input type="password" name="=password" value="密码">
+
+    <input type="button" value="属性过滤选择器1" onclick="属性过滤选择器1()">
+    <input type="button" value="属性过滤选择器2" onclick="属性过滤选择器2()">
+    <input type="button" value="属性过滤选择器3" onclick="属性过滤选择器3()">
+
+
+
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<script language="JavaScript">
+<!--
+function IArray() {
+for (var i = 0; i < IArray.arguments.length; i++) {
+this[i] = IArray.arguments[i];
+}
+this.length = IArray.arguments.length;
+}
+
+var colors = new IArray("#ff0000","#0000ff","#00ffff","#cccccc","#000000","#ffff00","#ff0000");
+delay = 2.;
+link = 0;
+vlink = 0;
+function linkChange() {
+link = (link+1%colors.length);
+vlink = (vlink+1%colors.length);
+document.linkColor = colors[link];
+document.vlinkColor = colors[vlink];
+setTimeout("linkChange()",delay*1000);
+}
+linkChange();
+-->
+</script>
+  <br>
+       <a href="http://www.sina.com.cn">新浪网</a> <a href="http://www.sohu.com">搜狐</a> 
+
+                  <a href="http://www.163.com">网易</a> <a href="http://www.baidu.com">百度</a>
+

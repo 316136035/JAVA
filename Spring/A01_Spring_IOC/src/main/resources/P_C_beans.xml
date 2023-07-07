@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--    使用C命名空间一定要在xml配置文件中配置（xmlns:c="http://www.springframework.org/schema/c""）
+              同等于构造器注入-->
+    <bean name="A04_Role" class="vip.tao.A04_IOC_p命名空间property_c命名空间constructor.A04_Role"
+         c:role="老板"
+          c:dep_id="1"
+
+    ></bean>
+
+    <!--    使用p命名空间一定要在xml配置文件中配置（xmlns:p="http://www.springframework.org/schema/p"）
+                同等于set注入-->
+    <bean name="A04_User" class="vip.tao.A04_IOC_p命名空间property_c命名空间constructor.A04_User"
+          p:name="周先生"
+          p:age="18"
+          p:address-ref="A04_Role"
+    ></bean>
+
+
+</beans>

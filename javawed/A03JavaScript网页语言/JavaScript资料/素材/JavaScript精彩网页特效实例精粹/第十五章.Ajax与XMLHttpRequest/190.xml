@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<root>
+    <quhao>
+        <id>1</id>
+        <city>哈尔滨</city>
+        <qh>0451</qh>
+        <pre>黑龙江</pre>
+    </quhao>
+    <quhao>
+        <id>2</id>
+        <city>齐齐哈尔</city>
+        <qh>0452</qh>
+        <pre>黑龙江</pre>
+    </quhao>
+    <quhao>
+        <id>3</id>
+        <city>牡丹江</city>
+        <qh>0453</qh>
+        <pre>黑龙江</pre>
+    </quhao>
+    <quhao>
+        <id>4</id>
+        <city>大庆</city>
+        <qh>0459</qh>
+        <pre>黑龙江</pre>
+    </quhao>
+    <quhao>
+        <id>5</id>
+        <city>长春</city>
+        <qh>0351</qh>
+        <pre>吉林</pre>
+    </quhao>
+    <quhao>
+        <id>6</id>
+        <city>沈阳</city>
+        <qh>024</qh>
+        <pre>辽宁</pre>
+    </quhao>
+    <quhao>
+        <id>7</id>
+        <city>大连</city>
+        <qh>0411</qh>
+        <pre>辽宁</pre>
+    </quhao>
+</root>
+    

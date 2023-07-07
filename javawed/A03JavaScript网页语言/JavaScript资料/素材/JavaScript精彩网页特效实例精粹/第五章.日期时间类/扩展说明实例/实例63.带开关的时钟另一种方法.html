@@ -1,0 +1,19 @@
+<table align=center>
+	<tr>
+		<td><div id="clock"></div></td>
+	</tr>
+</table>
+<script language="JavaScript">
+<!--
+var enabled=1;    
+function onclock() {            
+	var today = new Date();   
+	clock.innerHTML = today.toLocaleString();     // 显示本地系统格式的日期/时间
+	if(enabled==1)
+	setTimeout( "onclock()", 1000);              // 每1秒执行onclock()函数
+}
+onclock();
+//-->
+</script>
+<p align=center><input type="radio" name="rad" value="off"  onClick="enabled =0;onclock();">关&nbsp;
+<input type="radio" name="rad" value="on"  onClick="enabled =1;onclock();" checked>开</p>

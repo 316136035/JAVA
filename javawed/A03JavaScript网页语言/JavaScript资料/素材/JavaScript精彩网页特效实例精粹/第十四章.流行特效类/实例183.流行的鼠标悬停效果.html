@@ -1,0 +1,98 @@
+<body>
+<DIV id=fontDiv style="POSITION: absolute; Z-IndEX: 1"></DIV>
+<SCRIPT language=JavaScript>
+<!--
+var fcolor = "ffffff";       
+var backcolor = "#888888"; 
+var textcolor = "#336699";  
+var border = "1";  
+var width= "170"  
+var offsetx = 10;  
+var offsety = 10;
+ns4 = (document.layers)? true:false    
+ie4 = (document.all)? true:false   
+if (ie4) {
+	if (navigator.userAgent.indexOf('MSIE 5')>0) {
+		ie5 = true;
+	} else {
+		ie5 = false; }
+} else {
+	ie5 = false;
+}
+var x = 0;               
+var y = 0;
+var snow = 0;
+var sw = 0;
+var cnt = 0;
+if ( (ns4) || (ie4) ) {
+	if (ns4) over = document.fontDiv
+	if (ie4) over = fontDiv.style
+	document.onmousemove = mouseMove
+	if (ns4) document.captureEvents(Event.MOUSEMOVE)
+}
+
+function nd() {            
+	if ( cnt >= 1 ) { sw = 0 };
+	if ( (ns4) || (ie4) ) {
+		if ( sw == 0 ) {
+			snow = 0;
+			hideObject(over);
+		} else {
+			cnt++;
+		}
+	}
+}
+
+function onmover(text) {         
+	txt = "<TABLE WIDTH="+width+" BORDER=0 CELLPADDING="+border+" CELLSPACING=0 BGCOLOR=\""+backcolor+"\"><TR><TD><TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR=\""+fcolor+"\"><TR><TD CLASS=P1><FONT FACE=\"宋体\" COLOR=\""+textcolor+"\">"+text+"</FONT></TD></TR></TABLE></TD></TR></TABLE>"
+	layerWrite(txt); 
+	disp();
+}
+
+function disp() {
+	if ( (ns4) || (ie4) ) {
+		if (snow == 0) 	{
+			moveTo(over,x+offsetx,y+offsety);
+			showObject(over);    
+			snow = 1;
+		}
+	}
+}
+
+function mouseMove(e) {   
+	if (ns4) {x=e.pageX; y=e.pageY;}
+	if (ie4) {x=event.x; y=event.y;}
+	if (ie5) {x=event.x+document.body.scrollLeft; y=event.y+document.body.scrollTop;}
+	if (snow) {
+		moveTo(over,x+offsetx,y+offsety);
+	}
+}
+
+function layerWrite(txt) {       
+        if (ns4) {
+                document.fontDiv.document.write(txt)
+                document.fontDiv.document.close()
+        }
+        else if (ie4) document.all["fontDiv"].innerHTML = txt
+}
+
+function showObject(obj) {   
+        if (ns4) obj.visibility = "show"
+        else if (ie4) obj.visibility = "visible"
+}
+
+function hideObject(obj) {     
+        if (ns4) 
+        	obj.visibility = "hide"
+        else if (ie4) 
+        	obj.visibility = "hidden"
+}
+
+function moveTo(obj,xL,yL) {   
+        obj.left = xL 
+        obj.top = yL  
+}
+//-->
+</SCRIPT>
+<INPUT onmouseout="nd();" onmouseover="onmover('您可以看到你十分需要的javascript特效！');" type=button value="鼠标旋停到按钮时的效果">
+</body>

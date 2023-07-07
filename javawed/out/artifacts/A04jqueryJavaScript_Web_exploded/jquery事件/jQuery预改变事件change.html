@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery预改变事件change</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        $(function () {
+            /**预改变事件*/
+            $("#id").change(function () {
+
+                alert($(this).val())
+
+            })
+        })
+
+
+
+
+    </script>
+</head>
+<body>
+<select  >
+    <option value="1"> 广东</option>
+    <option value="2">上海</option>
+    <option value="3">北京</option>
+    <option value="4">辽宁</option>
+</select>
+<span> </span>
+
+</body>
+</html>

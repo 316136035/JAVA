@@ -1,0 +1,108 @@
+<SCRIPT language="JavaScript">
+<!--
+var bsYear;              // 初始化变量
+var bsDate;  
+var bsWeek;  
+var arrLen=6; 
+var sValue=0;  
+var dayiy=0;  
+var miy=0;  
+var iyear=0; 
+var dayim=0; 
+var spd=86400;           // 一天中的秒数,24*60*60所得
+var year2007="29;29;30;29;29;30;29;30;30;30;29;30";     // 354天
+var year2008="30;29;29;30;29;29;30;29;30;30;29;30";     // 354天
+var year2009="30;30;29;29;30;29;29;30;29;30;29;30;30";  // 384天
+var year2010="30;29;30;29;30;29;29;30;29;30;29;30";     // 354天
+var year2011="30;29;30;30;29;30;29;29;30;29;30;29";     // 354天
+var year2012="30;29;30;30;29;30;29;30;29;30;29;30;29";     // 384天
+var month2007="正月;二月;三月;四月;五月;六月;七月;八月;九月;十月;十一月;十二月"    // 定义当年的农历月份数组
+var month2009="正月;二月;三月;四月;五月;闰五月;六月;七月;八月;九月;十月;十一月;十二月"
+var month2012="正月;二月;三月;四月;闰四月;五月;六月;七月;八月;九月;十月;十一月;十二月"
+var Dn="初一;初二;初三;初四;初五;初六;初七;初八;初九;初十;十一;十二;十三;十四;十五;十六;十七;十八;十九;二十;廿一;廿二;廿三;廿四;廿五;廿六;廿七;廿八;廿九;三十";    // 定义农历日期数组
+var Ys=new Array(arrLen);  
+Ys[0]=1171728000;              // 定义年时间差数组,通过累加计算得出,计算方法:24*60*60*一年中的天数
+Ys[1]=1202313600;
+Ys[2]=1232899200;
+Ys[3]=1266076800;
+Ys[4]=1296662400;
+Ys[5]=1329840000;
+var Yn=new Array(arrLen);
+Yn[0]="丁亥年";
+Yn[1]="戊子年";
+Yn[2]="己丑年";
+Yn[3]="庚寅年";
+Yn[4]="辛卯年";
+Yn[5]="壬辰年";    // 定义农历年数组
+var D=new Date();              // 定义阳历日期
+var yy=D.getYear();  
+var mm=D.getMonth()+1;  
+var dd=D.getDate();  
+var ww=D.getDay();  
+if (ww==0) ww="星期日";         // 判断星期
+if (ww==1) ww="星期一";  
+if (ww==2) ww="星期二";  
+if (ww==3) ww="星期三";  
+if (ww==4) ww="星期四";  
+if (ww==5) ww="星期五";  
+if (ww==6) ww="星期六";  
+var ss=parseInt(D.getTime() / 1000);  
+for (i=0;i<arrLen;i++)  
+if (ss>=Ys[i]){                // 判断农历的年份
+iyear=i;
+sValue=ss-Ys[i]; 
+}
+dayiy=parseInt(sValue/spd)+1; 
+var dpm=year2007;  
+if (iyear==0) dpm=year2007;    // 根据数字判断显示年份 
+if (iyear==1) dpm=year2008;
+if (iyear==2) dpm=year2009;
+if (iyear==3) dpm=year2010;
+if (iyear==4) dpm=year2011;
+if (iyear==5) dpm=year2012;
+dpm=dpm.split(";");            // 数组分割
+var Mn=month2007;              // 根据数字判断显示月份
+if (iyear==2) Mn=month2009;  
+if (iyear==5) Mn=month2012;
+Mn=Mn.split(";");  
+Dn=Dn.split(";");  
+dayim=dayiy;  
+var total=new Array(13);  
+total[0]=parseInt(dpm[0]);  
+for (i=1;i<dpm.length-1;i++) total[i]=parseInt(dpm[i])+total[i-1];  
+for (i=dpm.length-1;i>0;i--)  
+if (dayim>total[i-1]){  
+dayim=dayim-total[i-1];  
+miy=i;
+}  
+bsWeek=ww;  
+bsDate=yy+"年"+mm+"月";  
+bsDate2=dd;  
+bsYear="农历"+Yn[iyear];  
+bsYear2=Mn[miy]+Dn[dayim-1];  
+if (ss>=Ys[5]||ss<Ys[0]) bsYear=Yn[5];  
+document.write("<table border='1' cellspacing='3' width='150' bordercolor='#000000' bgcolor='#ffffff' cellpadding='2'>");
+document.write("<tr><td align='center'><br><b><font color=#0000ff>"+bsDate+ "</font><br><font face='Arial' size='6' color=#FF0000>"+bsDate2+"</font><br><font color=#008040><span style='FONT-SIZE: 10.5pt'>");
+document.write(bsWeek +"</span><br>"+"<br></b><font color=#9B4E00 style='FONT-SIZE: 9pt'>");
+document.write(bsYear  + bsYear2 + "<br><br>");
+document.write("<div id='lclock'></div><br></td></tr></table>")
+
+function webclock()
+{
+var dataobj = new Date();
+var hours=dataobj.getHours()
+var minutes=dataobj.getMinutes()
+var seconds=dataobj.getSeconds()
+
+if(minutes<=9)
+minutes="0"+minutes
+if(seconds<=9)
+seconds="0"+seconds
+myclock="<font size='3' color='#000000' face='Arial black'>"+hours+":"+minutes+":"+seconds+"</font>"
+lclock.innerHTML=myclock;
+setTimeout("webclock()",1000)
+}
+
+webclock();
+//-->
+</script>

@@ -1,0 +1,42 @@
+<style>
+.xmenu 
+td{font-size:12px;font-family:verdana,arial;color:#ffffff;border:1px solid #336633;background:#336633;filter:blendtrans(duration=0.5);cursor:hand;text-align:center;}
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function flashMenu(objid){
+	var tds=objid.getElementsByTagName('td');
+	for(var i=0;i<tds.length;i++){
+		with(tds[i]){
+			onmouseover=function(){               
+				this.filters[0].apply();
+				this.style.background='#66CCAA';     
+				this.style.border='1px solid #ffffff'; 
+				this.style.color='black';              
+				this.filters[0].play();
+			}
+			onmouseout=function(){       
+				this.filters[0].apply();
+				this.style.background='#336633';    
+				this.style.border='1px solid #336633'; 
+				this.style.color='#ffffff'; 
+				this.filters[0].play();
+			}
+		}
+	}
+}
+//-->
+</script>
+<table class="xmenu" id="xmenu0" width="100" cellpadding="1" cellspacing="4" border="0" bgcolor="#336633" align="center">
+	<tr><td>我的电脑</td></tr>
+	<tr><td>我的文档</td></tr>
+	<tr><td>网络连接</td></tr>
+	<tr><td>记事本</td></tr>
+	<tr><td>收藏夹</td></tr>
+	<tr><td>电子邮件</td></tr>
+</table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+flashMenu(xmenu0);        // 调用函数
+//-->
+</script>

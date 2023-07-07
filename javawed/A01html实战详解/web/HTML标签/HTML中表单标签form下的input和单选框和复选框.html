@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中表单标签form和单选框和复选框</title>
+</head>
+<body>
+<form action="#" method="post">
+
+    单选框:
+    <input type="radio" name="sex"checked="checked" value="1">男
+    <input type="radio" name="sex" value="2">女
+    <input type="radio" name="sex" value="3">不男不女<br>
+    多选框:
+    <input type="checkbox" name="车"checked="checked">宝马
+    <input type="checkbox" name="车"checked="checked">奔驰
+    <input type="checkbox" name="车"checked="checked">大众<br>
+
+
+</form>
+
+
+</body>
+</html>
+
+<!--单选框：-->
+<!--type="radio" 表示这是一个单选框-->
+<!--name="sex" 将来用于服务器取值使用-->
+<!--注意：如果多个单选按钮时互斥关系，那么，就必须把这多个按钮看做一个按钮组。-->
+<!--一个按钮组的名字必须是一致的。-->
+<!--id="man" 将来用于js获取值使用-->
+<!--value="男" 将来服务器真正获取到的值-->
+<!--checked="checked" 是默认选中标记属性-->
+<!--复选框：-->
+<!--type="checkbox" 表示这是一个复选框-->
+<!--name="likes" 将来用于服务器取值使用-->
+<!--注意：这里的name如果不一样，那么，有多少个复选框，将来服务器就要获取多少次值。-->
+<!--然后判断值是否是null,不是null才把值给存储起来。-->
+<!--如果这里的name值一样，在服务器只需要获取一次即可，这次获取的返回值是一个-->
+<!--字符串数组，把所有选中的都直接包含了。-->
+
+<!--String getValue(String name) 根据名字获取单个值-->
+<!--String[] getValues(String name) 根据名字获取数组-->
+
+<!--id="sleep" 将来用于js获取值使用-->
+<!--value="睡觉" 将来服务器真正获取到的值-->
+<!--checked="checked" 是默认选中标记属性-->

@@ -1,0 +1,64 @@
+
+/*整个页面*/
+body{
+    /*兼容浏览器版本*/
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: url("/img/land.png");
+
+
+}
+/**用户登录*/
+.text-center{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 300px;
+    margin-left: 300px;
+    text-align: center;
+
+
+}
+
+/**欢迎字体*/
+.text-center1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 300px;
+    margin-left: 300px;
+    text-align: center;
+    font-style: oblique;
+    background-image: linear-gradient(to right, orange, purple);
+}
+/**表单**/
+.form-horizontal{
+    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left:100px;
+    text-align: center;
+
+}
+/**表单中的**/
+.form-group {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 300px;
+    margin-left: 300px;
+    text-align: center;
+
+}
+.col-sm-2{
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+

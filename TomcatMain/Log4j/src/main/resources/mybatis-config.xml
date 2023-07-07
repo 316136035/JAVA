@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--MyBatis 系统的核心配置文件-->
+<configuration>
+    <!--   引入druid.properties文件-->
+    <properties resource="druid.properties">
+        <!--自定义参数-->
+        <property name="key1" value="dev_user"/>
+    </properties>
+
+    <!--    一个配置完整的 settings 元素的示例如下：设置其他请看Api-->
+    <settings>
+        <setting name="defaultStatementTimeout" value="10"/>
+        <!--开启STDOUT_LOGGING默认日志-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <!--开启LOG4J日志，-->
+        <setting name="logImpl" value="LOG4J"/>
+
+    </settings>
+
+    <!--    类型别名（typeAliases）-->
+    <typeAliases>
+        <!--        给类别名-->
+        <!--        <typeAlias alias="User" type="tao.shen.jia.Pojo.User"/>-->
+        <!--    如果实体类十分多给包别名 ,(使用的时候直接用类名,(类名第一字符为小写))-->
+        <package name="tao.shen.jia.Pojo"/>
+    </typeAliases>
+
+    <!--多环境下更换使用配置 default= "environment中的id名字"> -->
+    <environments default="properties">
+        <!--环境一 -->
+        <environment id="properties">
+            <!--事务 -->
+            <transactionManager type="JDBC"/>
+            <!--数据源-->
+            <dataSource type="POOLED">
+                <!-- 数据库链接***参数-->
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+
+        <!--  xml中配置 数据库链接参数-->
+        <!--环境二 -->
+        <environment id="development">
+            <!--事务 -->
+            <transactionManager type="JDBC"/>
+            <!--数据源-->
+            <dataSource type="POOLED">
+                <!-- 数据库链接***参数-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://192.168.100.15:3306/MyBatis?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="MysqlDog34994963."/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+
+    <!--    映射器绑定 mapper.xml -->
+    <mappers>
+        <!--        通过xml文件-->
+        <!--        <mapper resource="tao/shen/jia/Mapper数据库持久层/UserMapper.xml"/>-->
+        <!--        通过接口 接口和他的Mapper配置文件必须同名,接口和他的Mapper配置文件必须在同一个包下! -->
+        <!--        <mapper class="tao.shen.jia.Mapper数据库持久层.UserMapper"></mapper>-->
+        <!--        通过包名来扫描  接口和他的Mapper配置文件必须同名,接口和他的Mapper配置文件必须在同一个包下!-->
+                    <package name="tao.shen.jia.Mapper数据库持久层"/>
+    </mappers>
+</configuration>
+

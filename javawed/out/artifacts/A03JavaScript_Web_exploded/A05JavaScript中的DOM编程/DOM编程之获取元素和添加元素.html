@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM编程之获取标签</title>
+    <script type="text/javascript">
+        function 通过ID获取到整个标签input元素对象() {
+            //   通过ID获取到整个标签input对象
+            var ID = document.getElementById("name");
+            //   通过ID获取到整个标签span元素对象
+            var span1 = document.getElementById("span1");
+            //在span标签中添加value="小狗"
+            span1.innerHTML = ID.value;
+        };
+
+
+        function 通过属性来获取元素对象() {
+            //    通过属性来获取元素对象
+            var inputs = document.getElementsByName("name");
+            //遍历元素对象
+            for (var i = 0; i < inputs.length; i++) {
+                // 获取每一个元素对象
+                var vv = inputs[i].value;
+                //获取span元素对象再后面添valve
+                document.getElementById("span2").append(vv);
+            }
+
+
+        };
+
+        function 通过标签来获取元素对象() {
+            //通过标签来获取元素对象 全部input
+            var TagNames = document.getElementsByTagName("input");
+            //遍历全部input
+            for (var i = 0; i < TagNames.length; i++) {
+                //获取到每一个input元素
+                var v = TagNames[i].value;
+                //创建元素对象h1
+                var a = document.createElement("a");
+                //创建元素对象的Text
+                var v = document.createTextNode(v);
+                document.create
+                //在元素对象h1中添加键值对
+                a.setAttribute("href","https://item.jd.com/848852.html");
+                //在创建元素对象中添Text
+                a.appendChild(v);
+                var br = document.createElement("br");
+                a.appendChild(br);
+
+                //通过id选择器获取到sapn元素 再再他后面添加创建元素
+                document.getElementById("span3").appendChild(a);
+
+            }
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+<h1></h1>
+
+<input type="text" id="name" value="小狗"> <span id="span1"></span> <br>
+<input type="text" id="usnaem" value="小猫"> <span id="span2"></span> <br>
+<input type="text" name="name" value="小猪"><br><span id="span3"></span>
+<input type="text" name="name" value="老虎"><br>
+<input type="text" name="name" value="小鸡"><br>
+
+<input type="button" value="通过ID获取到整个标签input对象" onclick="通过ID获取到整个标签input元素对象()"><br>
+<input type="button" value="通过属性来获取元素对象" onclick="通过属性来获取元素对象()"><br>
+<input type="button" value="通过标签来获取元素对象" onclick="通过标签来获取元素对象()"><br>
+</body>
+</html>

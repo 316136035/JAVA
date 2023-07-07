@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!--<listener>-->
+    <!--<listener-class>Listener监听器.MyServletContextListener监听器</listener-class>-->
+    <!--</listener>-->
+
+    <!--<listener>-->
+    <!--<listener-class>Listener监听器.MyHttpSessionListener监听器</listener-class>-->
+    <!--</listener>-->
+    <!--<listener>-->
+    <!--<listener-class>Listener监听器.MyServletRequestListener监听器</listener-class>-->
+    <!--</listener>-->
+
+    <!--    -->
+    <!--    <listener>-->
+    <!--        <listener-class>Listener监听器.HttpSessionAttributeListener监听器</listener-class>-->
+    <!--    </listener>-->
+
+
+        <listener>
+            <listener-class>在线人员实时统计.Listenert统计在线人数</listener-class>
+        </listener>
+
+</web-app>

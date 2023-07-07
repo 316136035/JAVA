@@ -1,0 +1,22 @@
+<script language="javascript">
+<!--
+var MerlinID;                                    
+skiff=new ActiveXObject("Agent.Control.2"); 
+skiff.Connected = true;           
+skiff.Characters.Load("");
+Merlin = skiff.Characters.Character(MerlinID);
+Merlin.Show();            
+Merlin.Play("read");                
+Merlin.Speak("欢迎大家学习javascript这门语言");
+Merlin.MoveTo(300, 300);                        
+Merlin.Play("Surprised");       
+Merlin.Speak("javascript是一门脚本语言");
+Merlin.Play("Surprised");
+Merlin.Think("本书中有很多实用的效果");
+Merlin.Play("Surprised"); 
+Merlin.Think("希望大家边学边用"); 
+Merlin.Play("Wave");    
+Merlin.Speak("谢谢大家","");
+Merlin.Hide(); 
+//-->
+</Script>

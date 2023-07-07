@@ -1,0 +1,115 @@
+<div align="center">
+<form name="form1">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr align="center">
+<td nowrap height="11">
+<select name="example" size="1" onChange="redirect(this.options.selectedIndex)">
+<option selected>我的办公室</option>
+<option>个人事务</option>
+<option>办公助理</option>
+</select>
+<select name="stage2" size="1" onChange="redirect1(this.options.selectedIndex)">         
+<option value=" " selected>今日办公</option>  
+<option value=" ">公共信息</option>  
+<option value=" ">部门信息</option>
+</select>   
+<select name="stage3" size="1" onChange="redirect2(this.options.selectedIndex)">        
+<option value=" " selected>任务</option>   
+<option value=" ">日志</option>   
+<option value=" ">提醒</option>   
+</select></table> 
+</form></div>   
+<script language="JavaScript">
+<!--
+var groups=document.form1.example.options.length      // 一级菜单的长度
+var group=new Array(groups)                           // 定义数组
+for (i=0; i<groups; i++)                              // 循环
+group[i]=new Array()      
+      
+group[0][0]=new Option("今日办公"," ");               // 二级菜单项目
+group[0][1]=new Option("公共信息"," ");    
+group[0][2]=new Option("部门信息"," ");    
+      
+group[1][0]=new Option("电子邮件"," ");      
+group[1][1]=new Option("通讯录","");      
+group[1][2]=new Option("公文包","");      
+group[1][3]=new Option("电子贺卡","");
+      
+group[2][0]=new Option("邮政编码"," ");      
+group[2][1]=new Option("列车时刻","");      
+group[2][2]=new Option("世界时间","");
+var temp=document.form1.stage2
+
+function redirect(x){      
+for (m=temp.options.length-1;m>0;m--)      
+temp.options[m]=null      
+for (i=0;i<group[x].length;i++){      
+temp.options[i]=new Option(group[x][i].text,group[x][i].value)      
+// 显示二级菜单内容
+}      
+temp.options[0].selected=true      
+redirect1(0)                                              // 指向三级菜单
+}      
+var secondGroups=document.form1.stage2.options.length     // 获取二级菜单的长度
+var secondGroup=new Array(groups)                         // 定义数组
+for (i=0; i<groups; i++)  {      
+secondGroup[i]=new Array(group[i].length)      
+for (j=0; j<group[i].length; j++)  {      
+secondGroup[i][j]=new Array()  }}      
+
+secondGroup[0][0][0]=new Option("任务","http://www.sina.com.cn");               // 三级菜单项目
+secondGroup[0][0][1]=new Option("日志","http://www.sina.com.cn");
+secondGroup[0][0][2]=new Option("提醒","http://www.sina.com.cn");
+
+secondGroup[0][1][0]=new Option("添加","http://www.sina.com.cn");
+secondGroup[0][1][1]=new Option("修改","http://www.sina.com.cn");
+secondGroup[0][1][2]=new Option("删除","http://www.sina.com.cn");
+
+secondGroup[0][2][0]=new Option("添加部门","http://www.sina.com.cn");
+secondGroup[0][2][1]=new Option("添加用户","http://www.sina.com.cn");
+secondGroup[0][2][2]=new Option("添加信息","http://www.sina.com.cn");
+
+secondGroup[1][0][0]=new Option("添加邮件","http://www.sina.com.cn");
+secondGroup[1][0][1]=new Option("修改邮件","http://www.sina.com.cn");
+secondGroup[1][0][2]=new Option("删除邮件","http://www.sina.com.cn");
+
+secondGroup[1][1][0]=new Option("添加通讯录","http://www.sina.com.cn");
+secondGroup[1][1][1]=new Option("修改通讯录","http://www.sina.com.cn");
+secondGroup[1][1][2]=new Option("删除通讯录","http://www.sina.com.cn");
+
+secondGroup[1][2][0]=new Option("添加公文包","http://www.sina.com.cn");
+secondGroup[1][2][1]=new Option("修改公文包","http://www.sina.com.cn");
+secondGroup[1][2][2]=new Option("删除公文包","http://www.sina.com.cn");
+
+secondGroup[1][3][0]=new Option("添加贺卡","http://www.sina.com.cn");
+secondGroup[1][3][1]=new Option("修改贺卡","http://www.sina.com.cn");
+secondGroup[1][3][2]=new Option("删除贺卡","http://www.sina.com.cn");
+
+secondGroup[2][0][0]=new Option("添加邮政编码","http://www.sina.com.cn");
+secondGroup[2][0][1]=new Option("修改邮政编码","http://www.163.com");
+secondGroup[2][0][2]=new Option("删除邮政编码","http://www.sohu.com");
+
+secondGroup[2][1][0]=new Option("添加列车时刻","http://www.baidu.com");
+secondGroup[2][1][1]=new Option("修改列车时刻","http://www.google.com");
+secondGroup[2][1][2]=new Option("删除列车时刻","http://www.chinaren.com");
+
+secondGroup[2][2][0]=new Option("添加世界时间","http://www.newhua.com");
+secondGroup[2][2][1]=new Option("修改世界时间","http://www.yahoo.com.cn");
+secondGroup[2][2][2]=new Option("删除世界时间","http://www.china.com");
+
+var temp1=document.form1.stage3
+function redirect2(){   
+window.open(temp1.value,"","toolbar=no,location=yes,directories=no,status=no,menubar=no,scrollbars=yes, resizable=yes,copyhistory=yes,width=700,height=450");   
+}
+
+function redirect1(y){      
+for (m=temp1.options.length-1;m>0;m--)      
+temp1.options[m]=null      
+for (i=0;i<secondGroup[document.form1.example.options.selectedIndex][y].length;i++){                                                 // 进行三级菜单内容循环
+temp1.options[i]=new Option(secondGroup[document.form1.example.options.selectedIndex][y][i].text,secondGroup[document.form1.example.options.selectedIndex][y][i].value)      
+// 显示三级菜单项目
+}
+temp1.options[0].selected=true
+}
+//-->
+</script>

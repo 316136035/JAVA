@@ -1,0 +1,53 @@
+<SCRIPT language=javascript >
+<!--
+function inputkey(key)
+{
+	if(document.ddd.shuzi.value == null){
+	document.ddd.shuzi.value = key}         
+	else{
+	document.ddd.shuzi.value += key     
+	}
+}
+
+
+//退格
+function backspace()
+{
+	if(document.ddd.shuzi.value.length>1)
+	document.ddd.shuzi.value=document.ddd.shuzi.value.substring(0,document.ddd.shuzi.value.length - 1)    
+	else
+	document.ddd.shuzi.value='' 
+}
+//-->
+</script>
+
+<body onload="JavaScript:document.ddd.shuzi.focus();">
+<br>
+
+<form method="POST" name=ddd>
+	<table width=100% border=0>
+		<td width="305">
+				<table border=0 width="100%">
+				<tr>
+					<td>请您输入学号：<input type=text name="shuzi" onmouseover="document.ddd.shuzi.focus();" size=20>
+					</td>
+				</tr>
+				</table>
+		</td>
+		<td valign="middle">&nbsp;
+		<input type="button" value=" 1 " name=k1 onmousedown="inputkey('1')">&nbsp;
+		<input type="button" value=" 2 " name=k2 onmousedown="inputkey('2')">&nbsp;
+		<input type="button" value=" 3 " name=k3 onmousedown="inputkey('3')">&nbsp;
+		<input type="button" value=" 4 " name=k4 onmousedown="inputkey('4')">&nbsp;
+		<input type="button" value=" 5 " name=k5 onmousedown="inputkey('5')">&nbsp;
+		<input type="button" value=" 清屏 " onmousedown="document.ddd.shuzi.value = '' ;"><br>&nbsp;
+		<input type="button" value=" 6 " name=k6 onmousedown="inputkey('6')">&nbsp;
+		<input type="button" value=" 7 " name=k7 onmousedown="inputkey('7')">&nbsp;
+		<input type="button" value=" 8 " name=k8 onmousedown="inputkey('8')">&nbsp;
+		<input type="button" value=" 9 " name=k9 onmousedown="inputkey('9')">&nbsp;
+		<input type="button" value=" 0 " name=k0 onmousedown="inputkey('0')">&nbsp;
+		<input type="button" value=" 退格 " onmousedown="backspace()">
+		</td>
+		</tr>
+	</table>
+</form>

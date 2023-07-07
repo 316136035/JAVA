@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  通过结果集(当数据库字段和实体类字段不同的时候使用) 查询全部用户-->
+<!--   id="结果集映射" resultType="返回类型"  -->
+<!--命名空间 绑定接口-->
+<mapper namespace="vip.tao.Mapper.Mapper1.MyBatis_User_Mapper1">
+    <!--通过多对一 子查询查询用户和对应的部门-->
+    <!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型"  # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="getSonUserRole_List" resultMap="Mybatis_User_Role">
+        <!--获取传参的参数#{userId} -->
+        SELECT * FROM MyBatis.user;
+    </select>
+    <!--   id="复杂类型结果集映射" resultType="返回类型"  -->
+    <resultMap id="Mybatis_User_Role" type="mybatis_User1">
+        <!--  property="实体类的字段"    column="数据库中的字段"   -->
+        <result property="User_id" column="User_id"></result>
+        <result property="User_name" column="User_name"></result>
+        <result property="User_password" column="User_password"></result>
+        <result property="Creation_time" column="Creation_time"></result>
+        <result property="Updated_by" column="Updated_by"></result>
+        <result property="Update_time" column="Update_time"></result>
+        <!--  property="实体类的字段"    column="数据库中的字段 javaType="实体类"   select="子查询的id"-->
+        <association property="role" column="Dep_id" javaType="mybatis_Role1" select="getRole">
+        </association>
+    </resultMap>
+    <!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型"  # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="getRole" resultMap="Mybatis_Role">
+        select *
+        from MyBatis.role
+        where MyBatis.role.Dep_id = #{Dept_Id}
+    </select>
+    <!--   id="复杂类型结果集映射" resultType="返回类型"  -->
+    <resultMap id="Mybatis_Role" type="Mybatis_Role1">
+        <!--  property="实体类的字段"    column="数据库中的字段"   -->
+        <result property="dept_Id" column="Dep_id"></result>
+        <result property="rolename" column="rolename"></result>
+    </resultMap>
+
+    <!--通过多对一链表查询查询用户和对应的部门-->
+    <select id="getLinkedUserRole_List" resultMap="LinkedMybatis_User_Role">
+        select *
+        from user u,
+             role r
+        where u.Dep_id = r.Dep_id
+    </select>
+    <!--   id="复杂类型结果集映射" resultType="返回类型"  -->
+    <resultMap id="LinkedMybatis_User_Role" type="mybatis_User1">
+        <result property="User_id" column="User_id"></result>
+        <result property="User_name" column="User_name"></result>
+        <result property="User_password" column="User_password"></result>
+        <result property="Creation_time" column="Creation_time"></result>
+        <result property="Updated_by" column="Updated_by"></result>
+        <result property="Update_time" column="Update_time"></result>
+<!--处理对象用association， 处理集合用collection-->
+        <!--  property="实体类的字段"     （处理对象用javaType="实体类" 处理集合用ofType+"实体类"）  -->
+        <association property="role" javaType="mybatis_Role1">
+            <!--  property="实体类的字段"    column="数据库中的字段"   -->
+            <result property="dept_Id" column="Dep_id"></result>
+            <result property="rolename" column="rolename"></result>
+        </association>
+
+
+    </resultMap>
+
+
+</mapper>
+

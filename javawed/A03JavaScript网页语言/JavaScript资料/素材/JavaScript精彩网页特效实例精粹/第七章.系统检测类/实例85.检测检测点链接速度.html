@@ -1,0 +1,32 @@
+
+<script language="JavaScript">
+<!--
+tim=1
+setInterval("tim++",100)
+b=1
+
+var geturl=new Array()        
+geturl[1]="www.hlju.edu.cn"   
+geturl[2]="www.163.com"
+geturl[3]="www.sina.com.cn"
+geturl[4]="www.moe.edu.cn"
+geturl[5]="www.cctv.com"
+
+document.write("<form name=autof>")
+for(var i=1;i<geturl.length;i++)
+document.write("<input type=text name=txt"+i+" size=10 value=测试中……> =>> <input type=text name=url"+i+" size=40> =>> <input type=button value=点击进入网站 onclick=window.open(this.form.url"+i+".value)><br>")
+
+function auto(url){
+document.forms[0]["url"+b].value=url                 
+if(tim>200)
+{document.forms[0]["txt"+b].value="链接超时"}          
+else
+{document.forms[0]["txt"+b].value="时间"+tim/10+"秒"}     
+b++
+}
+for(var i=1;i<geturl.length;i++)             
+document.write("<img src=http://"+geturl[i]+"/"+Math.random()+" width=1 height=1 onerror=auto('http://"+geturl[i]+"')>")
+//-->
+</script>
+<br><br>
+以上是检测黑龙江大学网站、网易163网站、新浪网站、教育部网站、中央电视台网站的链接速度。

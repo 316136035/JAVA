@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History对象就是记录浏览器历史</title>
+    <script type="text/javascript">
+        function show() {
+           document.write("你已经点击");
+            //History提供了方法
+            //加载 history 列表中的下一个
+           history.forward();
+           // history.back();
+
+        }
+        function show1() {
+            //document.write("你已经点击");
+            //History提供了方法
+           // 加载 history 列表中的前一个 URL
+            history.back();
+
+        }
+        function show3() {
+            //go() 加载 history 列表中的某个具体页面()   1代表下一个地址   -1代表上一个地址
+            history.go(1);
+
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+<!--按钮绑定事件onclick="show()"方法-->
+<input type="button" value="加载 history 列表中的下一个" onclick="show()">
+<input type="button" value="加载 history 列表中的前一个 " onclick="show1()">
+<input type="button" value="加载 history 列表中的某个具体页面 " onclick="show3()">
+
+</body>
+
+</html>
+
+<!--History 对象的属性
+属性 描述 IE F O
+length 返回浏览器历史列表中的 URL 数量 4 1 9
+History 对象的方法
+方法 描述 IE F O
+back() 加载 history 列表中的前一个 URL 4 1 9
+forward() 加载 history 列表中的下一个 URL 4 1 9
+go() 加载 history 列表中的某个具体页面 4 1 9
+-->

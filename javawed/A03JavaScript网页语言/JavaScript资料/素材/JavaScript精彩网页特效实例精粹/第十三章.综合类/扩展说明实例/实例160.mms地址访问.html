@@ -1,0 +1,34 @@
+<script janguage="javascript">
+<!--
+function goFtpSite() {
+document.location.href = "mms://" + document.mms.url.value;   // mms连接地址
+}
+//-->
+</script>
+
+<form name="mms">
+<table border="0" cellpadding="1" cellspacing="1" bgcolor="#000000" align="center">
+<tr>
+<td>
+<table border="0" cellspacing=0 cellpadding=5 align="center">
+<tr bgcolor="#cccccc">
+<td width="75" align="right">
+mms://
+</td>
+<td>
+<input type="text" size=15 name="url">
+</td>
+</tr>
+
+<tr bgcolor="#ffffff">
+<td colspan="2" align="center">
+<font size="-2">
+<input type=button onclick="goFtpSite();" value="登录">
+<input type=reset value="清空">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>

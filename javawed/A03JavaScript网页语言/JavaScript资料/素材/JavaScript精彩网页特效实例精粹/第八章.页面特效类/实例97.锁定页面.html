@@ -1,0 +1,69 @@
+
+<script LANGUAGE="JavaScript">
+<!--   
+   function sAlert(str){ 
+   var msgw,msgh,bordercolor; 
+   msgw=400;                      // 提示窗口的宽度 
+   msgh=100;                      // 提示窗口的高度 
+   titleheight=25                 // 提示窗口标题高度 
+   bordercolor="#000000";         // 提示窗口的边框颜色 
+    
+   var bgObj=document.createElement("div");               // 设置整个锁定页面 
+   bgObj.setAttribute('id','bgDiv'); 
+   bgObj.style.position="absolute"; 
+   bgObj.style.top="0"; 
+   bgObj.style.background="#0000ff";      // 设置背景颜色
+   bgObj.style.filter="progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75)"; 
+   bgObj.style.opacity="0.6";             // 设置透明度 
+   bgObj.style.left="0";                  // 左边距
+   bgObj.style.width="100%";              // 层宽度
+   bgObj.style.height="100%";             // 层高度
+   document.body.appendChild(bgObj);
+    
+   var msgObj=document.createElement("div")           // 设置整个显示表格框
+   msgObj.setAttribute("id","msgDiv"); 
+   msgObj.setAttribute("align","center"); 
+   msgObj.style.background="#ffffff";                 // 背景颜色
+   msgObj.style.border="1py solid " + bordercolor;    // 设置框粗细
+      msgObj.style.position = "absolute";             // 位置
+
+            msgObj.style.left = "50%"; 
+            msgObj.style.top = "50%"; 
+            msgObj.style.font="12px Verdana, Geneva, Arial, Helvetica, sans-serif"; 
+            msgObj.style.marginLeft = "-225px" ;
+            msgObj.style.marginTop = -75+document.documentElement.scrollTop+"px"; 
+            msgObj.style.width = msgw + "px";
+            msgObj.style.height = msgh + "px";
+    
+     var title=document.createElement("h4");           // 设置关闭框 
+     title.setAttribute("id","msgTitle"); 
+     title.setAttribute("align","right");              // 文字设定位置
+     title.style.background=bordercolor;               // 设定背景颜色
+     title.style.filter="progid:DXImageTransform.Microsoft.Alpha(startX=20, startY=20, finishX=100, finishY=100,style=1,opacity=75,finishOpacity=100);"; 
+     title.style.opacity="0.75";                       // 设定透明度
+     title.style.border="1px solid " + bordercolor;    // 设定边框粗细
+     title.style.height="18px";                        // 设置高度
+     title.style.font="12px Verdana, Geneva, Arial, Helvetica, sans-serif";    // 设定文字字体  
+     title.style.color="#ffffff";                      // 设定文字颜色
+     title.style.cursor="pointer";                     // 设定鼠标形状
+     title.innerHTML="关闭";
+     title.onclick=function(){                         // 取消锁定                      
+          document.body.removeChild(bgObj);
+                document.getElementById("msgDiv").removeChild(title); 
+                document.body.removeChild(msgObj); 
+                } 
+     document.body.appendChild(msgObj); 
+     document.getElementById("msgDiv").appendChild(title); 
+     var txt=document.createElement("p"); 
+     txt.setAttribute("id","msgTxt"); 
+     txt.innerHTML=str; 
+     document.getElementById("msgDiv").appendChild(txt); 
+} 
+//-->
+</script> 
+
+<body>
+
+<input type="button" value="锁定页面按钮" onclick="sAlert('JavaScript演示锁定页面效果');"> 
+
+</body>

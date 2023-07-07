@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性过滤选择器</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+            <!--这个是属性过滤选择器-->
+            function show() {
+                var divid=  $("input[value]");
+            divid.each(function () {
+                $("#id").append($(this).val())
+            })
+            }
+
+            <!--这个是属性过滤选择器-->
+          //  "input[type!='checkbox']
+          function 全选() {
+              var  check= $("input[type='checkbox'] ");
+              check.each(function () {
+                  $(this).attr("checked", true);
+              })
+
+
+          }
+          function 组合属性选择器() {
+              var  check= $("input[type][name='newsletter']");
+              check.each(function () {
+                  alert( $(this).attr("name"))
+              })
+
+          }
+
+
+
+
+        
+        
+    </script>
+</head>
+<body>
+<form action="#" method="post" >
+    <input type="text" value="用户名:"> <br>
+   密码:<input type="password" id="password"><br>
+   验证码:<input type="text" id="yzm"><br>
+</form>
+<input  type="button" onclick="show()" value="点击">
+
+<input type="checkbox" name="newsletter"  value="Hot Fuzz" />
+<input type="checkbox" name="newsletter" value="Cold Fusion" />
+<input type="checkbox" name="newsletter" value="Evil Plans" />
+<input  type="button" onclick="全选()" value="全选">
+<input  type="button" onclick="组合属性选择器()" value="组合属性选择器()">
+<span id="id"></span>
+</body>
+</html>

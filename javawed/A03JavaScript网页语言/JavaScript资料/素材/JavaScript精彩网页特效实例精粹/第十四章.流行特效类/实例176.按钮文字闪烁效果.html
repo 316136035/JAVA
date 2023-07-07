@@ -1,0 +1,26 @@
+<body>
+<input type="button" name="news" value="普通按钮">&nbsp;<input type="button" name="tebie" value="闪烁按钮" id=flashit>&nbsp;<input type="button" name="redian" value="热点追踪" id=flashit>&nbsp;<input type="button" name="jiaodian" value="焦点访谈" id=flashit>
+<script language="JavaScript">
+<!--
+if (document.all&&document.all.flashit){     
+var flashelement=document.all.flashit
+if (flashelement.length==null)
+flashelement[0]=document.all.flashit 
+
+function changecolor(which){
+if (flashelement[which].style.color=='')
+flashelement[which].style.color="red"   
+else
+flashelement[which].style.color="" 
+}
+
+if (flashelement.length==null)
+setInterval("changecolor(0)",1000)
+else
+for (i=0;i<flashelement.length;i++){ 
+setInterval("changecolor("+i+")",1000) 
+}
+}
+//-->
+</script>
+</body>

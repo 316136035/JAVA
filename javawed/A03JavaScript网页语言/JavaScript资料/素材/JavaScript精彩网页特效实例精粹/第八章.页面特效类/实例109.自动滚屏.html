@@ -1,0 +1,67 @@
+<SCRIPT LANGUAGE=javascript>
+<!--
+var dz=0;
+function click(){
+	if (event.button==2){                  // 当鼠标按下右键时
+		alert("自动滚屏已经停止!");
+		dz=1
+	}	  
+}		
+document.onmousedown=click;                    // 按下鼠标触发函数
+var position=0;                                // 初始化
+function scroller(){
+	if (dz==0){
+	position++;                    // 滚动位置累加
+	scrollTo(0,position);            // 实现窗口滚动
+	clearTimeout(timer);           // 清空定时器
+	var timer=setTimeout("scroller()",60);     // 设定定时
+	}
+	else{
+	clearTimeout(timer);           // 清空定时器
+	}
+}		
+scroller();
+//-->
+</SCRIPT>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>

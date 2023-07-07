@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性操作text</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+
+    <script>
+
+        function show() {
+            //获取div下的input标签全部元素对象   获取text值
+            var vv=$("a").text();
+
+            alert( vv)
+
+        }
+
+
+        function show1() {
+            //获取div下的#div标签全部元素对象  设置text值
+            $(".a").text("京东");
+
+        }
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+
+<div>
+<a class="a" href="https://www.baidu.com/">百度</a>
+    <input  type="button" value="获取text" onclick="show()">
+    <input  type="button" value="设置text" onclick="show1()">
+
+
+
+</div>
+<div id="div">
+
+
+</div>
+
+
+
+</body>
+</html>

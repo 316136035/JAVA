@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--Servlet配置-->
+    <!-- 定义一个Servlet-->
+    <servlet>
+        <!--创建一个名字（代表这个Servlet）-->
+        <servlet-name>A01_Servlet运行状态</servlet-name>
+        <!--指向Servlet的路径-->
+        <servlet-class>vip.taoshenjia.A01_Servlet运行状态.A01_Servlet运行状态</servlet-class>
+        <!--设置当Servlet启动就调用init方法 （大于0时表现 服务器启动就调用init方法）-->
+        <!--        <load-on-startup>1</load-on-startup>-->
+    </servlet>
+
+    <!--    定义一个Servlet的路径映射-->
+    <servlet-mapping>
+        <!--映射到Servlet-->
+        <servlet-name>A01_Servlet运行状态</servlet-name>
+        <!--url请求的网址的路径-->
+        <url-pattern>/A01_Servlet运行状态</url-pattern>
+    </servlet-mapping>
+    <!--    设置默认打开页面-->
+    <welcome-file-list>
+        <welcome-file>jsp/welcome.jsp</welcome-file>
+    </welcome-file-list>
+    <!--A01_ServletConfig读取XML-->
+    <servlet>
+        <!--创建一个名字（代表这个Servlet）-->
+        <servlet-name>A01_ServletConfig读取XML</servlet-name>
+        <!--指向Servlet的路径-->
+        <servlet-class>vip.taoshenjia.A02_ServletConfig读取XML文件.A01_ServletConfig读取XML</servlet-class>
+        <!--设置Srevlet的初始化参数(只能在当前servlet中有效)-->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>password</param-value>
+        </init-param>
+        <init-param>
+            <param-name>username1</param-name>
+            <param-value>password1</param-value>
+        </init-param>
+
+    </servlet>
+    <!--    定义一个Servlet的路径映射-->
+    <servlet-mapping>
+        <!--映射到Servlet-->
+        <servlet-name>A01_ServletConfig读取XML</servlet-name>
+        <!--url请求的网址的路径-->
+        <url-pattern>/A01_ServletConfig读取XML</url-pattern>
+    </servlet-mapping>
+    <!-- 定义一个Servlet-->
+    <servlet>
+        <!--创建一个名字（代表这个Servlet）-->
+        <servlet-name>A01_Servlet路径映射</servlet-name>
+        <!--指向Servlet的路径-->
+        <servlet-class>vip.taoshenjia.A03_Servlet路径映射.A01_Servlet路径映射</servlet-class>
+        <!--设置当Servlet启动就调用init方法 （大于0时表现 服务器启动就调用init方法）-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--    定义一个Servlet的路径映射-->
+    <servlet-mapping>
+        <!--映射到Servlet-->
+        <servlet-name>A01_Servlet路径映射</servlet-name>
+        <!--url请求的网址的路径-->
+        <!--优先级： 完全路径匹配 > 目录匹配 > 扩展名匹配-->
+        <!--完全路径匹配 /A01_Servlet路径映射-->
+        <!--目录匹配   /Tomcat1_war_exploded/*-->
+        <!--        扩展名匹配    *.do-->
+        <url-pattern>/A01_Servlet路径映射</url-pattern>
+        <!--        <url-pattern>/Tomcat1_war_exploded/*</url-pattern>-->
+        <!--        <url-pattern>*./A01_Servlet路径映射</url-pattern>-->
+    </servlet-mapping>
+    <!--    A01_ServletContex存储-->
+    <servlet>
+        <!--创建一个名字（代表这个Servlet）-->
+        <servlet-name>A01_ServletContex存储</servlet-name>
+        <!--指向Servlet的路径-->
+        <servlet-class>vip.taoshenjia.A04_ServletContex所有用户需要共享的线程又是安全.A01_ServletContex存储</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A01_ServletContex存储</servlet-name>
+        <url-pattern>/A01_ServletContex存储</url-pattern>
+    </servlet-mapping>
+    <!--    A02_ServletContex读取-->
+    <servlet>
+        <!--创建一个名字（代表这个Servlet）-->
+        <servlet-name>A02_ServletContex读取</servlet-name>
+        <!--指向Servlet的路径-->
+        <servlet-class>vip.taoshenjia.A04_ServletContex所有用户需要共享的线程又是安全.A02_ServletContex读取</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A02_ServletContex读取</servlet-name>
+        <url-pattern>/A02_ServletContex读取</url-pattern>
+    </servlet-mapping>
+    <!--    A03_ServletContex获取xml配置的key和valve-->
+    <servlet>
+        <servlet-name>A03_ServletContex获取xml配置的key和valve</servlet-name>
+        <servlet-class>vip.taoshenjia.A04_ServletContex所有用户需要共享的线程又是安全.A03_ServletContex获取xml配置的key和valve
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A03_ServletContex获取xml配置的key和valve</servlet-name>
+        <url-pattern>/A03_ServletContex获取xml配置的key和valve</url-pattern>
+    </servlet-mapping>
+
+
+    <!--ServletContex配置初始化参数该参数可以在任意servlet中访问    配置数据库-->
+    <context-param>
+        <param-name>jdbc.driver</param-name>
+        <param-value>com.mysql.cj.jdbc.Drivee</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>dog34994963</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>validationQuery</param-name>
+        <param-value>SELECT 'x'</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>initialSize</param-name>
+        <param-value>20</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>maxActive=100</param-name>
+        <param-value>100</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>minIdle</param-name>
+        <param-value>20</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>maxWait</param-name>
+        <param-value>1000</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>testOnBorrow</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>testOnReturn=</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>characterEncoding</param-name>
+        <param-value>utf8</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>allowPublicKeyRetrieval</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+
+    <!--   A04_ServletContex获取properties文件-->
+    <servlet>
+        <servlet-name>A04_ServletContex获取properties文件</servlet-name>
+        <servlet-class>vip.taoshenjia.A04_ServletContex所有用户需要共享的线程又是安全.A04_ServletContex获取properties文件</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A04_ServletContex获取properties文件</servlet-name>
+        <url-pattern>/A04_ServletContex获取properties文件</url-pattern>
+    </servlet-mapping>
+
+    <!--    A05_ServletContex的API-->
+    <servlet>
+        <servlet-name>A05_ServletContex的API</servlet-name>
+        <servlet-class>vip.taoshenjia.A04_ServletContex所有用户需要共享的线程又是安全.A05_ServletContex的API</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A05_ServletContex的API</servlet-name>
+        <url-pattern>/A05_ServletContex的API</url-pattern>
+    </servlet-mapping>
+
+    <!--    A01_HttpServletRequest请求对象-->
+    <servlet>
+        <servlet-name>A01_HttpServletRequest请求对象</servlet-name>
+        <servlet-class>vip.taoshenjia.A05_HttpServletRequest请求对象.A01_HttpServletRequest请求对象</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A01_HttpServletRequest请求对象</servlet-name>
+        <url-pattern>/A01_HttpServletRequest请求对象</url-pattern>
+    </servlet-mapping>
+
+
+    <!--    A01_HttpServletResponse响应对象-->
+    <servlet>
+        <servlet-name>A01_HttpServletResponse响应对象</servlet-name>
+        <servlet-class>vip.taoshenjia.A06_HttpServletResponse响应对象.A01_HttpServletResponse响应对象</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A01_HttpServletResponse响应对象</servlet-name>
+        <url-pattern>/A01_HttpServletResponse响应对象</url-pattern>
+    </servlet-mapping>
+    <!--    A02_HttpServletResponse响应对象设置让客户端下载文件-->
+    <servlet>
+        <servlet-name>A02_HttpServletResponse响应对象设置让客户端下载文件</servlet-name>
+        <servlet-class>vip.taoshenjia.A06_HttpServletResponse响应对象.A02_HttpServletResponse响应对象设置让客户端下载文件</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A02_HttpServletResponse响应对象设置让客户端下载文件</servlet-name>
+        <url-pattern>/A02_HttpServletResponse响应对象设置让客户端下载文件</url-pattern>
+    </servlet-mapping>
+
+
+    <!--A03_HttpServletResponse响应对象实现验证码-->
+    <servlet>
+        <servlet-name>A03_HttpServletResponse响应对象实现验证码</servlet-name>
+        <servlet-class>vip.taoshenjia.A06_HttpServletResponse响应对象.A03_HttpServletResponse响应对象实现验证码</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A03_HttpServletResponse响应对象实现验证码</servlet-name>
+        <url-pattern>/A03_HttpServletResponse响应对象实现验证码</url-pattern>
+    </servlet-mapping>
+
+
+    <!--     A01_add_cookie设置-->
+    <servlet>
+        <servlet-name>A01_add_cookie添加_读取</servlet-name>
+        <servlet-class>vip.taoshenjia.A07_Cookie的添加和获取.A01_add_cookie添加_读取</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A01_add_cookie添加_读取</servlet-name>
+        <url-pattern>/A01_add_cookie添加_读取</url-pattern>
+    </servlet-mapping>
+    <!--    A01_Session会话-->
+
+    <servlet>
+        <servlet-name>A01_Session会话</servlet-name>
+        <servlet-class>vip.taoshenjia.A08_Session会话.A01_Session会话</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A01_Session会话</servlet-name>
+        <url-pattern>/A01_Session会话</url-pattern>
+    </servlet-mapping>
+
+
+    <!--设置session默认失效时间-->
+    <session-config>
+        <!--        单位为分钟-->
+        <session-timeout>1240</session-timeout>
+    </session-config>
+
+
+    <!-- Filter过滤器F-->
+    <filter>
+        <filter-name>Filter处理编码</filter-name>
+        <filter-class>vip.taoshenjia.A09_Filter过滤器.A01_Filter过滤器处理中文乱码</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter处理编码</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+
+
+
+
+
+    <!--    listener监听器-->
+    <listener>
+        <listener-class>vip.taoshenjia.A10_Listener监听器.A01_HttpSessionListener监听Session开始会话和结束会话和Session属性修改</listener-class>
+    </listener>
+    <listener>
+        <listener-class>vip.taoshenjia.A10_Listener监听器.A02_ServletContextListener全局变量监听器</listener-class>
+    </listener>
+    <listener>
+        <listener-class>vip.taoshenjia.A10_Listener监听器.A03_ServletRequestListener监听器</listener-class>
+    </listener>
+
+<!--     listener监听器  统计_在线人数和请求参数-->
+    <listener>
+        <listener-class>vip.taoshenjia.A10_Listener监听器.统计_在线人数和请求次数</listener-class>
+    </listener>
+
+
+
+</web-app>

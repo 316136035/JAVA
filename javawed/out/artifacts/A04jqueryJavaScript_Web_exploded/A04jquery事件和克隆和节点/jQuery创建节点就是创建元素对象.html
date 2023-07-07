@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery创建节点就是创建元素对象</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+
+        function show() {
+
+        //jQuery创建节点就是创建元素对象
+        var  vv=$("<h1>创建节点</h1>");
+        $("input").after( vv)
+
+        }
+
+
+    </script>
+</head>
+<body>
+
+
+
+<input type="button"  value="创建节点" onclick="show() ">
+</body>
+</html>

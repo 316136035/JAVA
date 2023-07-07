@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp对象表示正则表达式</title>
+    <script type="text/javascript">
+      var reg= new RegExp("表示");
+      //判断正则表达式是否包含表示的字符
+      document.write( reg.test("表示正则表达式")+"<br>");
+      //创建一个正则表达式0-9的数字
+      var reg1= new RegExp("[0-9]{10}");
+      document.write(  reg1.test("123447474444444"))
+
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

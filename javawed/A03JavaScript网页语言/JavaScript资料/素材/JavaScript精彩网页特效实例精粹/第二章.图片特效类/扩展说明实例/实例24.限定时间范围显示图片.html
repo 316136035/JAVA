@@ -1,0 +1,16 @@
+<script LANGUAGE="JavaScript">
+<!--
+function dnew(tday,addDate){
+
+    var stopday = new Date(addDate);                // 获取指定日期
+    var newDate = new Date();                       // 获取当前日期
+    var daysold = tday*24*60*60*1000;               // tday天多少毫秒
+    var startday=stopday.getTime()-daysold;         // 计算开始日期
+    if (((stopday.getTime()-newDate.getTime()) >= 0) && ((startday-newDate.getTime()) <= 0)) {
+        document.write("<img src=buddies11.jpg>");
+    }
+}
+dnew(7,"06/17/2007")
+//-->
+</script>
+显示日期为06/10/2007-06/17/2007

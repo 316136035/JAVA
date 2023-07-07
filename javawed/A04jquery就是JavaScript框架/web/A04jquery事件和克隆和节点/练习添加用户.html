@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习添加用户</title>
+
+    <style type="text/css">
+        /*设置头部CSS*/
+        .header {
+            background-color: red; /*背景颜色*/
+            text-align: center; /*本字居中*/
+            font-style: normal; /*文字类型*/
+            font-size: 40px; /* /*本字大小*/
+
+        }
+
+        .class1 {
+            width: 1200px;
+            background-color: green;
+
+
+        }
+
+        .显示 {
+            width: 1200px;
+            background-color: red;
+
+        }
+
+        #body {
+            background-color: #E9967A;
+
+
+        }
+
+
+    </style>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+
+
+        function 添加() {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var number = $("#number").val();
+            $("#body").append("    <tr class=\"tr\">\n" +
+                "            <td><input type=\"checkbox\" ></td>\n" +
+                "            <td>" + name + "</td>\n" +
+                "            <td>" + email + "</td>\n" +
+                "            <td>" + number + "</td>\n" +
+                "            <td><a href=\"#\" onclick=\"删除(this)\">删除</a></td>\n" +
+                "\n" +
+                "        </tr>\n")
+
+        }
+
+        function 删除(v) {
+            $(v).parent().parent().remove();/*获取父元素*/
+        }
+
+        function 删除选中() {
+            $("input[type=checkbox]")
+                //遍历全部元素对象
+                .each(function () {
+                    //删除默认选中
+                    var checked = $(this).attr("checked");
+                    if (checked == "checked") {
+                        $(this).parent().parent().remove()
+                    }
+
+                })
+
+        }
+
+        function 全部删除() {
+
+            //$("#body tr").remove();
+            $("#body").empty();
+        }
+
+
+
+        $(function () {
+            //    双击事件
+            $("tr[class] td").dblclick(function () {
+                $(this).empty();
+                $(this).append("<input   onblur='失去焦点(this)'>")
+            });
+
+        });
+
+        //失去焦点
+        function 失去焦点(obj) {
+            var val = $(obj).val();
+            $(obj).parent().html(val);
+            $(obj).remove()
+
+        }
+
+
+    </script>
+</head>
+<body>
+<div>
+    <div class="header">我是头部</div>
+    <table class="class1">
+        <tr>
+            <td> 姓名:<input id="name" type="text"></td>
+            <td> email:<input id="email" type="text"></td>
+            <td> 电话: <input id="number" type="text"></td>
+            <td><input class="添加" type="button" value="添加" onclick=添加()></td>
+        </tr>
+
+    </table>
+    <table class="显示" border="1">
+        <!--这个是框的顶部-->
+        <thead>
+        <tr>
+            <td>请选择</td>
+            <td>姓名</td>
+            <td>email</td>
+            <td>电话</td>
+            <td>操作</td>
+
+        </tr>
+        </thead>
+        <hr>
+        <tbody id="body">
+        <tr class="tr">
+            <td><input type="checkbox"></td>
+            <td>姓名</td>
+            <td>email</td>
+            <td>电话</td>
+            <td><a href="#" onclick="删除(this)">删除</a></td>
+
+        </tr>
+
+
+        </tbody>
+
+
+    </table>
+
+    <div class="删除选中"><input value="删除选中" type="button" onclick="删除选中()"></div>
+    <div class="全部删除"><input value="全部删除" type="button" onclick="全部删除()"></div>
+</div>
+
+</body>
+</html>

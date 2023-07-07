@@ -1,0 +1,40 @@
+<SCRIPT language=JavaScript>
+<!--
+function Result(form) {
+var score = 0                      
+if (form.Q01[0].checked) { score += -1 }  
+if (form.Q01[1].checked) { score += 3 }
+if (form.Q02[0].checked) { score += -1 }
+if (form.Q02[1].checked) { score += 3 }
+if (form.Q03[0].checked) { score += 0 }
+if (form.Q03[1].checked) { score += 3 }
+if (form.Q04[0].checked) { score += 3 }
+if (form.Q04[1].checked) { score += 0 }
+if (form.Q04[2].checked) { score += -1 }
+if (form.Q05[0].checked) { score += 0 }
+if (form.Q05[1].checked) { score += 1 }
+if (form.Q05[2].checked) { score += 3 }
+score1=score*100/15         
+if (score1 > 60) { alert('恭喜恭喜！你的就业成功率是'+score1+'是个好兆头？ ')}
+if (score1 > 30 && score1 <61) { alert('你的就业成功率是'+score1+'。加把劲吧！') }
+if (score1 < 31 ) { alert('你的就业成功率只有'+score1+'。尚需要继续努力') }
+}
+// -->
+</SCRIPT>
+<body>
+<P><b>就业成功率测试</b>
+<FORM name=pt1>
+<OL>
+  <LI>您目前是否适应大学的生活？
+  <P><INPUT CHECKED name=Q01 type=radio value=1>没有　<INPUT name=Q01 type=radio value=2>已经适应</P>
+  <LI>您是否想在大学里继续学习?
+  <P><INPUT CHECKED name=Q02 type=radio value=1>想　<INPUT name=Q02 type=radio value=2>不想</P>
+  <LI>您想找一份什么样的工作？
+  <P><INPUT CHECKED name=Q03 type=radio value=1>安逸　<INPUT name=Q03 type=radio value=2>富有挑战性的</P>
+  <LI>你月薪是多少钱可以接受？
+  <P><INPUT CHECKED name=Q04 type=radio value=1>1500元以下　<INPUT name=Q04 type=radio value=2>1500-3000元　<INPUT name=Q04 type=radio value=3>3000以上</P>
+  <LI>您想要去什么样的城市找工作？
+  <P><INPUT CHECKED name=Q05 type=radio value=1>直辖市　<INPUT name=Q05 type=radio value=2>省会　　<INPUT name=Q05 type=radio value=3>其他</P>
+  <P><INPUT name=finish onclick=Result(this.form) type=button value=EQ解码> <INPUT type=reset value=" RESET "></P>
+</FORM>
+</body>

@@ -1,0 +1,28 @@
+#table表单{
+
+
+    WIDTH: 100%;
+
+
+}
+#table表单 tr{
+    margin:0;
+    padding:0;
+    border:0;
+}
+#table表单 tr td{
+    border-style: ridge;
+    text-align: center;
+
+
+}
+
+
+#href tr {
+
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+
+
+}

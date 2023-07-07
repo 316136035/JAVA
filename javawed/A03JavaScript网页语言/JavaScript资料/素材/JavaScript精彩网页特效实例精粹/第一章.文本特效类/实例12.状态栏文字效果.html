@@ -1,0 +1,33 @@
+<SCRIPT language="JavaScript">
+<!--
+function scrollit(seed) {
+var m1 = "欢迎大家学习JAVASCRIPT这门语言！";
+var msg=m1;
+var out = " ";                                    
+if (seed <= 100 && seed > 0) {
+for (c=0 ; c < seed ; c++) {                      
+out+=" ";
+}
+out+=msg;
+seed--;
+window.status=out;                                
+cmd="scrollit("+seed+")";
+window.setTimeout(cmd,100);                       
+}
+else if (seed <= 0) {
+if (-seed < msg.length) {
+out+=msg.substring(-seed,msg.length);             
+seed--;
+window.status=out;
+cmd="scrollit("+seed+")";
+window.setTimeout(cmd,100);
+}
+else {
+window.status=" ";                                
+window.setTimeout("scrollit(100)",75);
+}}}
+//-->
+</SCRIPT>
+<body onLoad="scrollit(100)">
+	请看状态栏中的效果
+</body>

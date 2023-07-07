@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市区县三级联动菜单 测试</title>
+</head>
+<!--引入jquery环境-->
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<body>
+    省份:<select id="province" onchange="loadDistrict('city')">
+         <option value="">---请选择---</option>
+        </select>
+    市:<select id="city" onchange="loadDistrict('district')">
+        <option value="">---请选择---</option>
+    </select>
+    区县:<select id="district">
+        <option value="">---请选择---</option>
+    </select>
+</body>
+
+<script type="text/javascript">
+    // 页面加载第一时间调用该方法
+    loadDistrict('province');
+    // 获取下级地区列表
+    function loadDistrict(type) {
+        // 定义一个父级id
+        var pid;
+        // 加载省份信息
+        if(type == 'province'){
+            pid = 1;
+
+        }
+        // 加载市级信息
+        if(type == 'city'){
+            // 获取父id
+            pid = $("#province").val();
+            // 清空市和区县的html
+            $("#city").html('<option value="">---请选择---</option>');
+            $("#district").html('<option value="">---请选择---</option>');
+        }
+        // 加载区县信息
+        if(type == 'district'){
+            // 获取父id
+            pid = $("#city").val();
+        }
+        $.ajax({
+            url:"loadDistrict?pid="+pid,
+            type:"get",
+            dataType:"json",
+            success:function (data) {
+                // 在浏览器控制台打印数据
+                console.log(data);
+                var html = '<option value="">---请选择---</option>';
+                // 遍历数据 拼接html
+                for(var i=0;i<data.length;i++){
+                    html += '<option value="'+data[i].id+'">'+data[i].district+'</option>';
+                }
+                // 把拼接好的html赋值给select
+                $("#"+type).html(html);
+            }
+        });
+    }
+</script>
+</html>

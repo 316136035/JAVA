@@ -1,0 +1,99 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var rparti;
+var rpart;
+var det;
+var rparti1;
+var rparti2;
+var a;
+var b;
+var c;
+var x1;
+var x2;
+var i = "i";
+function checkQuad() {
+var a = document.fquad.fa.value;
+var b = document.fquad.fb.value;
+var c = document.fquad.fc.value;
+if ((a == 0 || a == "") && c != 0) {  
+x1 = "error";
+x2 = "error";
+document.fquad.x1.value=x1;
+document.fquad.x2.value=x2;
+}
+else {
+quad();
+}
+}
+
+function quad() {            
+var a = document.fquad.fa.value;
+var b = document.fquad.fb.value;
+var c = document.fquad.fc.value;
+det = Math.pow(b,2)-4*a*c;           
+rpart = Math.sqrt(det)/(2*a);
+rparti = (Math.sqrt(-det)/(2*a))+i;
+if (parseFloat(rparti)<0) {
+rparti1 = rparti;
+rparti2 = (-1*parseFloat(rparti))+i; 
+}
+else {
+rparti1 = (-1*parseFloat(rparti))+i;
+rparti2 = rparti;
+}
+if (rparti1 == "1i") {         
+rparti1 = i;
+rparti2 = "-i";
+}
+else if (rparti1 == "-1i") {    
+rparti1 = "-i";
+rparti2 = i;
+}
+if (det == 0) {                    
+x1 = x2 = -b/(2*a);
+}
+else if (det > 0) {            
+x1 = (-b+Math.sqrt(det))/(2*a);
+x2 = (-b-Math.sqrt(det))/(2*a);
+}
+else if ((-b/(2*a))==0){
+x1 = rparti1;
+x2 = rparti2;
+}
+else {                           
+x1 = (-b/(2*a)+"+"+rparti1);
+x2 = (-b/(2*a)+"+"+rparti2);
+}
+document.fquad.x1.value=x1;       
+document.fquad.x2.value=x2;
+}
+//-->
+</script>
+
+<form name=fquad>
+<table align="center">
+<tr>
+<td>
+<input name=fa size=4>
+          <font color="black">x<SUP>2</SUP>+</font> 
+          <input name=fb size=4>
+          <font color="black"> x +</font> 
+          <input name=fc size=4>
+          <font color="black">= 0</font> 
+          <input type=button value="ÇóÖµ" onClick="checkQuad()">
+           
+          <input type=reset value="ÖØÌî">
+</td>
+</tr>
+<tr>
+<td>
+        <h2> <font color="black">x<sub>1</sub>=</font>
+<input name=x1 size=35>
+<br>
+          <font color="black">x<sub>2</sub>=</font>
+<input name=x2 size=35>
+</h2>
+</td>
+</tr>
+</table>
+</form>

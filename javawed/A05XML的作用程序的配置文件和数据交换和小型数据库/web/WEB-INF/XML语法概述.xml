@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<persons>
+
+<a><![CDATA[3>6]]]></a>
+
+
+</persons>
+
+<!--2　xml文档声明结构
+version属性：用于说明当前xml文档的版本，因为都是在用1.0，所以这个属性值大家都写1.0，version属性是必须的；
+encoding属性：用于说明当前xml文档使用的字符编码集，xml解析器会使用这个编码来解析xml文档。encoding属性是可选的，默认为UTF-8。注意，如果当前xml文档使用的字符编码集是gb2312，而encoding属性的值为UTF-8，那么一定会出错的；
+standalone属性：用于说明当前xml文档是否为独立文档，如果该属性值为yes，表示当前xml文档是独立的，如果为no表示当前xml文档不是独立的，即依赖外部的约束文件。默认是yes
+没有xml文档声明的xml文档，不是格式良好的xml文档；
+xml文档声明必须从xml文档的1行1列开始。-->
+
+

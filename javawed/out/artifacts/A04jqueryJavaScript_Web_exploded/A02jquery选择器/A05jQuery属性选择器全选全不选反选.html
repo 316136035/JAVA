@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery过滤选择器全选全不选反选</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        function 全选() {
+            //获取input下全部带有type=checkbox元素的对象 添加checked=checked
+            $("input[type=checkbox]")
+                .attr("checked", "checked");
+        }
+        function 全不选() {
+            //获取input下全部带有type=checkbox元素的对象
+            $("input[type=checkbox]")
+                //遍历全部元素对象
+                .each(function () {
+                    //删除默认选中
+                $(this).removeAttr("checked")
+            })
+
+
+        }
+
+        function 反选() {
+        //获取input下全部带有type=checkbox元素的对象
+            $("input[type=checkbox]")
+            //遍历全部元素对象
+                .each(function () {
+               // 这是每一个元素对象
+               var  元素对象=$(this);
+               //获取元素对象的属性值
+               var  checked1=元素对象.attr("checked");
+                //元素对象的属性值等于选中的话
+                if (checked1=="checked"){
+                    //删除选中的属性值
+                    元素对象.removeAttr("checked")
+                }
+                else{
+                    //添加选中的属性值
+                    元素对象.attr("checked", "checked")
+                }
+            });
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<form action="#" method="post">
+
+    <input type="checkbox"  name="aode"  >奥迪
+    <input type="checkbox"  name="baoma">宝马
+    <input type="checkbox"  name="bentian">本田
+    <input type="checkbox"  name="dazhong">大众
+
+</form>
+<input type="button" value="全选" onclick="全选()">
+<input type="button" value="全不选" onclick="全不选()">
+<input type="button" value="反选"  onclick="反选()">
+
+</body>
+</html>

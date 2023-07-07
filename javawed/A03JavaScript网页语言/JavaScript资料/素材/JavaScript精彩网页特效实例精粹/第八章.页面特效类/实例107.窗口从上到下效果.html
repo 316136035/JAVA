@@ -1,0 +1,47 @@
+<BODY bgcolor="#fef4d9" onLoad="showWindow()">
+<SCRIPT LANGUAGE=javascript>
+<!-- 
+var popwindow
+var popwindowwidth=200    
+var popwindowheight=200   
+var popwindowtop=-popwindowheight-50   
+var popwindowURL="107.html"  
+
+var popwindowleft=200      
+var marginright
+var pagecenter
+var timer   
+
+function showWindow() {
+popwindow = window.open(popwindowURL, "popwindow", "toolbar=no,width="+popwindowwidth+",height="+popwindowheight+",top="+popwindowtop+",left="+(-popwindowwidth)+""); 
+marginright = screen.height+50            
+pagecenter=Math.floor(marginright/2)-Math.floor(popwindowwidth/2)     
+movewindow()
+}
+
+function movewindow() {                            
+if (popwindowtop<=pagecenter) {
+popwindow.moveTo(popwindowleft,popwindowtop)       
+popwindowtop+=40                                   
+timer= setTimeout("movewindow()",20)               
+}
+else {
+clearTimeout(timer)                                
+timer= setTimeout("movewindow2()",4000)            
+}
+}
+
+function movewindow2() {                           
+if (popwindowtop<=marginright) {
+popwindow.moveTo(popwindowleft,popwindowtop)       
+popwindowtop+=40                                   
+timer= setTimeout("movewindow2()",20)              
+}
+else {
+clearTimeout(timer)                                
+popwindow.close()                                  
+}
+}
+// -->
+</script>
+</BODY>

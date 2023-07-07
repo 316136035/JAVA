@@ -1,0 +1,33 @@
+<script LANGUAGE="JavaScript">
+<!--
+flag2=0
+function checkpwd(){
+if (flag2== 3){
+	alert("您已经无权在此输入密码！")
+	window.location.href = "http://www.sina.com.cn"
+}
+else
+{
+	if((document.form1.username.value == "zt")&&(document.form1.pwd.value == "1111"))
+	{
+		alert("验证成功！")
+		return true
+	}
+	else{
+		flag2=flag2+1
+		alert("您输入的用户名或密码错误，请重新输入！")
+		return false
+	}
+}
+}
+//-->
+</script>
+</head>
+<body>
+<form name="form1" method="post">
+姓名：<input name="username" type="text"><br>
+密码：<input name="pwd" type="password"><br>
+<input type="button" name="submit" value="确定" onclick="checkpwd();"><br>您输入密码3次错误将自动进入新浪网
+</form>
+
+</body>

@@ -1,0 +1,35 @@
+<script language="javascript">
+<!--
+var i=1;
+function GetResult()
+{
+    var xmlHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlHTTP.open("POST","195.asp?pagenumber="+i,false);
+    xmlHTTP.send(null);
+    var strResult = unescape(xmlHTTP.responsetext);
+    tb.innerHTML = strResult;
+    display.innerHTML="<a href='#' onclick=getpagepre('195.asp?pagenumber="+(i-1)+"')>上页</a>&nbsp;&nbsp;<a href='#' onclick=getpagenext('195.asp?pagenumber="+(i+1)+"')>下页</a>"
+    ye.innerHTML=i;
+}
+
+function getpagenext(url)
+{
+    i=i+1;
+    GetResult();
+    ye.innerHTML=i;
+}
+
+function getpagepre(url)
+{
+    i=i-1;
+    GetResult();
+    ye.innerHTML=i;
+}
+
+
+//-->
+</script>
+<body onload="GetResult()">
+<span id=tb></span><br>
+<span id="display"></span>&nbsp;&nbsp;当前为<span id="ye"></span>页
+</body>

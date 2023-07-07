@@ -1,0 +1,41 @@
+<body onload="fin()">
+<SCRIPT language=JavaScript>
+<!--
+drag = 0
+move = 0
+
+function fin() {
+    window.document.onmousemove = mouseMove
+    window.document.onmousedown = mouseDown
+    window.document.onmouseup = mouseUp
+    window.document.ondragstart = mouseStop
+}
+
+function mouseDown() {
+    if (drag) {
+        clickleft = window.event.x - parseInt(blodrag.style.left)        // 获取鼠标在X轴的坐标
+        clicktop = window.event.y - parseInt(blodrag.style.top)          // 获取鼠标在Y轴的坐标
+        blodrag.style.zIndex += 1
+        move = 1
+    }
+}
+
+function mouseStop() {
+    window.event.returnValue = false
+}
+
+function mouseMove() {
+    if (move) {
+        blodrag.style.left = window.event.x - clickleft                 // 获取鼠标在X轴的坐标
+        blodrag.style.top = window.event.y - clicktop                   // 获取鼠标在Y轴的坐标
+    }
+}
+
+function mouseUp() {
+    move = 0
+}
+//-->
+</SCRIPT>
+<DIV id=blodrag onmouseout=drag=0 onmouseover=drag=1 
+style="HEIGHT: 90px; LEFT: 10px; POSITION: absolute; TOP: 10px; WIDTH: 90px"><IMG border=3 src="buddies.jpg" >
+</body>

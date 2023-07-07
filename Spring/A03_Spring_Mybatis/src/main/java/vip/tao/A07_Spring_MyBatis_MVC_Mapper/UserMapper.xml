@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--   id="结果集映射" resultType="返回类型"  -->
+<!--命名空间 绑定接口-->
+<mapper namespace="vip.tao.A07_Spring_MyBatis_MVC_Mapper.UserMapper">
+    <select id="SelectUser" resultMap="resultMap">
+        select *
+        from MyBatis.user
+    </select>
+    <resultMap id="resultMap" type="vip.tao.Spring_MyBatis_MVC_Oom.User">
+        <result property="User_id" column="User_id"></result>
+        <result property="User_name" column="User_name"></result>
+        <result property="User_password" column="User_password"></result>
+        <result property="Creation_time" column="Creation_time"></result>
+        <result property="Updated_by" column="Updated_by"></result>
+        <result property="Update_time" column="Update_time"></result>
+    </resultMap>
+
+</mapper>

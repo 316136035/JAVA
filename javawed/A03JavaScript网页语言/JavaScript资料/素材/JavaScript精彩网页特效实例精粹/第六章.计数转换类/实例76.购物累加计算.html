@@ -1,0 +1,36 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+var form_total=0;
+function CheckChoice(box)
+{
+if (box.checked == false)
+	{ form_total -= eval(box.value); }
+else 	{ form_total += eval(box.value); }
+	document.myform.total.value = eval(form_total)+'元';
+}
+-->
+</script>
+
+<form method="POST" name="myform">
+<table align=center width=300>
+	<tr>
+		<td height=50 colspan=2>目前有以下商品:</td>
+	</tr>
+	<tr>
+		<td >AD运动衣350元</td><td width=30>
+		<input type="checkbox" name="b1" value=350 onclick="CheckChoice(this);"></td>
+	</tr>
+	<tr>
+		<td>NIKE运动背包220元</td><td width=30>
+		<input type="checkbox" name="b2" value=220 onclick="CheckChoice(this);"></td>
+	</tr>
+	<tr>
+		<td>乔丹运动鞋480元</td><td width=30>
+		<input type="checkbox" name="b3" value=480 onclick="CheckChoice(this);"></td>
+	</tr>
+	<tr>
+		<td colspan=2 align=right>花费总计: <input type="text" name="total" size=8 readonly value='0元' onFocus="this.blur();"></td>
+	</tr>
+</table>
+</form>

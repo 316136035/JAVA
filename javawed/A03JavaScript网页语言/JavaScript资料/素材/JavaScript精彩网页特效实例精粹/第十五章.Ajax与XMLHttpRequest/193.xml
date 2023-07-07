@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<root>
+    <north>
+        <id>1</id>
+        <info>黑龙江大学</info>
+        <time>2001年</time>
+        <pe>zhangtao</pe>
+    </north>
+    <north>
+        <id>2</id>
+        <info>哈尔滨工业大学</info>
+        <time>2002年</time>
+        <pe>tianyuhui</pe>
+    </north>
+    <north>
+        <id>3</id>
+        <info>哈尔滨理工大学</info>
+        <time>2004年</time>
+        <pe>tianyuhui</pe>
+    </north>
+</root>
+    

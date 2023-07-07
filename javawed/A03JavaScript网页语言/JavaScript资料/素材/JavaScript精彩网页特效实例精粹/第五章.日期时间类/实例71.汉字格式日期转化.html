@@ -1,0 +1,51 @@
+<SCRIPT language=JavaScript>
+<!--
+var chinese = ['零','一','二','三','四','五','六','七','八','九'];        // 定义数组
+var len = ['十'];
+var ydm =['年','月','日'];
+function numchinese(s)                   // 将单个数字转成中文
+{
+    s=""+s;
+    slen = s.length;
+    var result="";
+    for(var i=0;i<slen;i++)              // 循环出每一个日期的数字
+    {
+        result+=chinese[s.charAt(i)];    // 累计叠加
+    }
+     return result;
+}
+
+function n2c(s)                          // 对特殊情况进行处理
+{ 
+    s=""+s;
+    var result="";
+    if(s.length==2)                      // 如果是月或是日时
+    {
+         if(s.charAt(0)=="1")            // 如果第一位是1时
+         {
+            if(s.charAt(1)=="0")return len[0];  // 如果第二位是0时显示十
+            return len[0]+chinese[s.charAt(1)]; 
+          }
+     	 if(s.charAt(1)=="0")return chinese[s.charAt(0)]+len[0];  // 如果第二位是0显示几十
+    return chinese[s.charAt(0)]+len[0]+chinese[s.charAt(1)];
+    }
+    return numchinese(s)
+}
+function bdchinese(s)
+{
+     var datePat = /^(\d{2}|\d{4})(\/|-)(\d{1,2})(\2)(\d{1,2})$/;    // 验证输入的日期格式.并提取相关数字 
+     var matchArray = s.match(datePat); 
+     var ok="";
+     if (matchArray == null) return false;
+     for(var i=1;i<matchArray.length;i=i+2)
+     {
+         ok+=n2c(matchArray[i]-0)+ydm[(i-1)/2];                // 显示中文日期
+     }
+ return ok;
+}
+//-->
+</SCRIPT>
+数字显示:<input type=text name="ldate" value="2007-6-10">&nbsp;(格式:YYYY-MM-DD)<br>
+中文显示:<input type=text name="chinesedate">
+<input type=button onclick="document.all.chinesedate.value=bdchinese(document.all.ldate.value)"
+value="转换">

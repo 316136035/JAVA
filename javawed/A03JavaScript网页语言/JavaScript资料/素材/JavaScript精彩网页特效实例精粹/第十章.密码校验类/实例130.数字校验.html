@@ -1,0 +1,23 @@
+<script language="javascript">
+<!--
+function Juge()
+{
+if(isNaN(sz.shuzi.value)){
+ 	alert("请您输入正确而且符合条件的数字");
+ 	sz.shuzi.focus();
+ 	sz.shuzi.value=""
+  	return (false);
+}
+else
+{
+	alert("输入正确！");
+}
+}
+//-->
+</script>
+<body>
+<form name=sz>
+<input type=text name=shuzi size=20><input type=button onclick="Juge()" value=数字校验>
+</form>
+</body>
+

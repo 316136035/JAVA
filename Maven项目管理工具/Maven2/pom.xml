@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.com.Maven2</groupId>
+    <artifactId>Maven2</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+
+<!--        引入本地工程的jar包（提前本地有jar包）-->
+        <dependency>
+            <!--    Maven本地仓库存放地址一般为：公司网址的反写+项目名-->
+            <groupId>cn.com.Maven1</groupId>
+            <!--    项目名-模块名-->
+            <artifactId>Maven1</artifactId>
+<!--            版本-->
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--        引入maven中央仓库的jar包（https://mvnrepository.com/）-->
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.11</version>
+<!--            依赖阻挡 表示有人引这个模块的包的时候不传递mysql这个包-->
+            <optional>true</optional>
+        </dependency>
+
+
+
+
+    </dependencies>
+
+
+    <properties>
+        <maven.compiler.source>10</maven.compiler.source>
+        <maven.compiler.target>10</maven.compiler.target>
+    </properties>
+
+</project>

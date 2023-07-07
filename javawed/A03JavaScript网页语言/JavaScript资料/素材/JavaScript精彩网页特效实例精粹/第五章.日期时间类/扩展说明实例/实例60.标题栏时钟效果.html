@@ -1,0 +1,29 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function time () {
+      zhclock = new Date();                             // 创建对象
+      hours = zhclock.getHours();                       // 建立getHours()方法
+      minutes = zhclock.getMinutes();                   // 建立getMinutes()方法
+      seconds = zhclock.getSeconds();                   // 建立getSeconds()方法
+      day = zhclock.getDay();                          // 建立getDay()方法
+      current = "" + ((hours >12) ? hours -12 :hours)
+      current += ((minutes < 10) ? ":0" : ":") + minutes     
+// 如果分小于10则前面加0
+      current += ((seconds < 10) ? ":0" : ":") + seconds     
+// 如果秒小于10则前面加0
+      current += (hours >= 12) ? " 下午 " : " 上午 "         
+// 显示时间是上午还是下午
+      if(day==0){var weekday = " 星期日"}
+      if(day==1){var weekday = " 星期一"}
+      if(day==2){var weekday = " 星期二"}
+      if(day==3){var weekday = " 星期三"}
+      if(day==4){var weekday = " 星期四"}
+      if(day==5){var weekday = " 星期五"}
+      if(day==6){var weekday = " 星期六"}
+      current +=(weekday)                     // current中取得完整的时间和星期
+      document.title=current;                  // 在状态栏中显示完整的时间和星期
+      setTimeout("time()",1000);         // 每1秒钟执行time()一次,实现时钟效果
+}
+time()                                                    // 启动时钟
+//-->
+</SCRIPT>

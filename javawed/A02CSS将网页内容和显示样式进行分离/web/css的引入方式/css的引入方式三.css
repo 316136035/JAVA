@@ -1,0 +1,86 @@
+/*这个是属性选择器*/
+h1[class="1"]
+{
+  color:red;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+h1[class="2"]
+{
+  color:#ff8345;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+
+
+h1[class="3"]
+{
+  color: #f8bd0b	;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+
+
+h1[class="4"]
+{
+  color: #009f5d;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+
+
+h1[class="5"]
+{
+  color: 		#000080;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+
+
+h1[class="6"]
+{
+  color: 	#191970;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+
+
+h1[id="7"]
+{
+  color: #0000CD;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+
+
+h1[class="8"]
+{
+  color: #8B0000;
+  /* text-align: center;代表居中*/
+  text-align: center;
+  /*设置字体大小*/
+  font-size: 100%;
+}
+
+
+
+
+
+input {
+  width: 50px;
+  height: 10px;
+}

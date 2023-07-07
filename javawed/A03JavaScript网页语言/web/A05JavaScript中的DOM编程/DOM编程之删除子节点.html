@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM编程之删除子节点</title>
+    <script type="text/javascript">
+        function  删除节点(Object) {
+            //先获取自己的父节点删除自己节点
+            Object.parentNode.removeChild(Object);
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+<ul id="ul">
+    <li onclick="删除节点(this)">北京</li>
+    <li onclick="删除节点(this)">上海</li>
+    <li onclick="删除节点(this)">辽宁</li>
+    <li onclick="删除节点(this)">江西</li>
+</ul>
+
+
+</body>
+</html>

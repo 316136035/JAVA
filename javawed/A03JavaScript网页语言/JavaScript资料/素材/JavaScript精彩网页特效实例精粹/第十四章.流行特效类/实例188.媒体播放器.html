@@ -1,0 +1,138 @@
+<script language="JavaScript">
+<!--
+var state;                          
+function playerinit() 
+{ 
+ player.url="1.wmv";                    
+ player.settings.autoStart = false ;   
+ playerinfo.innerHTML = "准备就绪";
+}  
+function play() 
+{ 
+  player.controls.play();               
+  state=setInterval("updatetime()",1000);
+  playerinfo.innerHTML = "播放"; 
+} 
+function pause()
+{ 
+  player.controls.pause();            
+  clearInterval(state); 
+  playerinfo.innerHTML = "暂停"; 
+} 
+function stop() 
+{ 
+  player.controls.stop();     
+  clearInterval(state); 
+  playerinfo.innerHTML = "停止";
+} 
+function previous() 
+{  player.controls.previous();        
+  playerinfo.innerHTML = "上一首"; 
+} 
+function next() 
+{ 
+  player.controls.next(); 
+  playerinfo.innerHTML = "下一首"; 
+}
+function voldown() 
+{ 
+ if ( player.settings.volume < 5 )  
+ { 
+  player.settings.volume = 0; 
+  playerinfo.innerHTML = "0"; 
+ } 
+ else 
+ { 
+  player.settings.volume -= 5;  
+  playerinfo.innerHTML = player.settings.volume; 
+ } 
+}
+function volup() 
+{ 
+ if ( player.settings.volume > 95 )  
+ { 
+  player.settings.volume = 100;
+  playerinfo.innerHTML = "100"; 
+ } 
+ else 
+ { 
+  player.settings.volume += 5; 
+  playerinfo.innerHTML = player.settings.volume; 
+ } 
+} 
+function mute()
+{ 
+ player.settings.mute = !player.settings.mute;
+} 
+function balance()
+{ 
+ switch (player.settings.balance) 
+ { 
+  case 0: 
+   player.settings.balance = 100;           
+   playerinfo.innerHTML = '左声道'; 
+   break; 
+  case 100: 
+   player.settings.balance = -100; 
+   playerinfo.innerHTML = '右声道'; 
+   break; 
+  case -100: 
+   player.settings.balance = 0;      
+   playerinfo.innerHTML = '全声道'; 
+   break; 
+  default : 
+   player.settings.balance = 0; 
+   playerinfo.innerHTML = '全声道'; 
+   break; 
+ } 
+} 
+function updatetime() 
+{ 
+ playerinfo.innerHTML = player.controls.currentPositionString + " | " + player.currentMedia.durationString; 
+} 
+
+function fullscreen0(){                   
+  player.fullScreen = true; 
+}
+//-->
+</script> 
+<body onload="playerinit();"> 
+<table width="300"> 
+  <tr> 
+    <td><object id="player" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" type="application/x-oleobject" width="300" height="240"> 
+      <param name="autoStart" value="false"> 
+      <param name="balance" value="0"> 
+      <param name="currentPosition" value="0"> 
+      <param name="currentMarker" value="0"> 
+      <param name="enableContextMenu" value="true"> 
+      <param name="enableErrorDialogs" value="false"> 
+      <param name="enabled" value="true">   
+      <param name="invokeURLs" value="false"> 
+      <param name="mute" value="true"> 
+      <param name="playCount" value="1"> 
+      <param name="rate" value="1"> 
+      <param name="uiMode" value="none"> 
+      <param name="volume" value="100"> 
+    </object></td> 
+  </tr> 
+  <tr> 
+    <td><span id="playerinfo"></span></td> 
+  </tr> 
+  <tr> 
+    <td> 
+      <div align="center"> 
+<input type="button" name="previous" value="上一首" onclick="previous();"> 
+<input type="button" name="play" value="播放" onclick="play();"> 
+<input type="button" name="pause" value="暂停" onclick="pause();"> 
+<input type="button" name="stop" value="停止" onclick="stop();"> 
+<input type="button" name="next" value="下一首" onclick="next();"> 
+<input type="button" name="voldown" value="音量-" onclick="voldown();"> 
+<input type="button" name="volup" value="音量+" onclick="volup();"> 
+<input type="button" name="mute" value="静音" onclick="mute();"> 
+<input type="button" name="balance" value="声道" onclick="balance();">
+<input type="button" name="fullscreen" value="全屏幕" onclick="fullscreen0();">
+   </div> 
+ </td> 
+  </tr> 
+</table> 
+</body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM编程之添加子节点</title>
+    <script type="text/javascript">
+        function 添加节点() {
+            //创建一个li节点对象
+            var li = document.createElement("li");
+            //创建一个广州节点（字符串）
+            var 广州 = document.createTextNode("广州");
+            //广州的节点存放到li节点里面
+            li.appendChild(广州);
+            //在把li存放在ul节点中
+            document.getElementById("ul").appendChild( li)
+
+        }
+
+    </script>
+</head>
+<body>
+<ul id="ul">
+    <li>北京</li>
+    <li>上海</li>
+    <li>辽宁</li>
+    <li>江西</li>
+</ul>
+<input type="button" value="添加节点" onclick="添加节点()">
+
+</body>
+</html>

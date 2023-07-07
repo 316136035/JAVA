@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+       https://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--     使用Spring数据源对象 创建驱动程序管理器数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url"
+                  value="jdbc:mysql://192.168.100.15:3306/MyBatis?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="MysqlDog34994963."></property>
+
+    </bean>
+    <!--    创建SQL 会话工厂对象-->
+    <bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--        SQL 会话工厂注入驱动程序管理器数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--        映射器引入 mybatis-config.xml配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--        映射器绑定 mapper.xml-->
+        <property name="mapperLocations" value="classpath:vip/tao/Spring_Mybatis_Affairs/mapper/*.xml"></property>
+    </bean>
+    <!--   创建sql会话对象*/-->
+    <bean id="SqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <!--        只能用构造器注入会话工厂对象-->
+        <constructor-arg index="0" ref="SqlSessionFactory"></constructor-arg>
+    </bean>
+
+    <!--    实现方法一建议使用-->
+    <!--    创建接口的实现类-->
+    <bean id="UserMapperImpl" class="vip.tao.Spring_Mybatis_Affairs.mapper.UserMapperImpl">
+        <!--   用set注入sql会话对象-->
+        <property name="sqlSessionTemplate" ref="SqlSessionTemplate"></property>
+    </bean>
+
+
+    <!--    创建Spring 的事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <!--    结合AOP切入实现事务的植入-->
+    <!--    配置事务通知-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <!--配置事务传播特性  Spring中propagation的7种事务配置百度查-->
+        <tx:attributes>
+            <!--   name="方法名" propagation="7种事务配置" -->
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--    配置事务的切入-->
+    <aop:config>
+        <!--        切入点  所有类中的所有方法.*.*(..)-->
+        <aop:pointcut id="txPointcut"
+                      expression="execution(* vip.tao.Spring_Mybatis_Affairs.mapper.*.*(..))"></aop:pointcut>
+        <!--        pointcut-ref=“切入点”   advice-ref="事务管理器“-->
+        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"></aop:advisor>
+    </aop:config>
+
+
+</beans>

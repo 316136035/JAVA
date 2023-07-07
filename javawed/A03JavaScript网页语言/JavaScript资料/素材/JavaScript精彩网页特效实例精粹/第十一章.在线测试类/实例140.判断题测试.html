@@ -1,0 +1,83 @@
+
+<script language="JavaScript">
+<!--
+var Total_Question = 2	
+
+var msg = ""
+
+var Solution = new Array(Total_Question)  
+
+
+function GetSelectedButton(ButtonGroup)      
+{
+  for (var x=0; x < ButtonGroup.length; x++)
+    if (ButtonGroup[x].checked) return x
+  return 0
+} 
+
+function ReportScore(correct)
+{ 
+  var SecWin = window.open("","scorewin","scrollbars,width=300,height=220")
+  var MustHave1 = "<HTML><HEAD><TITLE>测验成绩报告</TITLE></HEAD><BODY>"
+  var Percent = "<H2>测验成绩 : "+Math.round(correct/Total_Question*100)+ "</H2><HR>"     
+  lastscore=Math.round(correct/Total_Question*100)     
+  if (lastscore == "100"){                     
+  	msg = MustHave1 +Percent + "<font color='red'>恭喜，全部答对了！</font><p>" + msg  + "<input type='button' value='close' onclick=javascript:window.close()></BODY></HTML>"}
+  else {
+  	msg = MustHave1 +Percent + "<font color='red'>正确答案：</font><p>" + msg  + "<input type='button' value='close' onclick=javascript:window.close()></BODY></HTML>"
+}  
+  SecWin.document.write(msg) 
+  msg = ""                    
+}
+
+function Grade()
+{
+  var correct = 0           
+  var wrong = 0
+  for (number=0; number < Total_Question; number++)     
+    {
+      var form = document.forms[number]   
+      var i = GetSelectedButton(form.q1)  
+      if (form.q1[i].value == "1")
+	 { correct++ } 
+	else 
+	 { wrong++
+	   msg += "Question "+(number+1)+"."
+		  +"错误"+"<BR>"
+	 }
+    }
+    ReportScore(correct)
+}
+
+//-->
+</script>
+          
+</head>
+<body>
+<table width="75%" border="0" align="center">
+  <tr>
+    <td>
+      <form>
+两个非常简单的问题：<p>
+(1)Window 2000是SUN公司开发的操作系统
+<br>
+<input type="radio" name="q1" value="0">对
+<input type="radio" name="q1" value="1">错
+<br><br></form>
+<form>
+(2)office 2000是微软公司开发的办公软件
+<br>
+<input type="radio" name="q1" value="1">对
+<input type="radio" name="q1" value="0">错
+<br><Br> </form>
+
+<form>
+<p align="center">
+   <input type="button" name="Submit" value="查看成绩" onClick="Grade()">
+</p>
+</form>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

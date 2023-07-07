@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性操作val</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+
+
+        function show() {
+            //获取div下的input标签全部元素对象   获取value值
+            var vv=$("input").val();
+
+            alert( vv)
+
+        }
+
+
+        function show1() {
+            //获取div下的input标签全部元素对象  设置value值
+            var vv=$("input").val("设置文本值");
+
+
+        }
+
+    </script>
+</head>
+</head>
+<body>
+<input type="text" id="text" value="密码">
+<input type="button" value="获取文本值" onclick="show()">
+<input type="button" value="设置文本值" onclick="show1()">
+
+
+
+</body>
+</html>

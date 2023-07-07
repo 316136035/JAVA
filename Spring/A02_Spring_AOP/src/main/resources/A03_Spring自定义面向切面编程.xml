@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 使用Spring容器创建对象，在Spring容器成为Bean  id="类名"  class="类路径" scope="是否为单例/其他"-->
+    <bean id="log" class="vip.tao.A03_Spring自定义面向切面编程.Log.Log"></bean>
+    <bean id="A03_UserImpl" class="vip.tao.A03_Spring自定义面向切面编程.Srevive.A03_UserImpl"></bean>
+
+    <!--配置aop 需要导入AOP的约束-->
+    <aop:config  >
+<!--        自定义切面-->
+      <aop:aspect ref="log">
+<!--       定义切入点（实现类）   -->
+          <aop:pointcut id="pointcut" expression="execution(* vip.tao.A03_Spring自定义面向切面编程.Srevive.A03_UserImpl.*(..))"></aop:pointcut>
+<!--       执行前before    method="方法名"  pointcut-ref="切入点id" -->
+          <aop:before method="begin" pointcut-ref="pointcut"></aop:before>
+<!--          执行后after   method="方法名"  pointcut-ref="切入点id" -->
+          <aop:after method="end" pointcut-ref="pointcut"></aop:after>
+
+      </aop:aspect>
+
+    </aop:config>
+
+
+</beans>

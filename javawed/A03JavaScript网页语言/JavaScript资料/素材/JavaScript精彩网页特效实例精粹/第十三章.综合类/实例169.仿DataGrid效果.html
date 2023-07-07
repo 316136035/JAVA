@@ -1,0 +1,47 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function ChangeValue(objTD)
+{
+ var objName;
+ objName = objTD.id;
+ objTD.innerHTML = "<input type=text id=txtBox name=textfield size=4 value="+objTD.innerText+"  onMouseOver='this.focus()' onfocus='this.select()' onBlur=WriteNewValue(this.value,"+objName+");>";
+}
+function WriteNewValue(strTxt,objTD)
+{
+ objTD.innerText = strTxt;  
+}//-->
+</SCRIPT>
+
+<BODY>
+<p align=center>Javascript网页特效实例成绩单</p>
+<TABLE align="center" cellpadding="1" cellspacing="1" bgcolor="#3333CC">
+<TR bgcolor="#cccccc">
+ <td height=28 width=60>学号</td><td width=60>姓名</td><td width=150>院系</td><td width=60>成绩</td>
+</tr>
+<TR bgcolor="#FFFFFF">
+ <td height=25>20052011</td><td>张强</td><td>信息管理学院</td><TD id="td1" onDblClick="ChangeValue(this);">80</TD>
+</tr>
+<TR bgcolor="#FFff77">
+ <td height=25>20052143</td><td>李伟</td><td>软件学院</td><TD id="td2" onDblClick="ChangeValue(this);">86</TD>
+</tr>
+<TR bgcolor="#FFFFFF">
+  <td height=25>20053231</td><td>刘海</td><td>化学化工学院</td><td id="td3" onDblClick="ChangeValue(this);">90</TD>
+</tr>
+<TR bgcolor="#FFff77">
+  <td height=25>20055021</td><td>张力明</td><td>信息管理学院</td><TD id="td4" onDblClick="ChangeValue(this);">97</TD>
+</tr>
+<TR bgcolor="#FFFFFF">
+  <td height=25>20052028</td><td>孙长生</td><td>农学院</td><TD id="td5" onDblClick="ChangeValue(this);">72</TD>
+</TR>
+<TR bgcolor="#FFff77">
+  <td height=25>20052131</td><td>刘其华</td><td>化学化工学院</td><td id="td6" onDblClick="ChangeValue(this);">91</TD>
+</tr>
+<TR bgcolor="#FFFFFF">
+  <td height=25>20054321</td><td>张明</td><td>信息管理学院</td><TD id="td7" onDblClick="ChangeValue(this);">77</TD>
+</tr>
+<TR bgcolor="#FFff77">
+  <td height=25>20052228</td><td>孙立</td><td>农学院</td><TD id="td8" onDblClick="ChangeValue(this);">82</TD>
+</TR>
+</TABLE>
+</BODY>

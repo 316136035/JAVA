@@ -1,0 +1,26 @@
+<Script language="javascript">
+<!--
+ var m="请您认真学习JAVASCRIPT这门语言！"
+ var a=""
+ i=0
+ s=0
+function scrollit() {
+   i++
+   if(i>m.length) {
+     i=1
+   }
+   a=m.substring(0,i)
+   b=m.substring(0,i-1)
+   document.forms[0].elements[0].value=a
+   document.forms[0].elements[1].value=b
+   setTimeout("scrollit()",100)
+ }
+
+//-->
+ </script>
+<body onload=scrollit()>                     
+ <form name="msg">
+ <input type="text" size=50 name="mesg1"><br>
+ <input type="text" size=50 name="mesg2">
+ </form>
+</body>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 定义别名-->
+    <alias name="A03_Address" alias="Address"></alias>
+
+
+    <!-- 使用Spring容器创建对象，在Spring容器成为Bean  id="类名"  class="类路径" scope="是否为单例/其他"-->
+    <bean id="A03_Address" class="vip.tao.A03_IOC_容器xml创建对象.A03_Oom实体类.A03_Role" name="别名" scope="singleton" >
+        <!--通过参数名字类型声明构造器-->
+        <constructor-arg name="dep_id" value="1"/>
+        <constructor-arg name="role" value="高层"/>
+        <!-- 通过索引声明构造器      -->
+        <!-- <constructor-arg index="0" value="过索引声明构造器 "/>-->
+        <!-- 通过类型声明构造器      -->
+        <!-- <constructor-arg type="java.lang.String" value="通过类型声明构造器"/>-->
+    </bean>
+
+
+    <!-- 使用Spring容器创建对象，在Spring容器成为Bean  id="类名"  class="类路径"-->
+    <bean id="A03_User" class="vip.tao.A03_IOC_容器xml创建对象.A03_Oom实体类.A03_User">
+        <!--  声明注入参数     -->
+        <property name="name" value="周先生"></property>
+        <!--  声明注入参数     -->
+        <property name="age" value="19"></property>
+        <!--  声明注入参数为引用上面对象     -->
+        <property name="address" ref="A03_Address"></property>
+        <!--  声明注入数组参数     -->
+        <property name="books">
+            <array>
+                <value>book1</value>
+                <value>book2</value>
+                <value>book31</value>
+            </array>
+            <!--  声明注入null     -->
+        </property>
+        <!--  设置为null-->
+        <property name="ifNull">
+            <null></null>
+        </property>
+        <!--  声明注入list参数     -->
+        <property name="list">
+            <list>
+                <value>list1</value>
+                <value>list2</value>
+            </list>
+        </property>
+        <!--  声明注入Map参数     -->
+        <property name="map">
+            <map>
+                <!--entry实体    -->
+                <entry key="key" value="value1"></entry>
+                <entry key="key1" value-ref="A03_Address"></entry>
+            </map>
+        </property>
+        <!--  声明注入set参数     -->
+        <property name="set">
+            <value>set1</value>
+
+        </property>
+        <!--  声明注入properties"参数     -->
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://192.168.100.15:3306/MyBatis?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</prop>
+                <prop key="username">root</prop>
+                <prop key="password">MysqlDog34994963.</prop>
+            </props>
+
+        </property>
+
+    </bean>
+
+
+    <!-- 使用Spring容器创建对象，在Spring容器成为Bean  id="类名"  class="类路径"-->
+    <!--    创建A02_mapper数据库持久层实体类-->
+    <bean id="A02_UserMapperMysqlImpl"
+          class="vip.tao.A02_IOC_容器使用xml配置文件.A02_mapper数据库持久层.A02_UserMapperMysqlImpl"></bean>
+
+    <!--    创建A02_mapper数据库持久层实体类-->
+    <bean id="A02_UserMapperOracleImpl"
+          class="vip.tao.A02_IOC_容器使用xml配置文件.A02_mapper数据库持久层.A02_UserMapperOracleImpl"></bean>
+
+    <!-- 使用Spring容器创建对象，在Spring容器成为Bean  id="类名"  class="类路径"-->
+    <!-- 创建 A02_Service业务层实体类 存入mapper数据库持久层实体类-->
+    <bean id="A02_UserService" class="vip.tao.A02_IOC_容器使用xml配置文件.A02_Service业务层.A02_UserServiceImpl">
+        <!--      name="属性参数"    使用set方法存入ref="A02_UserMapperOracleImpl实体"-->
+        <property name="a02_UserMapper" ref="A02_UserMapperOracleImpl"></property>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--    动态扫描业务层-->
+    <context:component-scan base-package="com.cn.service"/>
+    <!--    在业务成中注入mapper的实现类（mapper的实现类为MapperScannerConfigurer自动注入）-->
+    <bean id="UserService1Impl" class="com.cn.service.UserService1Impl">
+        <property name="userMapper1" ref="userMapper1"></property>
+    </bean>
+    <!--    创建Spring 的事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <constructor-arg ref="datasource"/>
+    </bean>
+    <!--    结合AOP切入实现事务的植入-->
+    <!--    配置事务通知-->
+<!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+<!--        &lt;!&ndash;配置事务传播特性  Spring中propagation的7种事务配置百度查&ndash;&gt;-->
+<!--        <tx:attributes>-->
+<!--            &lt;!&ndash;   name="方法名" propagation="7种事务配置" &ndash;&gt;-->
+<!--            <tx:method name="*" propagation="REQUIRED"/>-->
+<!--        </tx:attributes>-->
+<!--    </tx:advice>-->
+    <!--    &lt;!&ndash;    配置事务的切入&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;        切入点  所有类中的所有方法.*.*(..)&ndash;&gt;-->
+<!--        <aop:pointcut id="txPointcut"-->
+<!--                      expression="execution(* vip.tao.Spring_Mybatis_Affairs.mapper.*.*(..))"></aop:pointcut>-->
+<!--        &lt;!&ndash;        pointcut-ref=“切入点”   advice-ref="事务管理器“&ndash;&gt;-->
+<!--        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"></aop:advisor>-->
+<!--    </aop:config>-->
+
+</beans>

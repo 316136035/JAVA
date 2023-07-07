@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器对象模型</title>
+
+    <script type="text/javascript">
+        // 绑定单击事件
+        function show(){
+            // alert("点击按钮了...");
+            // History对象提供了方法
+
+            // 执行下一个url地址
+            // history.forward();
+
+            // 上一个地址
+            // history.back();
+
+            // 使用go的方法，去上一个或者下一个地址
+            // history.go(1);
+        }
+
+
+        function show2(){
+            // location对象，href的属性，设置或者获取当前地址栏的值
+            // 获取当前地址栏的值
+            // alert(location.href);
+
+            // 设置当前地址栏地址，跳转页面，省略了window对象没有写
+            location.href = "http://www.baidu.com";
+
+            // 省略了window对象没有写
+            // window.location.href = "";
+        }
+
+
+        // 模拟删除操作
+        function del(){
+            // 询问框
+            var flag = window.confirm("确定删除吗?");
+            // 判断
+            if(flag){
+                alert("删除成功");
+            }else{
+                alert("没有删除");
+            }
+        }
+
+        // 设置定时器生成id值
+        var timeid;
+        // 演示settimeout方法
+        function show3(){
+            // 设置定时器，2秒后会执行gogo方法，只会执行一次
+            timeid = window.setTimeout("gogo()",2000);
+        }
+        function gogo(){
+            alert("方法执行了...");
+            // 清除掉定时器
+            window.clearTimeout(timeid);
+        }
+
+        var timeid2;
+        // 演示setInterval方法
+        function show4(){
+            // 设置定时器，每隔3秒钟都会执行一次
+            timeid2 = window.setInterval("gogo2()",3000);
+        }
+
+        function gogo2(){
+            alert("方法执行了...");
+        }
+
+        // 清除定时器
+        function clear1(){
+            window.clearInterval(timeid2);
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <!--在按钮上绑定单击事件-->
+    <input type="button" value="history对象" onclick="show()"/>
+
+    <hr/>
+
+    <input type="button" value="Location对象" onclick="show2()"/>
+
+    <hr/>
+
+    <input type="button" value="删除" onclick="del()"/>
+
+    <hr/>
+
+    <input type="button" value="settimeout方法" onclick="show3()"/>
+
+    <hr/>
+
+    <input type="button" value="setInterval方法" onclick="show4()"/>
+    <input type="button" value="清除定时器" onclick="clear1()"/>
+
+</body>
+</html>

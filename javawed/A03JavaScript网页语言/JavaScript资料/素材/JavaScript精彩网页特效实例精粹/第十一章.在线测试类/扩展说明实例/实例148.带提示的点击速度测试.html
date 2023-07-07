@@ -1,0 +1,55 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var total = 0                                     // 初始化点击次数
+var play = false
+function display(element) 
+{
+var now = new Date()
+if (!play) {
+	play = true
+	startTime = now.getTime()
+}
+if (now.getTime() - startTime > 20000) {           // 如果超过20秒
+	element.checked = !element.checked             // 禁止点击操作
+if (total>=50){
+		alert("在20秒内您总共点击"+total+"次！\n您的点击速度还可以！")
+	}
+else
+	{
+		alert("在20秒内您总共点击"+total+"次！\n速度太慢了，必须提高了！")
+	} 
+	return
+}
+
+if (element.checked)                               // 点击1次总数加1
+	total++
+else
+	total--                                        // 否则减少
+	element.form.num.value = total                 // 总数显示到文本框中
+}
+function restart(form) {
+total = 0                                          // 重新开始
+play = false
+for (var i = 1; i <= 100; ++i) {                   // 初始化清空复选框
+	form.elements[i].checked = false
+}
+}
+// -->
+</SCRIPT>
+<CENTER>
+<form>
+测试时间20秒，当前点击<INPUT TYPE="text" VALUE="0" NAME="num" SIZE=10 onFocus="this.blur()">次<BR>
+<HR SIZE=1 WIDTH=200>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+for (var i = 0; i < 10; i++) {                       // 循环出行和列
+for (var j = 0; j < 10; j++) {
+document.write('<INPUT TYPE="checkbox" ');
+document.write('onClick="display(this)">')}
+document.write("<BR>")}
+// -->
+</SCRIPT>
+<HR SIZE=1 WIDTH=200>
+<INPUT TYPE="button" VALUE="restart" onClick="restart(this.form)">
+</FORM>
+</CENTER>

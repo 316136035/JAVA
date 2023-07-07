@@ -1,0 +1,34 @@
+
+<script language="JavaScript">
+<!--
+function clear(){
+   document.script.reset();
+}
+function clearcontent(){
+errstr="你是否确定清除内容?"
+if(confirm(errstr))
+   clear();
+else
+   return false;
+}	
+
+function test(){
+  {
+  temp = document.script.content.value;
+  testwin= open("", "测试","status=yes,menubar=yes,toolbar=no,scrollbars=yes");
+  testwin.document.open();
+  testwin.document.write(temp);
+ }
+}
+//-->
+</script>
+<form name="script">
+<center><textarea name="content" rows="16" cols="50"></textarea></center>
+
+<br>
+<p align=center>
+<input type="button" value=" 测试 " onClick="test()">&nbsp;&nbsp;
+
+<input type="button" value=" 清除 " onClick="clearcontent()">&nbsp;&nbsp;
+</p>
+</form>

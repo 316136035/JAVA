@@ -1,0 +1,50 @@
+<body bgcolor="#000000">
+<div style="position:absolute;width:322;height:14;border:1 #707888 solid;overflow:hidden">
+	<div style="position:absolute;top:-1;left:-150" id="pimg">
+	</div>
+</div>
+<div  style="position:absolute;top:30;left:120;font-size:9pt;color:#f4f4f4" id="aloading">
+Loading.............
+</div>
+<script language="javascript">
+<!--
+s=new Array();
+s[0]="#050626";
+s[1]="#0a0b44";
+s[2]="#0e11aa";
+s[3]="#1a1dff";
+s[4]="#141aff";
+s[5]="#1a1dff";
+s[6]="#0e11aa";
+s[7]="#0a0b44";
+s[8]="#050626";
+
+function str(){
+	if(pimg.style.pixelLeft<350){ 
+	pimg.innerHTML="";    
+	for(i=0;i<9;i++){     
+		pimg.innerHTML+="<input style=\"width:15;height:10;border:0;background:"+s[i]+";margin:1\">";
+	}
+	pimg.style.pixelLeft+=5;  
+	setTimeout("str()",1);   
+	}
+	else{
+	pimg.style.pixelLeft=-150; 
+	setTimeout("str()",1);
+	}
+}
+
+function flashs(){
+if(aloading.style.color=="#ffffff"){
+	aloading.style.color="#707888";  
+	setTimeout('flashs()',500);      
+	}
+else{
+	aloading.style.color="#ffffff";
+	setTimeout('flashs()',500);    
+	}
+}
+flashs();
+str();
+//-->
+</script>

@@ -1,0 +1,40 @@
+<script language="JavaScript">
+<!--
+var xmlHttp;
+
+function startRequest(){
+xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
+xmlHttp.onreadystatechange = handleStateChange;
+xmlHttp.open("GET", "193.xml", true);
+xmlHttp.send(null);
+}
+
+function handleStateChange(){ 
+if(xmlHttp.readyState == 4){ 
+if (xmlHttp.status == 200){   
+var xmlDOM = xmlHttp.responseXML;
+var root = xmlDOM.documentElement; 
+var out="<table width=300 border=1 style='border-collapse: collapse' bordercolor='#ADCBEF'><tr bgcolor='#cccc00'><td>ID</td><td>学校名称</td><td>时间</td><td>发布人</td></tr>" ;
+var north = root.getElementsByTagName('north'); 
+for (var i = 0; i < north.length; i++)         
+{
+    out = out + "<tr>";
+    out = out + "<td width=20 height=20>" + north[i].getElementsByTagName("id")[0].firstChild.data + "</td>";
+    out = out + "<td>" + north[i].getElementsByTagName("info")[0].firstChild.data + "</td>";
+    out = out + "<td width=60>" + north[i].getElementsByTagName("time")[0].firstChild.data + "</td>";
+    out = out + "<td width=40>" + north[i].getElementsByTagName("pe")[0].firstChild.data + "</td>";
+    out = out + "</tr>";
+}
+out = out + "</table>";
+var test = document.getElementById("test");
+test.innerHTML = out; 
+}
+}
+}
+//-->
+</script>
+<body onload="startRequest();">
+
+<div id="test"><span></span>
+</div>
+</body>

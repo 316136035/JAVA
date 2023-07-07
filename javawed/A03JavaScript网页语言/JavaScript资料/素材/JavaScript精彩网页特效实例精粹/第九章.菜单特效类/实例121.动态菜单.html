@@ -1,0 +1,182 @@
+<STYLE type=text/css>
+a{color: #333333; text-decoration: none}
+.alpha {
+	FILTER: Alpha(Opacity=80)
+}
+.td1 {
+	FONT-SIZE: 12px; FONT-FAMILY: "tahoma"
+}
+.td2 {
+	FONT-SIZE: 12px; CURSOR: hand; FONT-FAMILY: "tahoma"; BACKGROUND-COLOR: #cfe7ff
+}
+.maskl {
+	OVERFLOW: hidden
+}
+.cardtitle {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 12px; BORDER-LEFT: black 0px solid; CURSOR: default; TEXT-INDENT: 4pt; BORDER-BOTTOM: black 0px solid; FONT-FAMILY: "tahoma"
+}
+.cardbottom {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 0px solid; FILTER: Alpha(Opacity=90); BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #aa6699
+}
+</STYLE>
+<SCRIPT language=Javascript>
+<!--
+tBack=new Array(6); 
+tOut=new Array(6);
+
+function menuOut(i){
+var curMenu=eval("menu"+i);
+	curMenu.runtimeStyle.zIndex=6;
+	clearTimeout(tBack[i]);
+	moveOut(i);
+}
+
+function menuBack(i){ 
+var curMenu=eval("menu"+i);
+	curMenu.runtimeStyle.zIndex=curMenu.style.zIndex;
+	clearTimeout(tOut[i]);
+	moveBack(i);
+}
+
+function moveOut(i){    
+var curMenu=eval("menu"+i);
+	if(curMenu.style.posLeft>0) {
+		curMenu.style.posLeft-=2;                
+		tOut[i]=setTimeout("moveOut('"+i+"')",1);
+		}
+}
+
+function moveBack(i){         
+var curMenu=eval("menu"+i);
+	if(curMenu.style.posLeft<30) {
+		curMenu.style.posLeft+=2;               
+		tBack[i]=setTimeout("moveBack('"+i+"')",1);
+		}
+}
+
+function swapClass(){
+var swap=event.srcElement;
+	if(swap.className=="td1") swap.className="td2"
+		else if(swap.className=="td2") swap.className="td1";
+}
+document.onmouseover=swapClass;
+document.onmouseout=swapClass; 
+//-->
+</SCRIPT>
+<BODY>
+<DIV class=maskl id=menuPos style="Z-INDEX: 1; LEFT: 12px; WIDTH: 132px; POSITION: absolute; TOP: 14px; HEIGHT: 256px">
+
+<DIV id=menu1 onmouseover=menuOut(1) style="Z-INDEX: 1; LEFT: 30px; WIDTH: 130px; POSITION: absolute; TOP: 0px; HEIGHT: 20px" onmouseout=menuBack(1)>
+<DIV class=cardbottom id=Layer1 style="Z-INDEX: 1; LEFT: 0px; WIDTH: 100px; POSITION: absolute; TOP: 17px; HEIGHT: 115px">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=td1 align=middle>公共信息</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>部门信息</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>在线用户</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>讨论区</TD></TR>
+  <TR>
+    <TD> </TD></TR></TBODY></TABLE>
+</DIV>
+<TABLE cellSpacing=0 cellPadding=0 width=100 border=0>
+  <TBODY>
+  <TR>
+    <TD class=cardtitle width=86 bgColor=#aa6699 height=14>&nbsp;&nbsp;我的办公室</TD></TR></TBODY>
+</TABLE>
+</DIV>
+
+<DIV id=menu2 onmouseover=menuOut(2) style="Z-INDEX: 1; LEFT: 30px; WIDTH: 130px; POSITION: absolute; TOP: 20px; HEIGHT: 20px" onmouseout=menuBack(2)>
+<DIV class=cardbottom id=Layer2 style="Z-INDEX: 1; LEFT: 0px; WIDTH: 100px; POSITION: absolute; TOP: 17px; HEIGHT: 115px">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+          <TD class=td1 align=middle><a href="#" target="_blank">教学大纲</a></TD>
+        </TR>
+  <TR>
+    <TD class=td1 align=middle><a href="#" target="_blank">教学计划</a></TD></TR>
+  <TR>
+    <TD class=td1 align=middle><a href="#" target="_blank">教学总结</a></TD></TR>
+  <TR>
+    <TD class=td1 align=middle><a href="#" target="_blank">教学周历</a></TD></TR>
+  <TR>
+    <TD> </TD></TR></TBODY></TABLE></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width=100 border=0>
+  <TBODY>
+  <TR>
+    <TD class=cardtitle width=86 bgColor=#aa6699 
+  height=14>&nbsp;&nbsp;政务空间</TD></TR></TBODY></TABLE>
+</DIV>
+
+<DIV id=menu3 onmouseover=menuOut(3) style="Z-INDEX: 1; LEFT: 30px; WIDTH: 130px; POSITION: absolute; TOP: 40px; HEIGHT: 20px" onmouseout=menuBack(3)>
+<DIV class=cardbottom id=Layer3 style="Z-INDEX: 1; LEFT: 0px; WIDTH: 100px; POSITION: absolute; TOP: 17px; HEIGHT: 115px">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=td1 align=middle>即时通讯</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>快速搜索</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>在线音乐</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>校园新闻</TD></TR>
+  <TR>
+    <TD> </TD></TR></TBODY></TABLE></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width=100 border=0>
+  <TBODY>
+  <TR>
+    <TD class=cardtitle width=86 bgColor=#aa6699 
+  height=14>&nbsp;&nbsp;网络空间</TD></TR></TBODY></TABLE>
+ </DIV>
+
+<DIV id=menu4 onmouseover=menuOut(4) style="Z-INDEX: 1; LEFT: 30px; WIDTH: 130px; POSITION: absolute; TOP: 60px; HEIGHT: 20px" onmouseout=menuBack(4)>
+<DIV class=cardbottom id=Layer4 style="Z-INDEX: 1; LEFT: 0px; WIDTH: 100px; POSITION: absolute; TOP: 17px; HEIGHT: 115px">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=td1 align=middle>电子邮件</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>信访管理</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>电子贺卡</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>通讯录</TD></TR>
+  <TR>
+    <TD> </TD></TR></TBODY></TABLE></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width=100 border=0>
+  <TBODY>
+  <TR>
+    <TD class=cardtitle width=86 bgColor=#aa6699 height=14>&nbsp;&nbsp;个人事物</TD>
+  </TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id=menu5 onmouseover=menuOut(5) style="Z-INDEX: 1; LEFT: 30px; WIDTH: 130px; POSITION: absolute; TOP: 80px; HEIGHT: 134px" onmouseout=menuBack(5)>
+<DIV class=cardbottom id=Layer5 style="Z-INDEX: 1; LEFT: 0px; WIDTH: 100px; POSITION: absolute; TOP: 17px; HEIGHT: 115px">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" align=center 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=td1 align=middle>电话黄页</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>列车时刻</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>航空时刻</TD></TR>
+  <TR>
+    <TD class=td1 align=middle>世界时间</TD></TR>
+  <TR>
+    <TD> </TD></TR></TBODY></TABLE></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width=100 border=0>
+  <TBODY>
+  <TR>
+    <TD class=cardtitle width=86 bgColor=#aa6699 
+  height=14>&nbsp;&nbsp;办公助理</TD></TR></TBODY></TABLE>
+</DIV>
+</BODY>

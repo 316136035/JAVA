@@ -1,0 +1,22 @@
+
+<body onLoad="xunhuan();">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var meninfo=" >>>欢迎你能够来学习>>>";
+meninfo+=" >>>JavaScript是一门脚本语言>>>";
+
+var anch=50;
+
+function xunhuan(){
+document.forms[0].panel.value=meninfo.substring(meninfo.length-anch,meninfo.length);
+meninfo=meninfo.substring(meninfo.length-1,meninfo.length)+meninfo;
+meninfo=meninfo.substring(0,meninfo.length-1);
+setTimeout("xunhuan()",200);
+}
+
+// -->
+</SCRIPT>
+<form>
+<INPUT TYPE="text" NAME="panel" VALUE="" SIZE="50">
+</form>
+</body>

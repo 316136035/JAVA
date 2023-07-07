@@ -1,0 +1,36 @@
+<script type="text/javascript" language="JavaScript">
+<!--
+function GetResult()
+{
+    var xmlHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlHTTP.open("POST","196.asp",false);
+    xmlHTTP.send(null);
+    var strResult = unescape(xmlHTTP.responsetext);
+    tb.innerHTML = strResult;
+}
+function MyShow()
+{
+    timer = window.setInterval("GetResult()",1000);
+}
+
+function submit0(){
+var xmlHTTP =new ActiveXObject("Microsoft.XMLHTTP");
+xmlHTTP.open("GET","add.asp?liuyan="+ly.liuyan.value+"&jieshou="+ly.jieshou.value+"&content="+ly.content.value, true);
+xmlHTTP.send(null);
+ly.liuyan.value=""
+ly.jieshou.value=""
+ly.content.value=""
+} 
+//-->
+</script>
+
+<body onload="MyShow()">
+<p>无刷新聊天室</p>
+<span id=tb><img src="indicator.gif" align=absmiddle>&nbsp;数据加载中...</span>
+<form name=ly>
+留言人:<input type=text name=liuyan size=10><br>
+接收人:<input type=text name=jieshou size=10><br>
+内&nbsp;&nbsp;容:<textarea name=content cols=40 rows=10></textarea>
+<input type=button value="提交" name=b1 size=10 onclick="submit0();"><br>
+</form>
+</body>

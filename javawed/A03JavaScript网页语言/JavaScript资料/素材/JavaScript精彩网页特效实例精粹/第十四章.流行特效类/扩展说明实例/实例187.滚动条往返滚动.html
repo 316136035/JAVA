@@ -1,0 +1,58 @@
+<body bgcolor="#000000">
+<div style="position:absolute;width:322;height:14;border:1 #707888 solid;overflow:hidden">
+	<div style="position:absolute;top:-1;left:-150" id="pimg">
+	</div>
+</div>
+<div  style="position:absolute;top:30;left:120;font-size:9pt;color:#f4f4f4" id="aloading">
+Loading.............
+</div>
+<script language="javascript">
+<!--
+s=new Array();                 // 定义滚动条颜色变化数组
+s[0]="#050626";
+s[1]="#0a0b44";
+s[2]="#0e11aa";
+s[3]="#1a1dff";
+s[4]="#141aff";
+s[5]="#1a1dff";
+s[6]="#0e11aa";
+s[7]="#0a0b44";
+s[8]="#050626";
+var g=0;
+function str(){
+	if(pimg.style.pixelLeft<350&&g==0){         // 判断滚动条是否滚动到头
+	pimg.innerHTML="";                // 滚动条为空
+	for(i=0;i<9;i++){                 // 设定向前滚动
+		pimg.innerHTML+="<input style=\"width:15;height:10;border:0;background:"+s[i]+";margin:1\">";
+	}
+	pimg.style.pixelLeft+=5;          // 设定滚动速度
+	setTimeout("str()",1);            // 启动滚动
+	}
+	else{
+	g=1
+	pimg.innerHTML="";                // 滚动条为空
+	for(i=9;i>0;i--){                 // 设定向回滚动
+		pimg.innerHTML+="<input style=\"width:15;height:10;border:0;background:"+s[i]+";margin:1\">";
+	}
+	if (pimg.style.pixelLeft<-190){   // 判断重新滚动
+	g=0
+	}
+	pimg.style.pixelLeft-=5;          // 设定滚动速度
+	setTimeout("str()",1);            // 启动滚动
+	}
+}
+function flashs(){
+if(aloading.style.color=="#ffffff"){   // 判断loading文字颜色
+	aloading.style.color="#707888";    // 文字变色
+	setTimeout('flashs()',500);        // 实现文字闪烁效果
+	}
+else{
+	aloading.style.color="#ffffff";    // 文字变色
+	setTimeout('flashs()',500);        // 实现文字闪烁效果
+	}
+}
+flashs();
+str();
+//-->
+</script>
+</body>

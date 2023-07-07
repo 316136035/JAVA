@@ -1,0 +1,92 @@
+<script language="JAVASCRIPT">
+<!--
+function ClearForm(form){
+form.weight.value = "";   
+form.height.value = "";
+form.bmi.value = "";
+form.my_healthy.value = "";
+}
+
+function bmi(weight, height) {
+bmindx=weight/eval(height*height);   
+return bmindx;                 
+}
+
+function ClearFormbmicheckform(form) {   
+if (form.weight.value==null||form.weight.value.length==0 || form.height.value==null||form.height.value.length==0){
+alert("\n对不起！输入错误！");
+ return false;
+ }
+else if (parseFloat(form.height.value) <= 0|| parseFloat(form.height.value) >=500 || parseFloat(form.weight.value) <= 0 || parseFloat(form.weight.value) >=500){
+alert("\n这个机器可不是逞能的 \n快改正一下，再测试一遍");
+ClearForm(form);
+ return false;
+ }
+ return true;
+}
+
+function computeform(form) { 
+if (checkform(form)) {         
+yourbmi=Math.round(bmi(form.weight.value, form.height.value/100));
+form.bmi.value=yourbmi;
+if (yourbmi >30) {                                 // 进行则评价
+form.my_healthy.value="哪有这种身材,身材太胖了!";
+}
+else if (yourbmi >28 && yourbmi <=30) {      
+ form.my_healthy.value="你在不减肥就完蛋了！";
+}
+else if (yourbmi >25 && yourbmi <=28) { 
+form.my_healthy.value="您胖了?必须减肥了";
+}
+else if (yourbmi >23 && yourbmi <=25) {
+form.my_healthy.value="有点偏胖,需要锻炼了";
+}
+else if (yourbmi >=21 && yourbmi <=23) { 
+form.my_healthy.value="你目前是标准身材！";
+ }
+else if (yourbmi >=18 && yourbmi <21) { 
+ form.my_healthy.value="朋友，很明显你的营养不良(^_^)";
+ }
+ else if (yourbmi >=17 && yourbmi <18) { 
+ form.my_healthy.value="这个不是火柴杆吗?(^_^)";
+ }
+ else if (yourbmi <17) {
+ form.my_healthy.value="不能生存的";
+  }
+  }
+return;
+  }
+//-->
+</script>
+<form name="bmi" method="POST">
+<div align="center">
+  <center>
+  <table border="1" bordercolor="#888888" cellspacing="1" bgcolor="#cccccc" width="450">
+    <tr>
+      <td width="65"><div align="center"><center><p>体重(kg)  
+          </div>
+        </center></td>
+      <td align="center" width="64"><div align="center"><center><p>身高(cm)
+          </div>
+        </center></td>
+      <td align="center" width="55"><div align="center"><center><p>健康值
+          </div>
+        </center></td>
+      <td align="center" width="120"><div align="center"><center><p>计算机评价
+          </div>
+        </center></td>
+      <td align="center" width="65"><input TYPE="reset" VALUE="重 填" onClick="ClearForm(this.form)"> </td>
+    </tr>
+    <tr align="center">
+      <td width="65"><input TYPE="TEXT" NAME="weight" SIZE="6" onFocus="this.form.weight.value=''"></td>
+      <td width="64"><input TYPE="TEXT" NAME="height" SIZE="6" onFocus="this.form.height.value=''"></td>
+      <td width="55"><input TYPE="TEXT" NAME="bmi" SIZE="5"></td>
+      <td width="120"><input TYPE="TEXT" NAME="my_healthy" size="20"></td>
+      <td width="65"><input TYPE="button" VALUE="显 示" onClick="computeform(this.form)"></td>
+    </tr>
+  </table>
+  </center>
+</div>
+ <div align="center"><center><p>&nbsp; </p>
+ </center></div>
+</form>

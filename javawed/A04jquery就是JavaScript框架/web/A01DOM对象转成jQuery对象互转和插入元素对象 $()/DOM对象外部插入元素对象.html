@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对象外部插入元素对象</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+
+        function show() {
+          //  通过属性选择器获取到input元素对象
+          var user=  $("input[name='username']");
+            //user.val()获取到文本框输入的内容
+            var text=user.val();
+            //创建一个正则表达式
+            var  reg= new RegExp("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
+            //通过正则表达式测试字符串是否符合
+            var reg=reg.test( text);
+            var regb= reg?"可用!":"不符合条件";
+
+            //在input元素对象后面追加元素对象(before是前面)
+            $("input").before("<span>"+regb+"</span>");
+
+            //在input元素对象后面追加元素对象(after是后面)
+            $("input").after(  "<span>"+regb+"<span>");
+        }
+
+    </script>
+    <style type="text/css">
+        span{
+            color: crimson;
+        }
+
+    </style>
+</head>
+<body>
+<form method="post" action="##">
+    请输入手机号码： <input type="text" name="username"   onblur="show()">
+
+
+
+</form>
+
+
+
+</body>
+</html>

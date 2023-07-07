@@ -1,0 +1,29 @@
+<body>
+<script language=javascript>
+<!--
+messageinfo="希望大家学好这门语言！"
+Balises=""
+Taille=40;                
+Midx=100;                 
+Decal=0.6;                
+for (x=0;x<messageinfo.length;x++){
+  Balises=Balises + '<DIV Id=L' + x + ' STYLE="width:3;position:absolute;top:100;left:10">' + messageinfo.charAt(x) + '</DIV>'
+}
+document.write (Balises);
+window.setInterval("Minfo()",10);                 
+Alpha=5;
+
+function Minfo(){
+	Alpha=Alpha-0.05;
+	for (x=0;x<messageinfo.length;x++){
+		Alpha1=Alpha+Decal*x;
+		Cosine=Math.cos(Alpha1);
+		Ob=document.all("L"+x);
+		Ob.style.posLeft=Midx+100*Math.sin(Alpha1);
+		Ob.style.fontSize=Taille+25*Cosine;
+		Ob.style.color="rgb("+ (160+Cosine*80+50) + ","+ (50+Cosine*80+50) + ",0)";
+	}
+}
+// -->
+</script>
+</body>

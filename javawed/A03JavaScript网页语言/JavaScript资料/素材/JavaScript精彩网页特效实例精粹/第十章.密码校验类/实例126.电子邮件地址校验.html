@@ -1,0 +1,69 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+function Juge(theForm) 
+{ 
+if (theForm.email.value == "") 
+{
+alert("请您输入\"email\"!"); 
+theForm.email.focus(); 
+return (false); 
+}
+
+var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_@."; 
+var checkStr = theForm.email.value;
+var allValid = true; 
+
+for (i = 0; i < checkStr.length; i++)           
+{ 
+ch = checkStr.charAt(i);                        
+for (j = 0; j < checkOK.length; j++)          
+if (ch == checkOK.charAt(j))                  
+	break;                                
+	if (j == checkOK.length)
+	{ 
+		allValid = false; 
+		break;                    
+	} 
+} 
+
+if (theForm.email.value.length < 6)
+{ 
+allValid = false; 
+} 
+
+if (!allValid) 
+{ 
+alert("您输入的 \"电子邮件地址\" 无效!"); 
+theForm.email.focus(); 
+return (false); 
+} 
+
+address=theForm.email.value; 
+if(address.length>0) 
+{ 
+i=address.indexOf("@"); 
+if(i==-1) 
+{ 
+window.alert("对不起！您输入的电子邮件地址是错误的！")
+theForm.email.focus();
+return false; 
+} 
+p=address.indexOf(".") 
+if(p==-1) 
+{ 
+window.alert("对不起！您输入的电子邮件地址是错误的！") 
+theForm.email.focus(); 
+return false; 
+} 
+} 
+} 
+//-->
+</script> 
+<body> 
+<form method="post" onSubmit="return Juge(PostTopic)" name="PostTopic"> 
+电子邮件： 
+<input type="text" name="email" maxlength="30" size="25" style="border:1px double rgb(88,88,88);font:9pt"> 
+<input type="submit" name="Submit" value="提交"> 
+</form> 
+</body> 
+

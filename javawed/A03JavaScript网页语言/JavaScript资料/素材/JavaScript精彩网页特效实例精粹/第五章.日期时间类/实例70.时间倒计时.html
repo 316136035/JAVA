@@ -1,0 +1,28 @@
+<p align=center><font size=6 face="黑体"><b>2008年北京奥运会</b></font></p>
+<script language=JavaScript> 
+<!--
+var now = new Date();             
+
+function currenttime() 
+{ 
+var dtime = new Date("8/8/2008");    
+now.setTime(now.getTime()+100); 
+days = (dtime - now) / 1000 / 60 / 60 / 24;    
+daysRound = Math.floor(days); 
+hours = (dtime - now) / 1000 / 60 / 60 - (24 * daysRound);    
+hoursRound = Math.floor(hours); 
+minutes = (dtime - now) / 1000 /60 - (24 * 60 * daysRound) - (60 * hoursRound);    
+minutesRound = Math.floor(minutes); 
+if(minutesRound<=9)
+minutesRound="0"+minutesRound
+seconds = (dtime - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+secondsRound = Math.floor(seconds); 
+if(secondsRound<=9)
+secondsRound="0"+secondsRound
+time.innerHTML = daysRound + "天" +hoursRound + "小时" + minutesRound + "分" + secondsRound + "秒";    
+}
+setInterval("currenttime()",100); 
+//-->
+</script> 
+<p align=center>距离2008年8月8日还有<span id="time"></span></p>
+

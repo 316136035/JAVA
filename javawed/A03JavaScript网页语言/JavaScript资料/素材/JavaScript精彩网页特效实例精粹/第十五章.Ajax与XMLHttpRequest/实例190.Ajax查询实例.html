@@ -1,0 +1,43 @@
+<script language="JavaScript">
+<!--
+var xmlHttp;
+
+function startRequest(){
+xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
+xmlHttp.onreadystatechange = handleStateChange;
+xmlHttp.open("GET", "190.xml", true);
+xmlHttp.send(null);
+}
+
+function handleStateChange(){ 
+if(xmlHttp.readyState == 4){ 
+if (xmlHttp.status == 200){   
+var xmlDOM = xmlHttp.responseXML;
+var root = xmlDOM.documentElement; 
+var out="<table width=300 border=1 style='border-collapse: collapse' bordercolor='#ADCBEF'><tr bgcolor='#cccc00'><td>ID</td><td>城市名称</td><td>区号</td><td>省份</td></tr>" ;
+var quhao = root.getElementsByTagName('quhao'); 
+for (var i = 0; i < quhao.length; i++)
+{
+    if (quhao[i].getElementsByTagName("city")[0].firstChild.data.indexOf(document.search.searchtext.value)!=-1){ 
+    out = out + "<tr>";
+    out = out + "<td width=20 height=20>" + quhao[i].getElementsByTagName("id")[0].firstChild.data + "</td>";
+    out = out + "<td>" + quhao[i].getElementsByTagName("city")[0].firstChild.data + "</td>";
+    out = out + "<td width=50>" + quhao[i].getElementsByTagName("qh")[0].firstChild.data + "</td>";
+    out = out + "<td width=60>" + quhao[i].getElementsByTagName("pre")[0].firstChild.data + "</td>";
+    out = out + "</tr>";
+    }
+}
+out = out + "</table>";
+var test = document.getElementById("test");
+test.innerHTML = out; 
+}
+}
+}
+//-->
+</script>
+<body>
+<form name=search>
+城市区号查询：<input type=text name=searchtext size=15>&nbsp;<input type=button name=b1 value="查询" onclick="startRequest();"></form><br><br>
+<div id="test"><span></span>
+</div>
+</body>

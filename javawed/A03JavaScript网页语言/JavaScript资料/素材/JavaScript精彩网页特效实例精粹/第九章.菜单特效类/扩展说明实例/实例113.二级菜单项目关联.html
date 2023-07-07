@@ -1,0 +1,46 @@
+<FORM name=dweb>
+<P align=center>
+<SELECT name=lianjie1 onchange= "redirect(this.options.selectedIndex)">
+<OPTION selected>校园网</OPTION>
+<OPTION>国内网站</OPTION> 
+<OPTION>国外网站</OPTION></SELECT>
+<SELECT name=lianjie2 size=1>
+<OPTION selected value="http://www.hlju.edu.cn">黑龙江大学</OPTION>
+<OPTION value="http://210.46.103.2">教务办公网</OPTION>
+<OPTION value="http://210.46.102.123">校园网</OPTION>
+<OPTION value="http://210.46.103.1">教学在线</OPTION>
+<OPTION value="http://210.46.104.50">现代教育技术中心</OPTION><INPUT name=test onclick=go() type=button value=确定></P>
+<SCRIPT language=JavaScript>
+<!--  
+var groups=document.dweb.lianjie1.options.length             // select选项数目
+var group=new Array(groups)                                  // 定义数组
+for (i=0; i<groups; i++)  
+group[i]=new Array()  
+group[0][0]=new Option("黑龙江大学","http://www.hlju.edu.cn")   // 数组项目内容 
+group[0][1]=new Option("教务办公网","http://210.46.103.2")  
+group[0][2]=new Option("校园网","http://210.46.102.123")  
+group[0][3]=new Option("教学在线","http://210.46.103.1")  
+group[0][4]=new Option("现代教育技术中心","http://125.223.0.6")  
+group[1][0]=new Option("新浪网","http://www.sina.com.cn")  
+group[1][1]=new Option("网易","http://www.163.com")  
+group[1][2]=new Option("搜狐","http://www.sohu.com")  
+group[1][3]=new Option("百度", "http://www.baidu.com")  
+group[1][4]=new Option("中国人", "http://www.chinaren.com")  
+group[2][0]=new Option("惠普","http://www.hp.com")  
+group[2][1]=new Option("IBM网站","http://www.ibm.com")  
+group[2][2]=new Option("微软","http://www.microsoft.com")
+var temp=document.dweb.lianjie2
+
+function redirect(x){                                  // 显示二级菜单内容
+for (m=temp.options.length-1;m>0;m--)
+	for (i=0;i<group[x].length;i++){  
+		temp.options[i]=new Option(group[x][i].text,group[x][i].value)
+// 显示相应项目
+	} 
+}
+function go(){  
+	location=temp.options[temp.selectedIndex].value                // 链接指向
+}
+
+//-->
+</SCRIPT></FORM>

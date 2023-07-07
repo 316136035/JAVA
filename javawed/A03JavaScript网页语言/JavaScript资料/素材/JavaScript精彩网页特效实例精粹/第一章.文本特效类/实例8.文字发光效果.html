@@ -1,0 +1,49 @@
+<span id="theText" style="width:100%">
+<h2>JavaScript</h2>
+</span>
+<script language="javascript">
+<!--
+var from = 5;             
+var to = 11;              
+var delay = 55;           
+var CColor = "#fc4919";
+var i = to;
+var j = 0;
+textDown();
+function textUp()
+{
+if (!document.all)        
+return
+if (i < to)
+{
+theText.style.filter = "Glow(Color=" + CColor + ", Strength=" + i + ")";
+i++;
+setTimeout('textUp()',delay);             
+return;
+}
+if (i = to)
+{
+setTimeout('textDown()',delay);           
+return;
+}
+}
+
+function textDown()
+{
+if (!document.all)
+return
+if (i > from)
+{
+theText.style.filter = "Glow(Color=" + CColor + ", Strength=" + i + ")";
+i--;
+setTimeout('textDown()',delay);            
+return;
+}
+if (i = from)
+{
+setTimeout('textUp()',delay);              
+return;
+}
+}
+//-->
+</script>

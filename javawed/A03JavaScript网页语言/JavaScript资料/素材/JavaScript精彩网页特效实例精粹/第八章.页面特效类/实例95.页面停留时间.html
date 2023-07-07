@@ -1,0 +1,27 @@
+<script language="JAVASCRIPT">
+<!--
+var time_start = new Date();          
+var clock_start = time_start.getTime();
+
+function get_time_spent ()
+{ 
+var time_now = new Date();              
+return((time_now.getTime() - clock_start)/1000); 
+}
+
+function show_secs ()
+{ 
+var total_secs = Math.round(get_time_spent());    
+var secs_spent = total_secs % 60;
+var mins_spent = Math.round((total_secs-30)/60); 
+var secs_spent = "" + ((secs_spent>9) ? secs_spent : "0" + secs_spent);   
+var mins_spent = "" + ((mins_spent>9) ? mins_spent : "0" + mins_spent);   
+document.form0.time_spent.value = mins_spent + ":" + secs_spent;          
+setTimeout('show_secs()',1000); 
+}
+setTimeout('show_secs()',1);
+// -->
+</script>
+
+<FORM name="form0" onSubmit="0">你在本页面的停留时间:
+<INPUT type="text" name="time_spent" size=7 onFocus="this.blur()"></FORM>

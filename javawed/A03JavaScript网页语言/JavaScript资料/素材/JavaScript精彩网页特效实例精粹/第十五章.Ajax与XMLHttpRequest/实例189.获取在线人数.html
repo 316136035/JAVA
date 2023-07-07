@@ -1,0 +1,20 @@
+<script language="JavaScript">
+<!--
+function GetResult()
+{
+    var oBao = new ActiveXObject("Microsoft.XMLHTTP");
+    oBao.open("POST","189.txt",false);
+    oBao.send();
+    var strResult = unescape(oBao.responseText);
+        tb.innerText = strResult;
+        }
+function MyShow()
+{
+    timer = window.setInterval("GetResult()",1000);
+}
+//-->
+</script>
+
+<body onload="MyShow()">
+当前在线用户为<span id=tb>0</span>人
+</body>

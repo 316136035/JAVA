@@ -1,0 +1,33 @@
+<body onload="shan();">
+<script language="JAVASCRIPT">
+<!--
+     colors2 = new Array(6); 
+     colors2[0]="#000000";
+     colors2[1]="#ff0000";
+     colors2[2]="#ffff00";
+     colors2[3]="#00ffff";
+     colors2[4]="#0000ff";
+     colors2[5]="#cccccc";
+
+     var i=0;
+     function shan() {
+             line2.style.visibility = "visible";
+             if (i<6) {
+                     line2.style.color = colors2[i];
+                     i++;
+                     setTimeout( "shan()", 50);
+             }
+             else {
+             i=0;
+             line2.style.visibility="hidden";
+             setTimeout("shan()",1000);
+             }
+       }
+//-->
+</script>
+
+     <div id=line2 style="container:positioned; position=relative; width=50%; height=10%; ;font-size=35px; visibility=hidden;">
+     JavaScript
+     </div>
+
+</body>

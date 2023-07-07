@@ -1,0 +1,19 @@
+<body onLoad="xunhuan();">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var meninfo=" >>>欢迎你能够来学习>>>";
+meninfo+=" >>>JavaScript是一门脚本语言>>>";
+var anch=50;                                       // 定义文本长度
+function xunhuan(){
+document.forms[0].panel.value=meninfo.substring(meninfo.length-anch,meninfo.length);
+                                                   // 文本框中写入相应的内容
+meninfo=meninfo.substring(meninfo.length-1,meninfo.length)+meninfo;
+meninfo=meninfo.substring(0,meninfo.length-1);
+setTimeout("xunhuan()",200);                       // 循环显示时间延迟控制
+}
+// -->
+</SCRIPT>
+<form>
+<INPUT TYPE="text" NAME="panel" VALUE="" SIZE="50" style="border: 0 solid #FFFFFF">
+</form>
+</body>

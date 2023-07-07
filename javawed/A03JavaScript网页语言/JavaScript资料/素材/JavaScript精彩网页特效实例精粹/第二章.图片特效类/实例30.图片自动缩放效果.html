@@ -1,0 +1,12 @@
+<SCRIPT language=JavaScript>
+<!--
+function bimg(pic){ 
+var zoom=parseInt(pic.style.zoom, 10)||100;
+zoom+=event.wheelDelta/12;
+if (zoom>0) 
+pic.style.zoom=zoom+'%'; 
+return false;
+}
+//-->
+</script>
+<img SRC="010.jpg" border=0 onmousewheel="return bimg(this)">

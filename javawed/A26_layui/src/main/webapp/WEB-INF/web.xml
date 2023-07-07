@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+
+    <servlet>
+        <servlet-name>JdlistServer</servlet-name>
+        <servlet-class>A01_Server服务器.JdlistServer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JdlistServer</servlet-name>
+        <url-pattern>/JdlistServer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServerSelectEmp</servlet-name>
+        <servlet-class>A01_Server服务器.ServerSelectEmp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServerSelectEmp</servlet-name>
+        <url-pattern>/ServerSelectEmp</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>Servlet_Add_Delete_Update_Emp
+        </servlet-name>
+        <servlet-class>A01_Server服务器.Servlet_Add_Delete_Update_Emp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet_Add_Delete_Update_Emp</servlet-name>
+        <url-pattern>/Servlet_Add_Delete_Update_Emp</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+    <!--    设置默认打开页面-->
+    <welcome-file-list>
+        <welcome-file>layui.jsp</welcome-file>
+    </welcome-file-list>
+
+
+    <!--    过滤器-->
+    <filter>
+        <filter-name>A01_Filter过滤器处理中文乱码</filter-name>
+        <filter-class>Filter.A01_Filter过滤器处理中文乱码</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>A01_Filter过滤器处理中文乱码</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+
+    <!--    配置jsp引入中文乱码问题-->
+<!--    <jsp-config>-->
+<!--        <jsp-property-group>-->
+<!--            <display-name>Html</display-name>-->
+<!--            <url-pattern>*.html</url-pattern>-->
+<!--            <page-encoding>UTF-8</page-encoding>-->
+<!--        </jsp-property-group>-->
+<!--        <jsp-property-group>-->
+<!--            <display-name>Jsp</display-name>-->
+<!--            <url-pattern>*.jsp</url-pattern>-->
+<!--            <page-encoding>UTF-8</page-encoding>-->
+<!--        </jsp-property-group>-->
+<!--        <jsp-property-group>-->
+<!--            <display-name>Js</display-name>-->
+<!--            <url-pattern>*.js</url-pattern>-->
+<!--            <page-encoding>UTF-8</page-encoding>-->
+<!--        </jsp-property-group>-->
+<!--    </jsp-config>-->
+</web-app>

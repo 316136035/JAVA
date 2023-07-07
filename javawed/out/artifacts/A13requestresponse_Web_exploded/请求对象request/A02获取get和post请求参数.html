@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post传参.html</title>
+</head>
+<body>
+<p>get传参方式</p>
+<a href="../A02获取get和post请求参数?user=name&pass=word">传参给获取get和post的请求参数</a>
+
+
+<p>post传参方式</p>
+
+<form method="post" action="../A02获取get和post请求参数">
+    用户名: <input type="text" name="username"><br>
+    密码: <input type="password" name="password"><br>
+    <!--id=?? 后台是获取不到的-->
+    <!--<input type="text" id="username">-->
+    <p> 爱好:</p><br>
+    <input type="checkbox" name="like" value="java">java
+    <input type="checkbox" name="like" value="php">php
+    <input type="checkbox" name="like" value="python">python
+    <input type="checkbox" name="like" value="c++">c++
+    <input type="checkbox" name="like" value="sql">sql
+
+    单选框:<input type="radio" name="sex">男
+    <input type="radio" name="sex">女<br>
+
+
+    <input type="submit" value="提交">
+</form>
+
+
+</body>
+</html>

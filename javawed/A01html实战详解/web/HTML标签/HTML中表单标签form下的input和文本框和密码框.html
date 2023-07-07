@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中表单标签form</title>
+</head>
+<body>
+<form action="表单提交的服务器地址" method="post"><!--method:提交方式 post,get 推荐使用post-->
+    用户名: <input type="text" name="username" id="username" size="40" value="请在这里输入用户名"><br>
+    密码:<input type="password" name="password" id="password" size="40" value="admin"><br>
+    提交 <input type="submit">
+
+</form>
+
+</body>
+</html>
+
+<!--表单标签：form-->
+<!--属性：-->
+<!--action:表单提交的目的地。默认是当前页。-->
+<!--html,jsp,servlet,.do,.action-->
+<!--method:提交方式 post,get 推荐使用post-->
+
+<!--子标签：-->
+<!--input-->
+<!--属性：type 表单元素的类型 默认的是文本框类型。-->
+
+<!--文本框：-->
+<!--type="text" 表示这是一个文本框-->
+<!--name="username" 将来用于服务器取值使用-->
+<!--id="username" 将来用于js获取值使用-->
+<!--size="40" 用于控制文本框的长度,能存储的字符的个数-->
+<!--value="请在这里输入用户名" 是文本框的默认值，一般用于提示。-->
+<!--readonly="readonly" 是标记属性，告诉文本框我是只读的。本身没有值，-->
+<!--但是为了符合新的规范，属性必须有值，所以，-->
+<!--我们就把它的值和属性设置为一样的。可以通过表单提交获得到值-->
+<!--disabled=”disabled” 把当前文本框变成灰色，不能修改只能看，不能通过表单来获得到值的-->
+<!--隐藏域：type=”hidden”, 要设置name和value-->
+<!--密码框：-->
+<!--type="password" 表示这是一个密码框-->
+<!--name="password" 将来用于服务器取值使用-->
+<!--id="password" 将来用于js获取值使用-->
+<!--size="40" 用于控制密码框的长度-->
+<!--value="admin" 默认密码-->
+<!--readonly="readonly" 是标记属性只能读-->

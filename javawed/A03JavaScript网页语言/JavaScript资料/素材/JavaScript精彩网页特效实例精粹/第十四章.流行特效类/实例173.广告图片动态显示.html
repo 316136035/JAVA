@@ -1,0 +1,21 @@
+<body>
+<div id="divpic"></div>
+<script language="javascript">
+<!--
+pic = new Array();                     
+pic[0] = "<img src=11.jpg border=0>";
+pic[1] = "<img src=22.jpg border=0>";
+pic[2] = "<img src=33.jpg border=0>";
+pic[3] = "<img src=44.jpg border=0>";
+pic[4] = "<img src=55.jpg border=0>";
+
+var page;                          
+function turnpic(){
+page = Math.round(Math.random() * 4);   
+divpic.innerHTML=pic[page];             
+setTimeout("turnpic()", 1000);        
+}
+turnpic();
+//-->
+</script>
+</body>

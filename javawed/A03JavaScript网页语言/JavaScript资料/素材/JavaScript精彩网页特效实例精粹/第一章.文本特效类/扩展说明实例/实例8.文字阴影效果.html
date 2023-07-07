@@ -1,0 +1,50 @@
+<span id="theText" style="width:100%">
+<h2>JavaScript</h2>
+</span>
+<script language="javascript">
+<!--
+var from = 5;                 // 设定效果范围开始部分
+var to = 11;                  // 设定效果范围结束部分
+var delay = 55;               // 设定文字变化速度
+var glowColor = "#fc4919";    // 设定颜色
+var i = to;
+var j = 0;
+textDown();
+function textUp()
+{
+if (!document.all)            // 判断是否是IE浏览器
+return
+if (i < to)
+{
+theText.style.filter = "dropshadow(Color=" + glowColor + ",offx=" + i + ",offy=" + i + " positive=1)"; 
+// 文字设定效果
+i++;
+setTimeout('textUp()',delay);                  // 设定延迟
+return;
+}
+if (i = to)
+{
+setTimeout('textDown()',delay);                // 设定延迟
+return;
+}
+}
+function textDown()
+{
+if (!document.all)
+return
+if (i > from)
+{
+theText.style.filter = "dropshadow(Color=" + glowColor + ",offx=" + i + ",offy=" + i + " positive=1)"; 
+// 文字设定效果
+i--;
+setTimeout('textDown()',delay);                // 设定延迟
+return;
+}
+if (i = from)
+{
+setTimeout('textUp()',delay);                  // 设定延迟
+return;
+}
+}
+//-->
+</script>

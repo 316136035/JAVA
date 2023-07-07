@@ -1,0 +1,31 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function DriveList()                  
+{
+var folder=document.Drive.Name.options[document.Drive.Name.selectedIndex].value;      
+document.frames['Computer'].location.href = folder;  
+}
+function FolderChoose()                   
+{
+var location=document.UserLocation.FolderLocation.value;      
+document.frames['Computer'].location.href = location;       
+}
+//-->
+</script>
+<FORM NAME="Drive">
+<P><font size="2">选择一个盘符: </font>
+<SELECT NAME="Name" onChange="DriveList();">
+<OPTION VALUE="C:\">C:\ Drive</OPTION>
+<OPTION VALUE="D:\">D:\ Drive</OPTION>
+<OPTION VALUE="E:\">E:\ Drive</OPTION>
+<OPTION VALUE="F:\">F:\ Drive</OPTION>
+</SELECT>
+</FORM>
+<FORM NAME="UserLocation">
+<P><font size="2">直接输入路径: </font>
+<INPUT TYPE="text" name="FolderLocation" length="25" size="20">
+<INPUT TYPE="button" value="打开" onClick="FolderChoose();"></P>
+<P><font size="2">示例: C:\Program Files\Internet Explorer</font></P>
+</FORM>
+<IFRAME NAME="Computer" SRC="about:blank" WIDTH="100%" HEIGHT="60%"></IFRAME>
+</CENTER>

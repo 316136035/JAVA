@@ -1,0 +1,15 @@
+
+<OBJECT ID="DAControl" onerror="alert('您的系统未安装DirectX')" STYLE="position:absolute; left:200; top:125; width:350; height:300; z-index: -1" CLASSID="CLSID:B6FFC24C-7E13-11D0-9B47-00C04FC2F51D">
+</OBJECT>
+<DIV ID="oDiv" STYLE="WIDTH:250; FILTER:redirect">
+<P><IMG SRC="xing.gif"></P>
+</DIV>
+<SCRIPT LANGUAGE="JScript">
+<!--
+oLib = DAControl.MeterLibrary;
+oFilter = oDiv.filters[0];
+oImage = oFilter.elementImage();
+DAControl.Image = oImage.Transform(oLib.Rotate2RateDegrees(50)) ;  
+DAControl.Start();
+//-->
+</SCRIPT>

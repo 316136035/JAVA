@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对象选择框实例</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        function 右移() {
+            //通过组合选择器获取到元素 selectid='select1' 的全部option"
+            $("select[id='select1'] option").each(function () {
+                //获取到每一个元素的属性
+                var selected = $(this).attr("selected");
+                //判断每一个元素的属性是否selected（选中）
+                if (selected == "selected") {
+                    //    通过组合选择器获取到元素 selectid='select2'   并把原有的元素剪到selectid='select2'的元素中
+                    $("select[id='select2'] ").append($(this))
+                }
+
+            })
+
+        }
+
+
+
+        function 左移() {
+
+            // $("select[id='select2'] option:selected").appendTo("select[id='select2']")
+            //通过组合选择器获取到元素 selectid='select2' 的全部option"
+            $("select[id='select2'] option").each(function () {
+                //获取到每一个元素的属性
+                var selected = $(this).attr("selected");
+                //判断每一个元素的属性是否selected（选中）
+                if (selected == "selected") {
+                    //    通过组合选择器获取到元素 selectid='select1'   并把原有的元素剪切selectid='select1'的元素中
+                    $("select[id='select1'] ").append($(this))
+                }
+            })
+
+        }
+        function 全部右移() {
+            //通过组合选择器获取到元素 selectid='select1' 的全部option"   全部剪切select[id='select2']
+            $("select[id='select1'] option").appendTo("select[id='select2']")
+
+        }
+        function 全部左移() {
+            //通过组合选择器获取到元素 selectid='select2' 的全部option" 全部剪切select[id='select1']
+            $("select[id='select2'] option").appendTo("select[id='select1']")
+
+        }
+
+    </script>
+
+    <style>
+        select {
+            width: 120px;
+            height: 150px;
+        }
+
+
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <!--这个下拉选择框  设置平铺-->
+            <select multiple="multiple" id="select1">
+                <option>菜单管理</option>
+                <option>部门管理</option>
+                <option>员工管理</option>
+                <option>库存管理</option>
+            </select>
+
+
+        </td>
+
+        <td>
+
+            <input type="button" value="→" onclick="右移()"><br>
+            <input type="button" value="←" onclick="左移()"><br>
+            <input type="button" value="→→" onclick="全部右移()"><br>
+            <input type="button" value="←←"onclick="全部左移()"><br>
+
+
+        </td>
+
+
+        <td>
+            <!--这个下拉选择框  设置平铺-->
+            <select multiple="multiple" id="select2">
+
+            </select>
+
+        </td>
+
+    </tr>
+
+
+</table>
+
+
+</body>
+</html>

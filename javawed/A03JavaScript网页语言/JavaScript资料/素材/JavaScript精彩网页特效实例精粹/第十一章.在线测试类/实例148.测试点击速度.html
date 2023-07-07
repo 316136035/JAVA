@@ -1,0 +1,57 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var total = 0                               
+var play = false
+function testspeed(element) 
+{
+var now = new Date()
+if (!play) {
+	play = true
+	startTime = now.getTime()
+}
+if (now.getTime() - startTime > 20000) {        
+	element.checked = !element.checked        
+	alert("在20秒内您总共点击"+total+"次！")
+
+	return
+}
+if (element.checked)                             
+	total++
+else
+	total--                                 
+
+	element.form.num.value = total    
+}
+
+function restart(form) {
+total = 0                          
+play = false
+for (var i = 1; i <= 100; ++i) { 
+	form.elements[i].checked = false
+}
+}
+// -->
+</SCRIPT>
+</head>
+<body>
+
+<CENTER>
+<form>
+测试时间20秒，当前点击<INPUT TYPE="text" VALUE="0" NAME="num" SIZE=10 onFocus="this.blur()">次<BR>
+<HR SIZE=1 WIDTH=200>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+for (var i = 0; i < 10; i++) {                 // 循环出行和列
+for (var j = 0; j < 10; j++) {
+document.write('<INPUT TYPE="checkbox" ');
+document.write('onClick="testspeed(this)">')}
+document.write("<BR>")}
+// -->
+</SCRIPT>
+<HR SIZE=1 WIDTH=200>
+<INPUT TYPE="button" VALUE="restart" onClick="restart(this.form)">
+</FORM>
+</CENTER>
+</body>
+

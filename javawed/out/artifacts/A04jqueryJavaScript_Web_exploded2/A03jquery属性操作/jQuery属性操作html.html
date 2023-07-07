@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性操作html</title>
+
+        <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        function show() {
+            //获取div下的全部元素对象
+            var vv=$("div").html();
+            alert(vv)
+
+
+        }
+        function show1() {
+            //这个是会把div下面的元素替换掉
+            var vv=$("div").html( "<a href='https://www.baidu.com/?tn=87135040_1_oem_dg'>设置元素对象 </a>");
+        }
+
+
+    </script>
+</head>
+<body>
+<div>
+    <p>123</p>
+   <h1>456</h1>
+    <ps>111111<h2>2222</h2></ps>
+
+    <h1>设置元素对象</h1>
+
+</div>
+<input type="button" value="获取div下的全部元素对象" onclick="show() ">
+<input type="button" value="设置元素对象" onclick="show1() ">
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<p align="center"><font color="#0000ff">把鼠标悬停到图片上看效果</font></p>
+<div align="center">
+<center>
+<p><font color="#ff0000">看看一般的提示框:</font><br><br>
+<a href="#" title="欢迎读者学习这门语言"><img src="javascript.gif" border=0></a>
+</p>
+</center>
+</div>
+<p align="center"><font color="#ff0000">再看看特殊的提示框:</font>
+</p>
+<p align="center"><a href="#" onMouseOver="showtip('优秀的出版社，为读者尽心编写的一本书!')" onMouseOut="hidetip()"><img src="javascript_1.gif" border=0></a><br>
+</p><font style="font-size: 9pt;">
+<div ID="tip" style="position:absolute;visibility:hidden;width:160px;background-color:eedddd;height:19px;left:77px;top:96px">
+</div>
+<SCRIPT language=JavaScript>
+<!--
+function showtip(text)                             // 显示链接的说明
+{
+if(document.all)                                   // 判断IE
+{
+document.all.tip.innerHTML="<marquee>"+text+"</marquee>"
+document.all.tip.style.pixelLeft=event.clientX+document.body.scrollLeft+10
+document.all.tip.style.pixelTop=event.clientY+document.body.scrollTop+10
+document.all.tip.style.visibility="inherit"
+}
+}
+function hidetip()                                 
+{
+if(document.all)
+document.all.tip.style.visibility="hidden"         //隐藏提示文字框
+}
+//-->
+</script></font>

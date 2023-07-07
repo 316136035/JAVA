@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery克隆元素对象</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        function clone1() {
+           // 获取到div元素对象
+           var  div= $(".class1");
+            // 克隆div元素对象
+           var 克隆= div.clone();
+            //在 div元素后面添加(克隆的div元素对象)  在元素设置中的事件可以复制,
+            div.after(克隆)
+        }
+
+
+        $(function () {
+            $("div").click(function () {
+                alert("我被点击了...")
+            })
+        })
+
+
+        function clone2() {
+          //  这种方法的复制是不带事件的(要带事件请 var clone=  $(".div").clone(true))
+          var clone=  $(".div").clone(true)
+            $(".div").after(clone)
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <style type="text/css">
+
+        .class1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid hotpink;
+        }
+    </style>
+</head>
+<body>
+<div class="class1">
+    <p>jQuery复制元素对象</p>
+</div>
+<!--这种在标签中的事件会被复制下来-->
+<input type="button" value="复制" onclick=clone1()>
+<hr>
+<!--这种在标签中的事件不会被复制下来(clone(true)就可以复制下来)-->
+ <div class="div" >
+     <p>我是被复制的</p>
+ </div>
+<input type="button" value="复制2" onclick="clone2()" >
+
+
+</body>
+</html>

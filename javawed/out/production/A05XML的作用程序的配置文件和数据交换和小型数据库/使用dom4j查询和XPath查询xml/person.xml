@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+	<person id="person1" gender="男">
+		<name>鲁智深</name>
+		<age>30</age>
+		<address>五台山</address>
+	</person>
+	<person id="person2" gender="女">
+		<name>扈三娘</name>
+		<age>20</age>
+		<address>祝家庄</address>
+	</person>
+	<person id="person3" gender="男">
+		<name>宋江</name>
+		<age>30</age>
+		<address>山东郓城</address>
+	</person>
+</persons>

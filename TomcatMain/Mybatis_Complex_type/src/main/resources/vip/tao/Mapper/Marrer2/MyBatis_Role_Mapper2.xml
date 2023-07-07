@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 绑定接口-->
+<mapper namespace="vip.tao.Mapper.Marrer2.MyBatis_Role_Mapper2">
+
+    <!--通过一对多子查询用户-->
+    <!--    id="接口的方法名 resultType="返回类型"  resultMap="复杂类型" parameterType="传参数类型" # 使用别名请先在mybatis-config.xml中配置-->
+   <select id="getMybatis_Role2_List" resultMap="Mybatis_Role2_User2">
+    select * from MyBatis.role where Dep_id=#{id}
+   </select>
+    <!--   id="复杂类型结果集映射" resultType="返回类型"  -->
+<resultMap id="Mybatis_Role2_User2" type="mybatis_Role2">
+    <result property="dept_Id" column="Dep_id"></result>
+    <result property="rolename" column="rolename"></result>
+    <!--处理对象用association， 处理集合用collection-->
+    <!--  property="实体类的字段"     （处理对象用javaType="实体类" 处理集合用ofType+"实体类" select="在查询" ）  -->
+    <collection property="user2List"   column="Dep_id" javaType="ArrayList"  ofType="Mybatis_User2" select="Mybatis_User2"></collection>
+</resultMap>
+    <select id="Mybatis_User2" resultMap="Mybatis_User2">
+        select * from MyBatis.user where Dep_id=#{id}
+    </select>
+    <!--   id="复杂类型结果集映射" resultType="返回类型"  -->
+    <resultMap id="Mybatis_User2" type="Mybatis_User2">
+        <!--  property="实体类的字段"     （处理对象用javaType="实体类中的属性类型" 处理集合用ofType="实体类"）  -->
+        <result property="User_id" column="User_id"></result>
+        <result property="User_name" column="User_name"></result>
+        <result property="User_password" column="User_password"></result>
+        <result property="Creation_time" column="Creation_time"></result>
+        <result property="Updated_by" column="Updated_by"></result>
+        <result property="Update_time" column="Update_time"></result>
+    </resultMap>
+
+
+    <!--通过一对多链表查询用户-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型" # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="getMybatis_Linked_Role2_List" resultMap="mybatis_Role" parameterType="_int">
+        <!--获取传参的参数#{userId} -->
+        SELECT * FROM MyBatis.role,MyBatis.user WHERE role.Dep_id = user.Dep_id AND  role.Dep_id=#{id}
+    </select>
+    <resultMap id="mybatis_Role" type="mybatis_Role2">
+        <result property="dept_Id" column="Dep_id"></result>
+        <result property="rolename" column="rolename"></result>
+        <!--处理对象用association， 处理集合用collection-->
+        <!--  property="实体类的字段"     （处理对象用javaType="实体类" 处理集合用ofType+"实体类"）  -->
+        <collection property="user2List"  ofType="Mybatis_User2">
+            <!--  property="实体类的字段"     （处理对象用javaType="实体类中的属性类型" 处理集合用ofType="实体类"）  -->
+            <result property="User_id" column="User_id"></result>
+            <result property="User_name" column="User_name"></result>
+            <result property="User_password" column="User_password"></result>
+            <result property="Creation_time" column="Creation_time"></result>
+            <result property="Updated_by" column="Updated_by"></result>
+            <result property="Update_time" column="Update_time"></result>
+        </collection>
+    </resultMap>
+
+
+</mapper>
+

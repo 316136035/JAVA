@@ -1,0 +1,83 @@
+<SCRIPT language=javascript>
+<!--
+function ch_bgs()                 
+{
+BGM.src=document.myform.musicname.options[document.myform.musicname.selectedIndex].value;  
+}
+function ch_tab_color()
+{
+var source=event.srcElement;
+if (source.tagName=="IMG")
+	{
+	main_table.style.backgroundColor="#"+source.alt;           
+	document.myform.mailmasg.style.backgroundColor="#"+source.alt;
+	
+	}
+}
+
+function wri()
+{
+masg_chk = document.myform.mailmasg.value.indexOf("«Î‘⁄’‚¿Ô ‰»Î∫ÿ¥ !");
+if (masg_chk==0)
+	{
+	document.myform.mailmasg.value="";
+	}
+}
+
+function ch_word_color(){    
+var source=event.srcElement;
+if (source.tagName=="IMG")
+	{
+	document.myform.mailmasg.style.color="#"+source.alt;
+	}
+}
+
+//-->
+</SCRIPT>
+<STYLE type=text/css>
+textarea { font-family: "Arial", "Helvetica", "sans-serif"; font-size: 9pt;background-color: #FFCACA; border-style: none; clip:  rect(   ); overflow: auto;  border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;}
+</STYLE>
+
+<BGSOUND ID=BGM LOOP=INFINITE src=>
+<form name="myform">
+<table>
+<tr>
+<td id="main_table" bgcolor="#FFCACA" ><textarea name="mailmasg" style="color:91278F" rows="8" cols="60" onFocus="wri()">«Î‘⁄’‚¿Ô ‰»Î∫ÿ¥ !
+________________________________________
+________________________________________
+________________________________________
+________________________________________
+</textarea></td>
+</tr>
+ <tr>
+ <td align=center>
+    <table width="100%">
+         <tr> <td ><font color=#000000>&nbsp;±≥æ∞—’…´</font ></td>
+              <td>
+	        <div class="bgimages" onClick="ch_tab_color()">
+                 <p> <img src="images/c1_01.gif" width="10" height="10" alt="FDDFD7"><img src="images/c_01.gif" width="10" height="10" alt="F7977A"><img src="images/c_02.gif" width="10" height="10" alt="FBAD82"><img src="images/c_03.gif" width="10" height="10" alt="FDC68C"><img src="images/c_04.gif" width="10" height="10" alt="FFF799"><img src="images/c_05.gif" width="10" height="10" alt="C6DF9C"><img src="images/c_25.gif" width="10" height="10" alt="00BFF3"><img src="images/c_44.gif" width="10" height="10" alt="2F3192"><img src="images/c_45.gif" width="10" height="10" alt="652C91"><img src="images/c_46.gif" width="10" height="10" alt="91278F"><img src="images/c_47.gif" width="10" height="10" alt="ED008C"><img src="images/c_48.gif" width="10" height="10" alt="EE105A"><img src="images/c_33.gif" width="10" height="10" alt="EE1D24"></p>
+		</div>
+		</td>
+		<td><font color=#000000>&nbsp;◊÷ÃÂ—’…´</font > </td>
+		<td>
+		<div class="bgimages" onClick="ch_word_color()">
+ 		<p> <img src="images/c1_01.gif" width="10" height="10" alt="FDDFD7"><img src="images/c_01.gif" width="10" height="10" alt="F7977A"><img src="images/c_02.gif" width="10" height="10" alt="FBAD82"><img src="images/c_03.gif" width="10" height="10" alt="FDC68C"><img src="images/c_04.gif" width="10" height="10" alt="FFF799"><img src="images/c_05.gif" width="10" height="10" alt="C6DF9C"><img src="images/c_25.gif" width="10" height="10" alt="00BFF3"><img src="images/c_44.gif" width="10" height="10" alt="2F3192"><img src="images/c_45.gif" width="10" height="10" alt="652C91"><img src="images/c_46.gif" width="10" height="10" alt="91278F"><img src="images/c_47.gif" width="10" height="10" alt="ED008C"><img src="images/c_48.gif" width="10" height="10" alt="EE105A"><img src="images/c_33.gif" width="10" height="10" alt="EE1D24"></p>
+		</div>
+		</td>
+	</tr>
+	<tr><td height=10 ></td></tr>
+	<tr><td colspan=4>&nbsp;<font color=#000000>—°‘Ò±≥æ∞“Ù¿÷</font>
+         <select name="musicname" onChange="ch_bgs();">
+	<option value=""><----—°‘ÒœµÕ≥Ã·π©±≥æ∞“Ù¿÷----></option>
+	<option value="images/“Ù¿÷1.mid">“Ù¿÷1</option>
+	<option value="images/“Ù¿÷2.mid">“Ù¿÷2</option>
+	<option value="images/“Ù¿÷3.mid">“Ù¿÷3</option>
+	<option value="images/“Ù¿÷4.mid">“Ù¿÷4</option>
+	</select>
+         </td>
+	</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>

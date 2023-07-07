@@ -1,0 +1,82 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var oRange;           
+var intCount = 0;      
+var intTotalCount = 0; 
+
+function fnSearch() {        
+ var strBeReplaced;
+ var strReplace;
+ strBeReplaced = fm1.searchtext.value; 
+ strReplace = fm1.replacetext.value; 
+ fnNext();
+ fm1.content.focus();  
+ oRange = fm1.content.createTextRange(); 
+
+ for (i=1; oRange.findText(strBeReplaced)!=false; i++) {
+  if(i==intCount){   
+   oRange.select();     
+   oRange.scrollIntoView();
+   break;
+  }
+  oRange.collapse(false);
+ }
+}
+
+function fnNext(){ 
+ if (intCount > 0 && intCount < intTotalCount){
+  intCount = intCount + 1;
+ }
+ else{
+  intCount = 1 ;
+ }
+}
+
+function init(){
+
+ var oRange ;
+ var strBeRepalced;
+
+ oRange = fm1.content.createTextRange();  
+ strBeReplaced = fm1.searchtext.value;   
+
+ for (i=0; oRange.findText(strBeReplaced)!=false; i++) {
+     oRange.collapse(false);          
+ }
+ intTotalCount = i ;
+}
+
+function fnReplace(){    
+ var strReplace; 
+ strReplace = fm1.replacetext.value; 
+
+ if(oRange!= null && typeof(oRange)=="object" && intTotalCount > 0){
+  oRange.text = strReplace;
+  intCount = intCount - 1;
+  intTotalCount = intTotalCount - 1;
+  oRange = null;
+ }
+}
+//-->
+</SCRIPT>
+
+<body onload="init()">
+<form METHOD=POST name="fm1">
+<table>
+<tr>
+<td>
+<textarea NAME="content" ROWS="10" COLS="35">
+欢迎大家学习javascript这门脚本语言!
+欢迎大家学习javascript这门脚本语言!
+欢迎大家学习javascript这门脚本语言!
+欢迎大家学习javascript这门脚本语言!
+欢迎大家学习javascript这门脚本语言!
+</textarea></td><td valign=top>输入要查找的信息:<br>
+<input name="searchtext" value="javascript"><br>
+输入要替换的信息:<br>
+<input name="replacetext" value="vbscript"><br>
+<input type="button" value="查找" onclick="fnSearch()">
+<input type="button" value="替换" onclick="fnReplace()"></td></tr></table>
+</FORM>
+</body>

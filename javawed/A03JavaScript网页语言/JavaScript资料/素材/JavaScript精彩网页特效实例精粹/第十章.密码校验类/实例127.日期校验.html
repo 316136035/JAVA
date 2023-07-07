@@ -1,0 +1,33 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+function checkDate(obj)        
+{
+var strDate=obj.value;
+re=/\d{4}\/\d{2}\/\d{2}/g
+if(re.test(strDate))
+{
+	var DateArray=strDate.split("/");
+	var dateElement=new Date(DateArray[0],parseInt(DateArray[1])-1,DateArray[2]);      
+	if(!((dateElement.getYear()==parseInt(DateArray[0]))&&((dateElement.getMonth()+1)==parseInt(DateArray[1]))&&(dateElement.getDate()==parseInt(DateArray[2])))) 
+	{
+		alert("不符合时间逻辑")
+		obj.value='';
+	}
+	else
+	{
+		alert("输入格式正确")
+	}
+}
+else
+{
+	alert("格式输入错误")
+	obj.value='';
+}
+
+}
+//-->
+</script> 
+
+输入日期格式为：YYYY/MM/DD&nbsp;&nbsp;&nbsp;&nbsp;<input type=text name=time1 ><input type=button name=b1 value="验证" onclick=checkDate(time1)>
+

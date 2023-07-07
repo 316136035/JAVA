@@ -1,0 +1,17 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function jiami()     
+{ 
+var Senc=new ActiveXObject("Scripting.Encoder");    
+var code='<SCRIPT LANGUAGE="JavaScript">\r\n' + document.form1.c1.value + '\r\n</SCRIPT>'; 
+var Encode=Senc.EncodeScriptFile(".html",code,0,"");  
+document.form1.c2.value = Encode
+}
+//-->
+</SCRIPT>
+<form name=form1>
+<textarea name=c1 cols=60 rows=4></textarea><br>
+<input type=button value=¼ÓÃÜ onclick="jiami()"><br>
+<textarea name=c2 cols=60 rows=4></textarea>
+</form>
+

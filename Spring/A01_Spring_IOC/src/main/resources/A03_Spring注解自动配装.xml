@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="Cat"    class="vip.tao.A05_IOC_三种装配benans.A05_A03_Spring注解自动装配.A05_A03_Cat"></bean>
+    <bean id="Dog"    class="vip.tao.A05_IOC_三种装配benans.A05_A03_Spring注解自动装配.A05_A03_Dog"></bean>
+    <bean id="Person" class="vip.tao.A05_IOC_三种装配benans.A05_A03_Spring注解自动装配.A05_A03_Person"></bean>
+
+<!-- 开启注解自动注入（xml配置文件要引入
+xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation= http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+）-->
+    <context:annotation-config/>
+
+</beans>

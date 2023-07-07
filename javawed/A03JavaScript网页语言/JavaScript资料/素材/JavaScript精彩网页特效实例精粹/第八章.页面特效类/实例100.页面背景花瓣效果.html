@@ -1,0 +1,21 @@
+<script Language="javascript">
+<!--
+function a(x,y,color)             
+{document.write("<img border='0' style='position: absolute; left: "+(x+300)+"; top: "+(y+200)+";background-color: "+color+"' src='px.gif' width=2 height=2>")}
+//-->
+</script>
+<script Language="javascript">
+<!--
+for(t=1;t<=360;t++){         
+lo=150*Math.sin(2*(Math.PI/180)*t);
+x = lo*Math.cos((Math.PI/180)*t); 
+y = lo*Math.sin((Math.PI/180)*t);
+a(x,y,"#ff0000");
+
+lo=150*Math.cos(2*(Math.PI/180)*t);
+x = lo*Math.cos((Math.PI/180)*t); 
+y = lo*Math.sin((Math.PI/180)*t); 
+a(x,y,"#00ffff");
+}
+//-->
+</script>

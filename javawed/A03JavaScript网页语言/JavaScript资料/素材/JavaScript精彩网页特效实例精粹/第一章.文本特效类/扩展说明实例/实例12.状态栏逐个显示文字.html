@@ -1,0 +1,19 @@
+<SCRIPT language="JavaScript">
+<!--
+var i=0;                                         // 初始化变量
+var out="";
+function scrollit() {
+var m1 = "欢迎大家学习JAVASCRIPT这门语言！";
+var msg=m1;
+out+=msg.substring(i,i+1);                       // 显示文字累加
+window.status=out;                               // 状态栏显示文字
+i++
+if (i>=msg.length)                              // ml中文字是否显示完成
+{i=0;
+out="";}
+window.setTimeout("scrollit()",200);            // 每200毫秒执行此函数一次
+}
+//-->
+</SCRIPT>
+<body onLoad="scrollit()">
+</body>

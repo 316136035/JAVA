@@ -1,0 +1,46 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var Color= new Array(16);   
+Color[1] = "ff";
+Color[2] = "ee";
+Color[3] = "dd";
+Color[4] = "cc";
+Color[5] = "bb";
+Color[6] = "aa";
+Color[7] = "99";
+Color[8] = "88";
+Color[9] = "77";
+Color[10] = "66";
+Color[11] = "55";
+Color[12] = "44";
+Color[13] = "33";
+Color[14] = "22";
+Color[15] = "11";
+Color[16] = "00";
+
+function fadeIn(where) {
+if (where >= 1) {           
+	document.bgColor="#" + Color[where] +"0000";
+	where -= 1;                     
+	setTimeout("fadeIn("+where+")", 50); 
+} 
+else {
+	setTimeout('fadeOut(1)', 50);        
+}
+}
+
+function fadeOut(where) {
+if (where <=16) {         
+	document.bgColor="#" + Color[where] +"0000"; 
+	where += 1;                    
+	setTimeout("fadeOut("+where+")", 50)  
+} 
+else {
+	setTimeout("fadeIn(16)", 50);         
+}
+}
+//-->
+</SCRIPT>
+<body onLoad="fadeIn(16)"> 
+<font color="#ffffff">±³¾°ÔÚ²»¶ÏµÄÉÁË¸</font>
+</body>

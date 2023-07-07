@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选练习</title>
+    <script type="text/javascript">
+   function 全选() {
+       //获取每一个复选框
+      var doc=document.getElementsByName("车");
+       for(var i=0;i<doc.length;i++){
+         (doc[i]).checked=true;
+       }
+   }
+
+
+   function 全不选() {
+       //获取每一个复选框
+       var doc=document.getElementsByName("车");
+       for(var i=0;i<doc.length;i++){
+           (doc[i]).checked=false;
+       }
+   }
+
+   function 反选() {
+       //获取每一个复选框
+       var doc=document.getElementsByName("车");
+       for(var i=0;i<doc.length;i++){
+
+         var b= (doc[i]).checked;
+           if (b==true)
+           {
+               (doc[i]).checked=false;
+           }else {
+               (doc[i]).checked=true;
+           }
+
+
+
+       }
+   }
+    </script>
+</head>
+<body>
+<input type="checkbox" id="1" name="车">宝马
+<input type="checkbox" id="2"name="车">奔驰
+<input type="checkbox" id="3"name="车"checked="checked">大众
+<input type="checkbox" id="4"name="车"checked="checked">单车<br>
+
+<input type="button" value="全选" onclick="全选()">
+<input type="button" value="全不选" onclick="全不选()">
+<input type="button" value="反选" onclick="反选()"><br>
+
+
+</body>
+</html>

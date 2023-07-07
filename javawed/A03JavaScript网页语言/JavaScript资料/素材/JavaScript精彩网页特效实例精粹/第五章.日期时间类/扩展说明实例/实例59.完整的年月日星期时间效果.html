@@ -1,0 +1,36 @@
+<table bgcolor="#000000" align=center>
+	<tr>
+		<td><div id="lclock"></div></td>
+	</tr>
+</table>
+<SCRIPT language="JavaScript">
+<!--
+function webclock()
+{
+var dataobj=new Date()                                  // 创建对象
+var day;   
+var date;
+   if(dataobj.getDay()==0)     day = "星期日"          // 判断星期几
+   if(dataobj.getDay()==1)     day = "星期一"
+   if(dataobj.getDay()==2)     day = "星期二"
+   if(dataobj.getDay()==3)     day = "星期三"
+   if(dataobj.getDay()==4)     day = "星期四"
+   if(dataobj.getDay()==5)     day = "星期五"
+   if(dataobj.getDay()==6)     day = "星期六"
+var hours=dataobj.getHours()                           // 建立getHours()方法
+var minutes=dataobj.getMinutes()                       // 建立getMinutes()方法
+var seconds=dataobj.getSeconds()                       // 建立getSeconds()方法
+var years=dataobj.getYear()                            // 建立getYear()方法
+var Months=dataobj.getMonth()                          // 建立getMonth()方法
+var dates=dataobj.getDate()                            // 建立getDate()方法
+if(minutes<=9)
+minutes="0"+minutes                      // 如果分钟小于等于9则前面加0，变成09
+if(seconds<=9)
+seconds="0"+seconds                      // 如果秒小于等于9则前面加0，变成09
+myclock="<font size='7' color='#ffffff' face='Arial black'>" + years  + "年" + (Months + 1 ) + "月" + dates + "日"  + day +hours+":"+minutes+":"+seconds+"</font>"
+lclock.innerHTML=myclock; 
+setTimeout("webclock()",1000)                      // 每1秒执行webclock()函数
+}
+webclock();                                        // 启动时钟
+//-->
+</SCRIPT>

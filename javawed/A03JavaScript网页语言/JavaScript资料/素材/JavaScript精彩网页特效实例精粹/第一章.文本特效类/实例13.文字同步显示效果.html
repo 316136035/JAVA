@@ -1,0 +1,32 @@
+<Script language="javascript">
+<!--
+ var m="请 您 认 真 学 习 J A V A S C R I P T 这 门 语 言 ！ "
+ var a=""
+ i=0
+ s=0
+
+function scrollit() {
+   i++
+   if(i>m.length) {
+     i=1
+   }
+   if(m.substring(i-1,i)==" ") {
+     if(s==0) {
+       s=1;
+     }
+     else {
+       s=0;
+     }
+   }
+   a=m.substring(0,i)
+   document.forms[0].elements[s].value=a
+   setTimeout("scrollit()",100)
+ }
+ //-->
+ </script>
+<body onload=scrollit()>
+ <form name="msg">
+ <input type="text" size=50 name="mesg1"><br>
+ <input type="text" size=50 name="mesg2">
+ </form>
+</body>

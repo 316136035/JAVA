@@ -1,0 +1,65 @@
+<style>
+<!--
+#iewrap{
+position:relative;
+height:30px
+}
+#iewrap2{
+position:absolute
+}
+#dropmenu03{
+filter:revealTrans(Duration=0.5,Transition=22)
+visibility:hide 
+}
+a:hover {  color: #FF0000}
+body {  font-family: "宋体"; font-size: 9pt; text-decoration: none}
+a { font-family: "宋体"; font-size: 9pt; text-decoration: none}
+-->
+</style>
+<layer id="dropmenu01" height=35px>
+<layer id="dropmenu02" visibility=show>
+<span id="iewrap">
+<input type=button id="iewrap2" value="国内网站导航" onClick="dropit2();" style="background-color:#cccccc;border:1px solid black;">
+</span>
+</layer>
+</layer>
+<script language="JavaScript">
+<!--
+var selection=new Array()          // 定义链接数组
+selection[0]='<a href="http://www.sina.com.cn">新浪网</a><br>'
+selection[1]='<a href="http://www.sohu.com">搜狐</a><br>'
+selection[2]='<a href="http://www.163.com">网易</a><br>'
+selection[3]='<a href="http://www.yahoo.com.cn">雅虎</a><br>'
+selection[4]='<a href="http://www.china.com">中华网</a>'
+function dropit2(){
+if (document.all){
+dropmenu03.style.left=document.body.scrollLeft+event.clientX-event.offsetX-4
+// 菜单显示的位置
+dropmenu03.style.top=document.body.scrollTop+event.clientY-event.offsetY+17
+// 菜单显示的位置
+if (dropmenu03.style.visibility=="hidden"){       // 当菜单隐藏时
+dropmenu03.filters.revealTrans.apply()            // 应用效果
+dropmenu03.style.visibility="visible"             // 显示图层
+dropmenu03.filters.revealTrans.play()             // 设置播放
+}
+else{
+hidemenu()                                        // 隐藏图层
+}
+}
+}
+function hidemenu(){
+dropmenu03.filters.revealTrans.stop()
+dropmenu03.style.visibility="hidden"
+}
+//-->
+</script>
+<div id="dropmenu03" style="position:absolute;left:0;top:0;layer-background-color:#cccccc;background-color:#cccccc;width:115;visibility:hidden;border:1px solid black;padding:0px">
+<script language="JavaScript">
+<!--
+if (document.all)                          // 判断IE浏览器
+dropmenu03.style.padding='4px'
+for (i=0;i<selection.length;i++)           // 循环链接数组
+document.write(selection[i])               // 写入链接信息
+//-->
+</script>
+</div>

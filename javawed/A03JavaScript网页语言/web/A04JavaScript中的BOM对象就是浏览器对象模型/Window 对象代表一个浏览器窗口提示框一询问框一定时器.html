@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window 对象代表一个浏览器窗口或一个框架</title>
+   <script type="text/javascript">
+
+       function show() {
+           //这是一个提示框
+           window.alert("这是一个提示框");
+       }
+       function show1() {
+           //这是询问框
+           var r=confirm("是否删除");
+           if (r==true)
+           {
+              alert("删除成功")
+           }
+           else
+           {
+               alert("没有删除!")
+           }
+
+       }
+
+
+
+
+   </script>
+
+</head>
+<body>
+<input value="提示框" type="button" onclick="show()" >
+<input value="询问框" type="button" onclick="show1()" >
+
+
+</body>
+</html>
+
+<!--Window 对象的方法
+方法 描述 IE F O
+alert() 显示带有一段消息和一个确认按钮的警告框。 4 1 9
+blur() 把键盘焦点从顶层窗口移开。 4 1 9
+clearInterval() 取消由 setInterval() 设置的 timeout。 4 1 9
+clearTimeout() 取消由 setTimeout() 方法设置的 timeout。 4 1 9
+close() 关闭浏览器窗口。 4 1 9
+confirm() 显示带有一段消息以及确认按钮和取消按钮的对话框。 4 1 9
+createPopup() 创建一个 pop-up 窗口。 4 No No
+focus() 把键盘焦点给予一个窗口。 4 1 9
+moveBy() 可相对窗口的当前坐标把它移动指定的像素。 4 1 9
+moveTo() 把窗口的左上角移动到一个指定的坐标。 4 1 9
+open() 打开一个新的浏览器窗口或查找一个已命名的窗口。 4 1 9
+print() 打印当前窗口的内容。 5 1 9
+prompt() 显示可提示用户输入的对话框。 4 1 9
+resizeBy() 按照指定的像素调整窗口的大小。 4 1 9
+resizeTo() 把窗口的大小调整到指定的宽度和高度。 4 1.5 9
+scrollBy() 按照指定的像素值来滚动内容。 4 1 9
+scrollTo() 把内容滚动到指定的坐标。 4 1 9
+setInterval() 按照指定的周期（以毫秒计）来调用函数或计算表达式。 4 1 9
+setTimeout() 在指定的毫秒数后调用函数或计算表达式。 4 1 9
+-->

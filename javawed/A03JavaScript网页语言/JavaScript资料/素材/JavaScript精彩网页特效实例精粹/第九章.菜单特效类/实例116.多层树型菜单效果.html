@@ -1,0 +1,91 @@
+<STYLE type=text/css>
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: "宋体"
+}
+</STYLE>
+
+<script language="javascript">
+<!--
+function treebr0(i){
+obj=eval('d'+i)
+objimage=eval('image'+i)
+if (obj.style.display == "none"){  
+	obj.style.display='block';
+	objimage.src="jian.gif";
+}
+else{
+	obj.style.display='none';  
+	objimage.src="jia.gif";
+}
+}
+//-->
+</script>
+<table cellSpacing=0 cellPadding=0 width=200 border=0 STYLE='cursor:hand' onclick="javascript:treebr0(1);">
+	<tr>
+		<td><img src="jia.gif" id=image1>我的办公室</td>
+	</tr>
+</table>
+<table cellSpacing=0 cellPadding=0 width=200 border=0 id=d1 style="display='none'">
+	<tr>
+		<td STYLE='cursor:hand' onclick="javascript:treebr0(11);">&nbsp;&nbsp;<img src="jia.gif" id=image11>公共信息</td>
+	</tr>
+	<tr>
+		<td>
+			<table cellSpacing=0 cellPadding=0 border=0 id=d11 style="display='none'">
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<img src="shi.gif">信息发布</td>
+			</tr>
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<img src="shi.gif">信息修改</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;<img src="shi.gif">公文包</td>
+	</tr>
+	<tr>
+		<td STYLE='cursor:hand' onclick="javascript:treebr0(12);">&nbsp;&nbsp;<img src="jia.gif" id=image12>电子邮件</td>
+	</tr>
+	<tr>
+		<td>
+			<table cellSpacing=0 cellPadding=0 border=0 id=d12 style="display='none'">
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<img src="shi.gif">写邮件</td>
+			</tr>
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<img src="shi.gif">收件夹</td>
+			</tr>
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<img src="shi.gif">寄件夹</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<br>
+<table cellSpacing=0 cellPadding=0 width=200 border=0 STYLE='cursor:hand' onclick="javascript:treebr0(2);">
+	<tr>
+		<td><img src="jia.gif" id=image2>办公助理</td>
+	</tr>
+</table>
+<table cellSpacing=0 cellPadding=0 width=200 border=0 id=d2 style="display='none'">
+	<tr>
+		<td STYLE='cursor:hand' onclick="javascript:treebr0(22);">&nbsp;&nbsp;<img src="jia.gif" id=image22>列车时刻</td>
+	</tr>
+	<tr>
+		<td>
+			<table cellSpacing=0 cellPadding=0 border=0 id=d22 style="display='none'">
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<img src="shi.gif">添加</td>
+			</tr>
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<img src="shi.gif">删除</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;<img src="shi.gif">航班时刻</td>
+	</tr>
+</table>

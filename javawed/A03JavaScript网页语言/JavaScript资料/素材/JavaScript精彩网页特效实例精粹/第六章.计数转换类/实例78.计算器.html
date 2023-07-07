@@ -1,0 +1,154 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var Number1 = "";
+var Number2 = "";
+var NewNumber = "blank";
+var opvalue = "";
+
+function Display(displaynumber) {
+document.calculator.answer.value = displaynumber;
+}
+
+function ClearCalc() {              // 清空
+Number1 = "";
+Number2 = "";
+NewNumber = "blank";
+Display("");
+}
+
+
+function CheckNumber(answer) {         // 显示数字
+if(answer == ".") {
+Number = document.calculator.answer.value;
+if(Number.indexOf(".") != -1) {
+answer = "";
+   }
+}
+if(NewNumber == "yes") {
+Number2 += answer;
+Display(Number2);
+}
+else {
+if(NewNumber == "blank") {
+Number1 = answer;
+Number2 = "";
+NewNumber = "no";
+}
+else {
+Number1 += answer;
+}
+Display(Number1);
+   }
+}
+
+function AddButton(x) {                // 加法函数
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) + parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '+';
+Display(Number1);
+}
+
+function SubButton(x) {                // 减法函数
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) - parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '-';
+Display(Number1);
+}
+
+function MultButton(x) {               // 乘法
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) * parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '*';
+Display(Number1);
+}
+function DivButton(x) {                // 除法
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) / parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '/';
+Display(Number1);
+}
+
+function SqrtButton() {                // 平方按钮
+Number1 = Math.sqrt(Number1);
+NewNumber = "blank";
+Display(Number1);
+}
+
+function RecipButton() {                // 分数
+Number1 = 1/Number1;
+NewNumber = "blank";
+Display(Number1);
+}
+function NegateButton() {                // 正负值
+Number1 = parseFloat(-Number1);
+NewNumber = "no";
+Display(Number1);
+}
+function EqualButton() {
+if(opvalue == '+') AddButton(0);          // 加法
+if(opvalue == '-') SubButton(0);          // 减法
+if(opvalue == '*') MultButton(0);         // 乘法
+if(opvalue == '/') DivButton(0);          // 除法
+Number2 = "";
+opvalue = "";
+}
+// -->
+</script>
+<form name="calculator">
+<table bgcolor="#777777" width=220>
+<tr><td>
+<table bgcolor="#aaaaaa" border=1>
+<tr><td>
+<table border=0 cellpadding=0>
+<tr>
+                    <td bgcolor="#000000" align=center><font color="#ffffff"><b>计&nbsp;算&nbsp;器</b></font></div>
+                    </td>
+                  </tr>
+<tr><td>
+<table width="100%" border=0>
+<tr><td colspan=6><input type="text" name="answer" size=37 maxlength=37 onChange="CheckNumber(this.value)"></td></tr>
+<tr>
+<td><input type="button" name="calc7" value="  7  " onClick="CheckNumber('7'); return false;"></td>
+<td><input type="button" name="calc8" value="  8  " onClick="CheckNumber('8'); return false;"></td>
+<td><input type="button" name="calc9" value="  9  " onClick="CheckNumber('9'); return false;"></td>
+<td><input type="button" name="divide"  value="  /  " onClick="DivButton(1); return false;"></td>
+<td><input type="reset" name="C" value="  C  " onClick="ClearCalc(); return false;"></td></tr>
+<tr>
+<td><input type="button" name="calc4" value="  4  " onClick="CheckNumber('4'); return false;"></td>
+<td><input type="button" name="calc5" value="  5  " onClick="CheckNumber('5'); return false;"></td>
+<td><input type="button" name="calc6" value="  6  " onClick="CheckNumber('6'); return false;"></td>
+<td><input type="button" name="multiply"  value="  *  " onClick="MultButton(1); return false;"></td>
+<td><input type="button" name="sqrt" value=" sqrt" onClick="SqrtButton(); return false;"></td></tr>
+<tr>
+<td><input type="button" name="calc1" value="  1  " onClick="CheckNumber('1'); return false;"></td>
+<td><input type="button" name="calc2" value="  2  " onClick="CheckNumber('2'); return false;"></td>
+<td><input type="button" name="calc3" value="  3  " onClick="CheckNumber('3'); return false;"></td>
+<td><input type="button" name="minus"  value="  -  " onClick="SubButton(1); return false;"></td>
+<td><input type="button" name="recip" value=" 1/x " onClick="RecipButton(); return false;"></td></tr>
+<tr>
+<td><input type="button" name="calc0" value="  0  " onClick="CheckNumber('0'); return false;"></td>
+<td><input type="button" name="negate" value=" +/- " onClick="NegateButton(); return false;"></td>
+<td><input type="button" name="dot" value="  .  " onClick="CheckNumber('.'); return false;"></td>
+<td><input type="button" name="plus"  value="  +  " onClick="AddButton(1); return false;"></td>
+<td><input type="button" name="equal"  value="  =  " onClick="EqualButton(); return false;"></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</form>

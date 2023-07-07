@@ -1,0 +1,19 @@
+<script language="JavaScript">
+<!--
+function logout()
+{
+  ht = document.getElementsByTagName("body"); 
+  ht[0].style.filter = "progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)"; // 定义body的灰度
+  errstr="你确定要退出吗?\n\n";
+  if(confirm(errstr)){                        
+  	return true
+  }else{
+  	ht[0].style.filter = ""; 
+    return false;
+  }  
+}
+-->
+</script>
+<body>
+<a href="#" onclick="logout();"><b>退出系统</b></a>
+</body>

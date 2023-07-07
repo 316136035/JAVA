@@ -1,0 +1,21 @@
+<script type="text/javascript" language="JavaScript">
+<!--
+function Result()
+{
+var xmlHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlHTTP.open("POST","194.asp",false);
+    xmlHTTP.send(null); 
+    var strResult = unescape(xmlHTTP.responsetext); 
+    tb.innerHTML = strResult;
+}
+function Show()
+{
+    timer = window.setInterval("Result()",1000);
+}
+
+//-->
+</script>
+
+<body onload="Show()">
+<span id=tb><img src="indicator.gif" align=absmiddle>&nbsp;数据库信息加载中...</span>
+</body>

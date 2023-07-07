@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    HandlerMapping是SpringMVC中用于处理映射器，为用户的请求寻找合适的HandlerAdapte处理程序-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+    <!--简单调度员控制器HandlerAdapte处理程序适配器-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+
+    <!--    视图解释器:DispatcherServlet可调度的Servlet（控制器）给他的 ModelAndView-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="InternalResourceViewResolver">
+        <!--        字符串拼接前缀-->
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <!--        字符串拼接后缀-->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <!-- 创建后端处理id="/请求地址" class="创建后端处理路径"-->
+    <bean id="/HelloController1" class="vip.tao.A01_Spring_xml配置_xml.controller.HelloController1"></bean>
+</beans>

@@ -1,0 +1,18 @@
+<script language="JavaScript">
+<!--
+function winshake(n) {                            
+for (i = 10; i > 0; i--) {        
+for (j = n; j > 0; j--) {
+window.moveBy(0,i);       
+window.moveBy(i,0);            
+window.moveBy(0,-i);          
+window.moveBy(-i,0);          
+}
+}
+alert("窗口抖动结束！");
+}
+//-->
+</script>
+<p align=center><input onclick="winshake(3)" type="button" value="窗口抖动按钮"> </p>
+
+

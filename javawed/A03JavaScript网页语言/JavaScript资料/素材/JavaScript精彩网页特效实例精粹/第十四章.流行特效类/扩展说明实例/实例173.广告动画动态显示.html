@@ -1,0 +1,23 @@
+<body>
+<div id="divpic"></div>
+<script language="javascript">
+<!--
+pic = new Array();                     
+pic[0] = "<object classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 WIDTH=100 HEIGHT=50><param name=movie value=001.swf><param name=quality value=high></object>";
+pic[1] = "<object classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 WIDTH=100 HEIGHT=50><param name=movie value=002.swf><param name=quality value=high></object>";
+pic[2] = "<object classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 WIDTH=100 HEIGHT=50><param name=movie value=003.swf><param name=quality value=high></object>";
+pic[3] = "<object classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 WIDTH=100 HEIGHT=50><param name=movie value=004.swf><param name=quality value=high></object>";
+pic[4] = "<object classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 WIDTH=100 HEIGHT=50><param name=movie value=005.swf><param name=quality value=high></object>";
+
+var page;                          
+function turnpic(){
+page = Math.round(Math.random() * 4);   
+divpic.innerHTML=pic[page];             
+setTimeout("turnpic()", 1000);        
+}
+turnpic();
+//-->
+</script>
+</body>
+
+

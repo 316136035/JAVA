@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript中的Document 对象代表整个 HTML 文档</title>
+    <script type="text/javascript">
+        function show() {
+           var doc= document.getElementById("name");//通过ID获取元素对象
+          // window.alert(doc.value);
+          //   window.alert(doc.name);
+            var doc1= document.getElementsByName("name");;//通过name获取元素对象
+            for (var  i=0; i<doc1.length;i++){
+                alert(doc1[i].value)
+            }
+
+        }
+
+        function show1() {
+          var  doc2 =document.getElementsByTagName("input");//通过标签获取元素对象
+            for (var  i=0; i< doc2.length;i++){
+                alert( doc2[i].value);
+            }
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+<input type="text" id="name" name="name" value="周先生">
+<input type="text" id="name1" name="name1" value="黄先生">
+<input type="text"  name="name1" value="廖先生">
+<input type="text" id="name3" name="name" value="高先生">
+<input type="button" value="按钮" onclick="show()">
+<input type="button" value="按钮1" onclick="show1()">
+
+
+</body>
+</html>
+<!--Document 对象的方法
+方法 描述 IE F O W3C
+close() 关闭用 document.open() 方法打开的输出流，并显示选定的数据。 4 1 9 Yes
+getElementById() 返回对拥有指定 id 的第一个对象的引用。 5 1 9 Yes
+getElementsByName() 返回带有指定名称的对象集合。 5 1 9 Yes
+getElementsByTagName() 返回带有指定标签名的对象集合。 5 1 9 Yes
+open() 打开一个流，以收集来自任何 document.write() 或 document.writeln() 方法的输出。 4 1 9 Yes
+write() 向文档写 HTML 表达式 或 JavaScript 代码。 4 1 9 Yes
+writeln() 等同于 write() 方法，不同的是在每个表达式之后写一个换行符。 4 1 9 Yes
+-->

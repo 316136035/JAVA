@@ -1,0 +1,16 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var sizer;                       // 初始化变量
+var winwidth = window.screen.Width-310;        // 窗口显示的位置
+var winheight = window.screen.Height-300;      // 窗口显示的位置
+function expandingWindow(website) {
+sizer = window.open("","","left=" + winwidth + ",top=" + winheight + ",width=300,height=1,scrollbars=no");  // 弹出新窗口
+for (i=1;i<300;i++){
+sizer.resizeTo(300,i)                  // 改变窗口大小
+}
+sizer.location = website;              // 指定链接
+}
+expandingWindow('185.html')
+//-->
+</script>
+<p align=center>窗口放大弹出效果</p>

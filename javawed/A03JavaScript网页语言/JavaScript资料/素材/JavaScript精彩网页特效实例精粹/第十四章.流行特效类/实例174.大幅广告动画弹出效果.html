@@ -1,0 +1,28 @@
+<body topmargin=0>
+<DIV id=floater style="text-align:center;display: none;">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" WIDTH=475 height=300>
+<param name="movie" value="ad.swf">
+<param name="quality" value="high">
+</object>
+</DIV>
+<script language="javascript">
+<!--
+function changediv()
+{
+floater.style.display = 'block';
+setTimeout("hidediv()",5000) 
+}
+function hidediv()
+{
+floater.style.display = 'none';  
+}
+function showfull()
+{
+setTimeout("changediv()",2000); 
+
+}
+showfull()
+//-->
+</script>
+<br><p align=center>这是一个大幅广告动画弹出效果</p>
+</body>

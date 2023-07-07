@@ -1,0 +1,52 @@
+<script language="Javascript">
+<!-- 
+num=4;
+quoteArray = new Array(num);                       // 定义显示文字数组
+quoteArray[0]="您喜欢学习javascript吗？";
+quoteArray[1]="您喜欢学习vbscript吗？"
+quoteArray[2]="您喜欢学习asp吗？"
+quoteArray[3]="您喜欢学习asp.net吗？"
+quoteArray[4]="您喜欢学习jsp吗？"
+
+quoteS=-1;
+function next()
+{
+  if (quoteS >= num) quoteS=-1;                     //如果信息到最后一条，则第一条开始
+  quoteS++;
+  document.quot
+eForm.quoteHere.value = quoteArray[quoteS];      //多行文本框中赋值
+}
+function prev()
+{
+  if (quoteS <= 0) quoteS=num+1;                    //如果信息到第一条，则从最后开始
+  quoteS--;
+  document.quoteForm.quoteHere.value = quoteArray[quoteS];       //多行文本框中赋值
+}
+function rand()
+{ 
+  quoteS = Math.ceil(Math.random() * num);           // 在0-4随机产生一个数
+  document.quoteForm.quoteHere.value = quoteArray[quoteS];
+}
+function first()
+{
+  document.quoteForm.quoteHere.value = quoteArray[0];
+}
+function last()
+{
+  document.quoteForm.quoteHere.value = quoteArray[num];
+}
+
+//-->
+</script>
+
+<body onload="javascript:document.quoteForm.g.value = num;">
+<form name="quoteForm">
+  <textarea name="quoteHere" Rows=3 Cols=50>点击查看信息</textarea><br>
+  <input type=button value="首条" onClick="first();">
+  <input type=button value="下一条" onClick="next();">
+  <input type=button value="上一条" onClick="prev();">
+  <input type=button value="尾条" onClick="last();">
+  <input type=button value="随机" onclick="rand();">
+ 总共<input type=text name="g" size=2 style="border-width:0;background:transparent;">条数据
+</form>
+</body>

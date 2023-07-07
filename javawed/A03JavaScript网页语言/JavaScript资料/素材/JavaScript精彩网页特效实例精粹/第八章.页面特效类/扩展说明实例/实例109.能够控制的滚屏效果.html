@@ -1,0 +1,47 @@
+<SCRIPT LANGUAGE=javascript>
+<!--
+function click(){
+	if (event.button==2){                          // 当鼠标按下右键时
+		if(document.all.auto.status==true){        // 判断复选框状态
+			document.all.auto.status=false;
+			alert("自动滚屏已经停止!");		
+		}
+	}
+}
+document.onmousedown=click;                        // 按下鼠标触发函数
+var position=0;                                    // 初始化滚动位置变量
+function scroller(){
+	if (document.all.auto.status==true){           // 判断复选框状态
+		position++;                                // 滚动位置累加
+		scrollTo(0,position);                      // 实现窗口滚动
+		clearTimeout(timer);                       // 清空定时器
+		var timer=setTimeout("scroller()",60);     // 设定定时
+		}
+	else{
+		clearTimeout(timer);                       // 清空定时器
+	}
+}
+//-->
+</SCRIPT><INPUT onclick="scroller();" type=checkbox value=on name=auto > 自动滚屏(右键停止)
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>
+黑龙江大学<br>

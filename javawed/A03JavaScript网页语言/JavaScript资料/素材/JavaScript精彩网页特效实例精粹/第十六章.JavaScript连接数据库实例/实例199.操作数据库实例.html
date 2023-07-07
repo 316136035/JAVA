@@ -1,0 +1,10 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var objdbConn = new ActiveXObject("ADODB.Connection");  
+var strdsn = "Driver={SQL Server};SERVER=(local);UID=sa;PWD=111111;DATABASE=hljdatabase";   // 需要修改自己的服务器地址,用户名,密码
+objdbConn.Open(strdsn);     
+objdbConn.Execute("update 表 set 关联=0");                    // 请写入自己的执行语句
+document.write("更新数据成功!<br>");
+objdbConn.Close();                   
+//-->
+</SCRIPT>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性操作</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        function 获取属性值() {
+            var vv = $("img").attr("src");
+            alert(vv)
+        }
+
+        function 设置属性值() {
+            var vv = $("img").attr("src","../图片/2.png");
+        }
+        function 删除属性值() {
+            var vv = $("img").removeAttr("src")
+        }
+
+
+
+        $(function () {
+            //    双击事件
+            $("tr td").dblclick(function () {
+               var td=$(this);
+                td.empty()
+               var input1="<input  type='text'>";
+                $(this).append(input1)
+               var input=$("tr input");
+                input.blur(function (){
+                   var val=input.val()
+                    td.empty()
+                    td.text(val)
+
+
+
+
+                })
+
+
+
+            });
+
+
+
+        });
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+<img src="../图片/1.jpg">
+
+<input type="button" value="获取属性值" onclick="获取属性值()">
+<input type="button" value="设置属性值" onclick="设置属性值()">
+<input type="button" value="删除属性值" onclick="删除属性值()">
+
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+
+    </tr>
+
+
+</table>
+
+</body>
+</html>

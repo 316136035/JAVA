@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对象转成jQuery对象</title>
+
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        //
+        <!--DOM对象转成jQuery对象 （同等于主方法） $(document)-->
+        // $(document).ready(function () {
+        //
+        //     alert("周钰婷");
+        // });
+        /** $等于jQuery */
+
+
+        /** （同等于主方法  等待页面加载完毕才执行）*/
+        $(function () {
+            /**通过获取到就是对象元素*/
+            var js = document.getElementById("name");
+            /**DOM对象转成jQuery对象*/
+            var jq = $(js);
+
+            var val = jq.val();
+            //innerHTML内部插入
+            document.getElementById("span1").innerHTML = val;
+
+            //jQuery对象转成DOM对象     get(0)也可以
+            var js1 = jq[0];
+            var jsvalue = js1.value;
+            //innerHTML内部插入
+            document.getElementById("span2").innerHTML = jsvalue;
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+<input id="name" type="text" value="周先生"> <span id="span1"></span> <br><span id="span2"></span>
+
+</body>
+</html>

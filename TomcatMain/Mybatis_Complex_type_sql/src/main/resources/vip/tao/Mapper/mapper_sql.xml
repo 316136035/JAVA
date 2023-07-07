@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--   id="结果集映射" resultType="返回类型"  -->
+<!--命名空间 绑定接口-->
+<mapper namespace="vip.tao.Mapper.mapper_sql">
+    <!--    insert插入用户-->
+    <insert id="insertUser" parameterType="User_sql">
+        insert into MyBatis.user(User_id, User_name, User_password, Dep_id, Creation_time, Updated_by, Update_time)
+        values (#{userId}, #{userName}, #{userPassword}, #{depId}, #{creationTime}, #{updatedBy}, #{updateTime })
+
+    </insert>
+
+    <!--    定义sql片段-->
+    <sql id="sql">
+        <!--            test="传参的参数!=null"-->
+        <if test="depId!=null">AND Dep_id=
+            #{depId}
+        </if>
+        <if test="userName!=null">AND User_name=
+            #{userName}
+        </if>
+
+    </sql>
+
+    <!--    使用if判断条件执行动态SQL查询用户（用于多个条件）-->
+    <!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型"  # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="selectUser_If" parameterType="map" resultMap="resultMap">
+        <!--获取传参的参数#{userId} -->
+        SELECT * FROM MyBatis.user
+        # where 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，where 元素也会将它们去除。
+        <where>
+            <!--            引入sql片段(在上面定义了sql片段)-->
+            <include refid="sql"></include>
+        </where>
+    </select>
+
+    <!--    使用choose_when_otherwise判断条件执行动态SQL查询用户（用于一个条件）-->
+    <!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型"  # 使用别名请先在mybatis-config.xml中配置-->
+    <select id="selectUser_choose_when_otherwise" parameterType="map" resultMap="resultMap">
+        <!--获取传参的参数#{userId} -->
+        SELECT * FROM MyBatis.user
+        <where>
+            <!--MyBatis 提供了 choose 元素，它有点像 Java 中的 switch 语句。-->
+            <choose>
+                <!--      <when>期中一个参数符号就返回<when>
+                 test="传参的参数!=null"===#{传参的参数}-->
+                <when test="depId!=null">AND Dep_id= #{depId}</when>
+                <when test="userName!=null">AND User_name= #{userName}</when>
+                <!--      <otherwise>全部不符合最终执行<otherwise>-->
+                <otherwise>AND Dep_id= 0</otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+    <!-- 使用update_set_where判断执行动态SQL修改用户（where放在最后）-->
+    <!--    id="接口的方法名 resultMap="复杂类型结果集映射"  parameterType="传参数类型"  # 使用别名请先在mybatis-config.xml中配置-->
+    <update id="updateUser_set_where" parameterType="map">
+        update MyBatis.user
+        # 定义为修改的语句，set 元素会动态地在行首插入 SET 关键字，并会删掉额外的逗号（这些逗号是在使用条件语句给列赋值时引入的）。
+        <set>
+            <!--            test="传参的参数!=null"===#{传参的参数}&ndash;&gt;-->
+            <if test="userName!=null">User_name= #{userName},</if>
+            <if test="userPassword!=null">User_password= #{userPassword},</if>
+        </set>
+        # where条件
+        where User_id =#{userId}
+    </update>
+
+
+    <!--   foreach使用场景是对集合进行遍历（尤其是在构建 IN 与and与 or条件语句的时候-->
+    <select id="selectUser_foreach" parameterType="map" resultMap="resultMap">
+        SELECT * FROM MyBatis.`user` u
+        <where>
+            <if test="userName!=null">User_name= #{userName}</if>
+            <!--   item="对象"   index="索引"   collection="集合"    -->
+            <!--   [open="in ("] 拼接的开始     [close=")"]拼接的结束  separator="分隔符"     #{"对象"} -->
+            <foreach item="item" index="index" collection="lists"
+                     open=" AND (" close=")" separator="or">
+                Dep_id=#{item}
+            </foreach>
+        </where>
+
+
+    </select>
+
+    <!--   id="复杂类型结果集映射" resultType="返回类型"  -->
+    <resultMap id="resultMap" type="user_sql">
+        <!--  property="实体类的字段"    column="数据库中的字段"   -->
+        <result property="userId" column="User_id"></result>
+        <result property="userName" column="User_name"></result>
+        <result property="userPassword" column="User_password"></result>
+        <result property="depId" column="Dep_id"></result>
+        <result property="creationTime" column="Creation_time"></result>
+        <result property="updatedBy" column="Updated_by"></result>
+        <result property="updateTime" column="Update_time"></result>
+    </resultMap>
+
+    <!--    where 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，where 元素也会将它们去除。-->
+    <!--    如果 where 元素与你期望的不太一样，你也可以通过自定义 trim 元素来定制 where 元素的功能。比如，和 where 元素等价的自定义 trim 元素为：-->
+    <!--    <trim prefix="WHERE" prefixOverrides="AND |OR ">-->
+    <!--        ...-->
+    <!--    </trim>-->
+</mapper>
+

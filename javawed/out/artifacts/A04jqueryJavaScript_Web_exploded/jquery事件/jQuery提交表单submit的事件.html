@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery提交表单submit的事件</title>
+
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+
+        $(function () {
+            $("#form").submit(function () {
+                // true表示可以正常提交 // false表示不可以提交
+                var val = $("input[name='username']");
+                //创建正则表达式
+                var reg = new RegExp("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
+                var v = reg.test(val.val());
+                return v
+            })
+        });
+
+
+    </script>
+
+</head>
+<body>
+<form id="form" action="https://item.jd.com/848852.html" method="post">
+
+    用户名： <input id=username type="text" name="username">
+    密码： <input type="password" name="password">
+    <input type="submit" value="提交">
+
+
+</form>
+
+</body>
+</html>

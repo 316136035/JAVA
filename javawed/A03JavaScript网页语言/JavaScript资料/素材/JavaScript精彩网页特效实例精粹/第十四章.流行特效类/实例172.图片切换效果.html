@@ -1,0 +1,62 @@
+<body>
+<table align=center width="237">
+	<TR>
+		<TD>
+			<table width=100%>
+				<tr>
+					<td colspan=6>
+						<font size=2><div id="b2bContent" style="FILTER: revealTrans(Duration=1,Transition=23); WIDTH: 100%; HEIGHT: 162px"></div></font>
+					</td>
+				</tr>
+				<tr>
+					<td align=center STYLE='cursor:hand'><font size=2><div class="b2bbutton" id="bt0" onclick="javascript:showPage(0);clearTimeout(theTimer);theTimer=setTimeout('turnPage()',speed);checkBt();">1</div></font></td>
+					<td align=center STYLE='cursor:hand'><font size=2><div class="b2bbutton" id="bt1" onclick="javascript:showPage(1);clearTimeout(theTimer);theTimer=setTimeout('turnPage()',speed);checkBt();">2</div></font></td>
+					<td align=center STYLE='cursor:hand'><font size=2><div class="b2bbutton" id="bt2" onclick="javascript:showPage(2);clearTimeout(theTimer);theTimer=setTimeout('turnPage()',speed);checkBt();">3</div></font></td>
+					<td align=center STYLE='cursor:hand'><font size=2><div class="b2bbutton" id="bt3" onclick="javascript:showPage(3);clearTimeout(theTimer);theTimer=setTimeout('turnPage()',speed);checkBt();">4</div></font></td>
+					<td align=center STYLE='cursor:hand'><font size=2><div class="b2bbutton" id="bt4" onclick="javascript:showPage(4);clearTimeout(theTimer);theTimer=setTimeout('turnPage()',speed);checkBt();">5</div></font></td>
+					<td align=center STYLE='cursor:hand'><font size=2><div class="b2bbutton" id="bt5" onclick="javascript:showPage(5);clearTimeout(theTimer);theTimer=setTimeout('turnPage()',speed);checkBt();">6</div></font></td>
+				</tr>
+			</table>
+			<script language="javascript">
+			<!--
+			b2bStr = new Array();
+			b2bStr[0]= "<div style='float:left; width:100%;overflow:hidden;'><a href=1.gif target=_blank><img src=1.gif width=214px height=145px border=0></a><br><a target=_blank title=Ì«Ñôµº¹«Ô°Ò»½Ç href=1.gif>Ì«Ñôµº¹«Ô°Ò»½Ç</a></div>";
+			b2bStr[1] = "<div style='float:left; width:100%;overflow:hidden;'><a href=2.gif target=_blank><img src=2.gif width=214px height=145px border=0></a><br><a target=_blank title=Ì«Ñôµº¹«Ô°ºþ¹âÉ½É« href=2.gif>Ì«Ñôµº¹«Ô°ºþ¹âÉ½É«</a></div>";
+			b2bStr[2] = "<div style='float:left; width:100%;overflow:hidden;'><a href=3.gif target=_blank><img src=3.gif width=214px height=145px border=0></a><br><a target=_blank title=¹þ¶û±õÑ©µñ href=3.gif>¹þ¶û±õÑ©µñ</a></div>";
+			b2bStr[3] = "<div style='float:left; width:100%;overflow:hidden;'><a href=4.gif target=_blank><img src=4.gif width=214px height=145px border=0></a><br><a target=_blank title=¾µ²´ºþ href=4.gif>¾µ²´ºþ</a></div>";
+			b2bStr[4] = "<div style='float:left; width:100%;overflow:hidden;'><a href=5.gif target=_blank><img src=5.gif width=214px height=145px border=0></a><br><a target=_blank title=Ì«Ñôµº¹«Ô°ÆÙ²¼ href=5.gif>Ì«Ñôµº¹«Ô°ÆÙ²¼</a></div>";
+			b2bStr[5] = "<div style='float:left; width:100%;overflow:hidden;'><a href=6.gif target=_blank><img src=6.gif width=214px height=145px border=0></a><br><a target=_blank title=¾µ²´ºþÒ¹É« href=6.gif>¾µ²´ºþÒ¹É«</a></div>";
+
+			var page=0;
+			var speed=3000;
+			function showPage(id){
+				page=id;
+				setTransition();
+				b2bContent.innerHTML=b2bStr[id];
+				b2bContent.filters.revealTrans.play();
+				}
+			function turnPage(){
+				showPage(page);
+				theTimer=setTimeout("turnPage()", speed);
+				checkBt();
+				page++;
+				if(page>=6) page=0;
+				}
+			function checkBt(){
+				for(var i=0;i<6;i++){
+				btObj=eval('bt'+i);
+				if(page==i){btObj.style.color='#FFFFFF';btObj.style.backgroundColor='#FF781C';}
+				else{btObj.style.color='#000000';btObj.style.backgroundColor='#F7F7F7';}
+				}
+				}
+			function setTransition(){
+				b2bContent.filters.revealTrans.Transition=Math.round(Math.random()*23);
+				b2bContent.filters.revealTrans.apply();
+				}
+				turnPage();
+			//-->
+			</script>
+		</TD>
+	</TR>
+</table>
+</body>

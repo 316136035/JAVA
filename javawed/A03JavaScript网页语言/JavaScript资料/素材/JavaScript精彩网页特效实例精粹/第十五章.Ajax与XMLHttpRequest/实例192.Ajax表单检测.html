@@ -1,0 +1,27 @@
+<script language="JavaScript">
+<!--
+function f(){
+var req =new ActiveXObject("Microsoft.XMLHTTP");
+req.open("GET","192.asp?username="+username.value, true);
+req.onreadystatechange = function(){
+if (req.readyState == 4) { 
+	if (req.status == 200) { 
+		if (req.responseXML.documentElement.tagName == 'SUCCESS')
+		{
+		alert("您输入的用户名没有重复,可以继续注册！")
+		} 
+		else
+		{
+		alert("您输入的用户名有重复,请选择其他用户名！")
+		}
+	}
+}
+}
+req.send(null);    // 发送请求
+} 
+//-->
+</script>
+<p>用户注册</p>
+标识：<input id=username type=text>&nbsp;<input type=button value="检测用户名" onclick="javascript:f()"><br>
+口令：<input id=pwd type=password><br>
+<input type=button value="确定">

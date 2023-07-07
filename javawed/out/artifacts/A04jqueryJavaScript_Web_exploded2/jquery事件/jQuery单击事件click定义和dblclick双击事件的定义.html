@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery单击事件click定义和dblclick双击事件的定义</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        // <!--这个是一个主方法(页面加载完才可以使用)-->
+        $(function () {
+            <!--单击事件-->
+            $(".button").click(function () {
+                alert("单击事件")
+            });
+            //双击事件
+            $("#id1").dblclick( function () { alert("双击事件"); });
+
+
+        });
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<!--单击事件-->
+<input class="button" type="button" value="单击事件">
+<input id="id1" type="button" value="双击事件">
+
+
+
+<tr> <a href="" class="button" >......</a></tr>
+
+
+</body>
+</html>

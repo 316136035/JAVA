@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM编程之innerHTML属性</title>
+    <style type="text/css">
+        div {
+            border: 1px solid red;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+    <script type="text/javascript">
+        //给div添加内容
+        function show() {
+            //获取div元素对象
+            var dov = document.getElementById("div");
+            dov.innerHTML = "<font color='red'>我是中国人呢！</font>"
+        }
+
+        //获取焦点( onfocus)和失去焦点(onblur)
+        //获取焦点( onfocus)方法
+        function show1() {
+            document.getElementById("spanid").innerHTML = "<font color='#ff1493'>获取焦点( onfocus)成功</font>"
+
+        }
+
+        //失去焦点(onblur)方法
+        function show2() {
+            document.getElementById("spanid").innerHTML = "<font color='#ff1493'>失去焦点(onabort)成功</font>"
+
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+<div id="div"></div>
+
+<input value="按钮" type="button" onclick="show ()"><br>
+用户名:<input type="text" name="uaername1"><br>
+<!--获取焦点( onfocus)和失去焦点(onblur)-->
+获取焦点和失去焦点:<input type="text" name="uaername" onfocus="show1()" onblur="show2()"><span id="spanid"></span>
+
+
+</body>
+</html>

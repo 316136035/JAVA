@@ -1,0 +1,56 @@
+<style type="text/css">
+.textcolor {
+COLOR: #ff0000; FONT-SIZE: 10pt; POSITION: absolute; VISIBILITY: visible
+}
+</style>
+<script language="JavaScript">
+<!--
+var x,y
+var step=18                                            // 跟随文字间距
+var flag=0
+var message=new Array()
+message[0]="<img src=0.gif>"
+message[1]="<img src=1.gif>"
+message[2]="<img src=2.gif>"
+message[3]="<img src=3.gif>"
+message[4]="<img src=4.gif>"
+message[5]="<img src=5.gif>"
+
+var xpos=new Array()
+for (i=0;i<=message.length-1;i++) {
+xpos[i]=-50
+}
+var ypos=new Array()
+for (i=0;i<=message.length-1;i++) {
+ypos[i]=-200
+}
+function handler(e){
+x = document.body.scrollLeft+event.clientX                // 确定鼠标的X轴坐标
+y = document.body.scrollTop+event.clientY                 // 确定鼠标的Y轴坐标
+flag=1
+}
+function mouseflow() {
+if (flag==1 && document.all) {
+for (i=message.length-1; i>=1; i--) {
+xpos[i]=xpos[i-1]+step                                     // 文字间距
+ypos[i]=ypos[i-1]
+}
+xpos[0]=x+step
+ypos[0]=y
+
+for (i=0; i<message.length-1; i++) {
+eval("span"+(i)+".style").posLeft=xpos[i]                   // 文字的位置
+eval("span"+(i)+".style").posTop=ypos[i]                    // 文字的位置
+}
+}
+setTimeout("mouseflow()",30)             // 每隔30毫秒调用函数mouseflow()一次
+}
+for (i=0;i<=message.length-1;i++) {
+document.write("<span id='span"+i+"' class='textcolor'>")
+document.write(message[i])
+document.write("</span>")
+}
+document.onmousemove = handler;                       // 鼠标移动时调用handler
+mouseflow();
+//-->
+</script>

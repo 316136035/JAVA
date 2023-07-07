@@ -1,0 +1,136 @@
+
+<style>
+#board {cursor: default}    
+#board TD {width: 25px; height: 25px; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+    var size=10         
+    var moves = 0
+    var off = size*2
+    var on = 0
+    var current = null
+    function doOver() {  
+      if ((event.srcElement.tagName=="TD") && (current!=event.srcElement)) {
+        if (current!=null)
+          current.style.backgroundColor = current._background
+          event.srcElement._background = event.srcElement.style.backgroundColor
+          event.srcElement.style.backgroundColor = "lightgrey"  
+          current = event.srcElement
+      }
+    }
+
+    function setColor(el) {        
+      if ((el._background=="") || (el._background==null)) {
+        el.style.backgroundColor = "blue"  
+        el._background = "blue" 
+      } else {
+        el.style.backgroundColor = ""
+        el._background = "" 
+      }
+    }
+
+    function countLights() {                     
+      off = 0; on = 0      
+      for (var x=0; x < size; x++)                     
+        for (var y=0; y < size; y++) {
+          var p = board.rows[x].cells[y]
+          if (p._background=="blue") 
+            on++                                
+          else
+            off ++                
+        }
+        document.all.on.innerHTML = on    
+      if (off!=0)     
+        document.all.off.innerHTML = off   
+      else
+        document.all.off.innerHTML = "过关"  
+      return (off==0)                        
+    }
+
+    function doClick() {  
+      setColor(current)        
+      var cellIdx = current.cellIndex
+      var rowIdx = current.parentElement.rowIndex
+      if (rowIdx>0)                    
+        setColor(board.rows[rowIdx-1].cells[cellIdx])
+      if (rowIdx<size-1)
+        setColor(board.rows[rowIdx+1].cells[cellIdx])
+      if (cellIdx>0) 
+        setColor(board.rows[rowIdx].cells[cellIdx-1])
+      if (cellIdx<size-1)
+        setColor(board.rows[rowIdx].cells[cellIdx+1])
+      moves++         
+      document.all.moves.innerText = moves 
+      win = countLights() 
+      if (win) { 
+        board.onclick = null
+        board.onmouseover = null
+        current.style.background = "blue"
+      }
+    }
+
+    function buildBoard() {         
+      var str = "<TABLE ID=board ONSELECTSTART='return false' ONCLICK='doClick()' ONMOUSEOVER='doOver()' cellspacing=0 cellpadding=0 border=5>"  // 建立方格
+      for (var x=0; x < size; x++) {
+        str+="<TR>"
+        for (var y=0; y < size; y++) {
+          str+="<TD>&nbsp;</TD>"
+        } 
+        str+="</TR>"
+      }
+      str+="</TABLE>"
+      return str
+    }
+
+    function newGame() {
+      size = document.all.gameSize.value 
+      if (size<3)  
+        size=3
+      if (size>15) 
+        size=15
+      document.all.gameSize.value = size      
+      document.all.board.outerHTML = buildBoard()
+      moves=0    
+      document.all.moves.innerHTML = moves
+      countLights()
+    }
+//-->
+</SCRIPT>
+<table border=5 align=center>
+<tr><td align=center>
+<p align="center">点击方格,将方格内全部填充为蓝色即可成功</p>
+<table border="1" width="100%">
+  <tr>
+    <td width="50%"><div align="right"><table ID="score" border="0" width="284">
+      <tr>
+        <td width="52">移动: </td>
+        <td id="moves" width="33">0</td>
+        <td width="42">灯灭:</td>
+        <td id="off" width="36">25</td>
+        <td width="46">灯亮:</td>
+        <td id="on" width="39">0</td>
+      </tr>
+    </table>
+    </div></td>
+    <td width="50%"><div align="left"><table width="204">
+      <tr>
+        <td width="54">大小: </td>
+        <td width="41"><input ID="gameSize" TYPE="text" VALUE="10" SIZE="2"></td>
+        <td width="97"><input ONCLICK="newGame()" TYPE="button" VALUE="开始游戏"></td>
+      </tr>
+    </table>
+    </div></td>
+  </tr>
+</table>
+<p align="center">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write(buildBoard()) 
+//-->
+</script></p>
+</td></tr>
+</table>
+</body>

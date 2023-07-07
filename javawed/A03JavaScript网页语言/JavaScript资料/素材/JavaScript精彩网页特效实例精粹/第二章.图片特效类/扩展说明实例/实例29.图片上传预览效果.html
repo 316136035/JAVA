@@ -1,0 +1,34 @@
+<SCRIPT language=JavaScript>
+<!--
+function getFilePic(){
+	form1.picture1.src=form1.pic.value;
+	var stxt;
+	stxt=form1.pic.value.substring(form1.pic.value.lastIndexOf(".")+1,form1.pic.length);                                              // 取出文件的扩展名
+	stxt = stxt.toUpperCase();                         // 转换成大写字母
+	switch(stxt){
+	case "GIF":                                        // 进行判断
+		alert("您输入的是GIF图片！");
+		break;
+	case "JPG":
+		alert("您输入的是JPG图片！");
+		break;
+	case "BMP":
+		alert("您输入的是BMP图片！");
+		break;
+	case "PNG":
+		alert("您输入的是PNG图片！");
+		alert("您输入的图片符");
+		break;
+	default:
+		alert("您必须输入GIF,JPG,BMP,PNG等各式的图片！")
+		break;
+	}
+
+}
+//-->
+</script>
+<form id=form1>
+<p align=center>选择图片：<input type="file" name=pic></p>
+<p align=center><input type=button value=' 上 传 ' onclick="getFilePic()"></p>
+<p><img id="picture1"></p>
+</form>

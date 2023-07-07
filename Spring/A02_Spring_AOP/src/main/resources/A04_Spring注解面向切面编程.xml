@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 使用Spring容器创建对象，在Spring容器成为Bean  id="类名"  class="类路径" scope="是否为单例/其他"-->
+    <bean id="A04_Log" class="vip.tao.A04_Spring注解_面向切面编程.Log.A04_Log"></bean>
+    <bean id="A04_UserImpl" class="vip.tao.A04_Spring注解_面向切面编程.Srevive.A04_UserImpl"></bean>
+
+   <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+</beans>

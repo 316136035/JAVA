@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+<!--    <context:property-placeholder location="druid.properties"/>-->
+
+    <!--         使用druid数据源对象 创建驱动程序管理器数据源-->
+    <bean id="datasource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url"
+                  value="jdbc:mysql://192.168.100.15:3306/MyBatis?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="MysqlDog34994963."></property>
+
+    </bean>
+    <!--    创建SQL 会话工厂对象-->
+    <bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--        SQL 会话工厂注入驱动程序管理器数据源-->
+        <property name="DataSource" ref="datasource"></property>
+        <!--        映射器引入 mybatis-config.xml配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--        映射器绑定 mapper.xml-->
+        <property name="mapperLocations" value="classpath:vip/tao/A07_Spring_MyBatis_MVC_Mapper/*.xml"></property>
+    </bean>
+
+    <!--   创建sql会话对象*/-->
+    <bean id="SqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <!--        只能用构造器注入会话工厂对象-->
+        <constructor-arg index="0" ref="SqlSessionFactory"></constructor-arg>
+    </bean>
+
+
+
+    <!--    实现方法一建议使用-->
+    <!--    创建接口的实现类-->
+    <bean id="UserMapperImpl_1" class="vip.tao.A07_Spring_MyBatis_MVC_Mapper.UserMapperImpl_1">
+        <!--   用set注入sql会话对象-->
+        <property name="sqlSessionTemplate" ref="SqlSessionTemplate"></property>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,99 @@
+<style> 
+.skin1 { 
+position:absolute; 
+padding-top:4px; 
+text-align:left; 
+width:100px; 
+border:2px solid black; 
+background-color:menu; 
+font-family:"宋体"; 
+line-height:20px; 
+cursor:default; 
+visibility:hidden; 
+}
+
+--> 
+</style> 
+<script language="javascript"> 
+<!-- 
+var menuskin = "skin1";        // 定义菜单显示的外观
+var display_url = 0;           
+// 是否在浏览器窗口的状态行中显示菜单项目条对应的链接字符串 
+function showmenuie5() { 
+var leftedge = document.body.clientWidth-event.clientX;     
+// 获取当前鼠标右键按下后的位置，定义菜单显示的位置
+var topedge = document.body.clientHeight-event.clientY; 
+if (leftedge <ie5menu.offsetWidth)          
+// 如果从鼠标位置到窗口右边的空间小于菜单的宽度
+	ie5menu.style.left = document.body.scrollLeft + event.clientX - ie5menu.offsetWidth;        // 定位菜单的左坐标为当前鼠标位置向左一个菜单宽度 
+else                                       
+	ie5menu.style.left = document.body.scrollLeft + event.clientX;
+// 定位菜单的左坐标为当前鼠标位置
+if (topedge <ie5menu.offsetHeight)   
+// 如果从鼠标位置到窗口下边的空间小于菜单的高度
+	ie5menu.style.top = document.body.scrollTop + event.clientY - ie5menu.offsetHeight;         // 定位菜单的上坐标为当前鼠标位置向上一个菜单高度
+else
+	ie5menu.style.top = document.body.scrollTop + event.clientY;
+// 定位菜单的上坐标为当前鼠标位置 
+ie5menu.style.visibility = "visible";       // 设置菜单可见
+return false; 
+} 
+function hidemenuie5() { 
+ie5menu.style.visibility = "hidden";          // 隐藏菜单
+} 
+
+function highlightie5() {                     // 高亮度鼠标经过的菜单条项目
+if (event.srcElement.className == "menuitems") { 
+// 如果鼠标经过的对象是menuitems 
+event.srcElement.style.backgroundColor = "highlight"; // 重新设置背景色与前景色
+event.srcElement.style.color = "white";
+if (display_url)                              // 将链接信息显示到状态行
+window.status = event.srcElement.url; 
+//event.srcElement.url表示事件来自对象表示的链接URL
+
+} 
+} 
+
+function lowlightie5() {                      // 恢复菜单条项目的正常显示
+if (event.srcElement.className == "menuitems") { 
+event.srcElement.style.backgroundColor = ""; 
+event.srcElement.style.color = "black"; 
+window.status = ""; 
+} 
+} 
+function jumptoie5() {                          // 右键下拉菜单功能跳转
+var seltext=window.document.selection.createRange().text    // 转到新的链接位置 
+if (event.srcElement.className == "menuitems") { 
+if (event.srcElement.getAttribute("target") != null)
+// 如果存在打开链接的目标窗口
+	window.open(event.srcElement.url, event.srcElement.getAttribute("target"));
+// 在指定窗口中打开链接
+else 
+	window.location = event.srcElement.url;     // 在当前窗口打开链接
+} 
+} 
+//--> 
+</script> 
+<center> 
+<p>点击右键看看效果</p> 
+</center> 
+<div onselectstart="return false" id="ie5menu" onMouseover="highlightie5()" onMouseout="lowlightie5()" onClick="jumptoie5();"> 
+<div class="menuitems" url="javascript:history.back();">后退</div> 
+<div class="menuitems" url="javascript:history.forward();">前进</div> 
+<hr> 
+<div class="menuitems" url="http://www.sina.com.cn" target="_blank">新浪网</div> 
+<div class="menuitems" url="http://www.163.com" target="_blank">网易163</div> 
+<div class="menuitems" url="http://www.baidu.com.cn" target="_blank">百度</div> 
+<hr> 
+<div class="menuitems" url="http://www.sohu.com" target="_blank">搜狐</div> 
+<div class="menuitems" url="http://www.google.com">Google</div> 
+</div> 
+<script language="JavaScript"> 
+<!--
+if (document.all) {                             // 判断浏览器  
+ie5menu.className = menuskin;                   // 选择菜单方块的显示样式
+document.oncontextmenu = showmenuie5;           // 鼠标右键事件的处理过程
+document.body.onclick = hidemenuie5;            // 鼠标左键事件的处理过程
+} 
+//-->
+</script>

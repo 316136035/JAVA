@@ -1,0 +1,154 @@
+
+<script language="JavaScript">
+<!--
+var headHeight = 22;       
+var bodyHeight = 160;       
+var objcount = 3;           
+var step = 6;               
+var moving = false;         
+
+function showme(obj1, obj2) 
+{
+if (moving)            
+return;
+moving = true;         
+for(i=0;i<document.all.tags("td").length;i++)
+if (document.all.tags("td")[i].className.indexOf('headtd') == 0)
+document.all.tags("td")[i].className = 'headtd1';
+obj2.className = 'headtd2';
+moveme(obj1);
+}
+
+function moveme(obj) 
+{
+idnumber = parseInt(obj.id.substr(4,1));              
+objtop = headHeight * (idnumber - 1);                 
+objbottom = bodyHeight + headHeight * (idnumber - 2); 
+currenttop = parseInt(obj.style.top);     
+if (currenttop >= objbottom)              
+{
+	countid = 1;
+	for(i=0;i<document.all.tags("div").length;i++)
+	if (document.all.tags("div")[i].id == 'item'+countid+'body')
+	{
+		obj = document.all.tags("div")[i];
+		objtop = headHeight * (countid - 1);
+		if (countid == idnumber)
+		{
+		moveup(obj,objtop,false); 
+		break;
+	}
+	else
+		moveup(obj,objtop,true);
+		countid++;
+	}
+}
+else if ((currenttop <= objtop) && (idnumber < objcount))   
+{
+	idnumber++;
+	countid = objcount;
+	for(i=document.all.tags("div").length-1;i>=0;i--)
+	if (document.all.tags("div")[i].id == 'item'+countid+'body')
+	{
+		obj = document.all.tags("div")[i];
+		objbottom = bodyHeight + headHeight * (countid - 2);
+		if (countid == idnumber)
+		{
+			movedown(obj,objbottom,false); 
+			break;
+		}
+	else
+		movedown(obj,objbottom,true);       
+		countid--;
+	}
+}
+}
+
+function moveup(obj,objtop,ismove)     
+{
+currenttop = parseInt(obj.style.top);  
+if (currenttop > objtop)
+{
+	obj.style.top = currenttop - step; 
+	setTimeout('moveup('+obj.id+','+objtop+','+ismove+')',1) 
+	return;
+}
+moving = ismove;
+}
+
+function movedown(obj,objbottom,ismove) 
+{
+currenttop = parseInt(obj.style.top);    
+if (currenttop < objbottom)
+{
+	obj.style.top = currenttop + step; 
+	setTimeout('movedown('+obj.id+','+objbottom+','+ismove+')',1)   
+	return;
+}
+moving = ismove;
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+.headtd1 { background: #2155D6; border: 2px outset; border-color: #2155D6 #0077FF #0077FF #2155D6; cursor: hand; font-size: 9pt}
+.headtd2 { background: #5E86E9; border: 2px outset; border-color: #5E86E9 #0077FF #0077FF #5E86E9; cursor: hand; font-size: 9pt}
+.bodytd  { background: #114EB7; border: 2px outset; border-color: #114EB7 #0077FF #0077FF #114EB7; font-size: 9pt}
+-->
+</style>
+<body>
+
+<div id="mainboard" style="position:absolute; left:2px; top:2px; width:120px; height:204px; z-index:3; overflow: hidden; background: #0099FF;" onclick="">
+  <div id="item1body" style="position:absolute; left:0; top:0; width:120px; height:160px; z-index:1; overflow: hidden">
+    <table width="100%" border="0" height="100%" cellpadding="2" cellspacing="0">
+      <tr>
+        <td id="item1head" height="20" class="headtd2" onclick="showme(item1body,this)">
+          <div align="center"><font color="#ffffff">我的办公室</font></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="bodytd" valign=top>
+          <div align="center"><br><font color="#ffffff"><a href="#"><font color="#ffffff">公共信息</font></a><br>
+          <a href="#"><font color="#ffffff">我的文档</font></a></div>
+        </td>
+    </tr>
+  </table>
+  </div>
+  <div id="item2body" style="position:absolute; left:0px; top:160; width:120; height:160; z-index:2; overflow: hidden">
+    <table width="100%" border="0" height="100%" cellpadding="2" cellspacing="0">
+      <tr>
+        <td id="item2head" height="20" class="headtd1" onclick="showme(item2body,this)">
+          <div align="center"><font color="#ffffff">电子邮箱</font></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="bodytd" valign=top>
+          <div align="center"><br><font color="#ffffff"><a href="#"><font color="#ffffff">写邮件</font></a><br>
+          <a href="#"><font color="#ffffff">收件箱</font></a><br>
+          <a href="#"><font color="#ffffff">寄件箱</font></a></div>
+        </td>
+      </tr>
+    </table>
+    <p class="headtd1"> </p>
+  </div>
+  <div id="item3body" style="position:absolute; left:0; top:182; width:120px; height:160; z-index:3">
+    <table width="100%" border="0" height="100%" cellpadding="2" cellspacing="0">
+      <tr>
+        <td id="item3head" height="20" class="headtd1" onclick="showme(item3body,this)">
+          <div align="center"><font color="#ffffff">休闲娱乐</font></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="bodytd" valign=top>
+          <div align="center"><br><a href="#"><font color="#ffffff">法律公文<font color="#ffffff"></a><br>
+          <a href="#"><font color="#ffffff">列车时刻<font color="#ffffff"></a><br>
+          <a href="#"><font color="#ffffff">航空时刻<font color="#ffffff"></a></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  </div>
+</body>
+
+
+ 

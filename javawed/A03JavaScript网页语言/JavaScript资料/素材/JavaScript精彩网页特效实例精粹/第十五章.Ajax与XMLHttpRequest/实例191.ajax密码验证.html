@@ -1,0 +1,22 @@
+<script language="JavaScript">
+<!--
+function f(){
+
+var req =new ActiveXObject("Microsoft.XMLHTTP");
+req.open("GET","191.asp?username="+username.value+"&pwd="+pwd.value, true);
+req.onreadystatechange = function(){
+　 if (req.readyState == 4) { 
+　 if (req.status == 200) { 
+msg.innerText = req.responseXML.documentElement.tagName; 
+}
+}
+}
+req.send(null);    // 发送请求
+} 
+//-->
+</script>
+标识：<input id=username type=text><br>
+口令：<input id=pwd type=password><br>
+<input type=button value="确定" onclick="javascript:f()">
+
+<div id=msg></div>

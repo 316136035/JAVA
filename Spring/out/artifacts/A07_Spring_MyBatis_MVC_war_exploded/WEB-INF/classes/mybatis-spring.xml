@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--    加载druid.properties文件-->
+    <context:property-placeholder location="classpath:druid.properties"/>
+    <!--   使用druid数据源对象 创建驱动程序管理器数据源-->
+    <bean id="datasource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${druid.driverClassName}"></property>
+        <property name="url" value="${druid.url}"></property>
+        <property name="username" value="${druid.username}"></property>
+        <property name="password" value="${druid.password}"></property>
+        <property name="filters" value="${druid.filters}"></property>
+        <property name="initialSize" value="${druid.initialSize}"></property>
+        <property name="maxActive" value="${druid.maxActive}"></property>
+        <property name="maxWait" value="${druid.maxWait}"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}"></property>
+        <property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}"></property>
+        <property name="validationQuery" value="${druid.validationQuery}"></property>
+        <property name="testWhileIdle" value="${druid.testWhileIdle}"></property>
+        <property name="testOnBorrow" value="${druid.testOnBorrow}"></property>
+        <property name="testOnReturn" value="${druid.testOnReturn}"></property>
+        <property name="poolPreparedStatements" value="${druid.poolPreparedStatements}"></property>
+        <property name="maxPoolPreparedStatementPerConnectionSize"
+                  value="${druid.maxPoolPreparedStatementPerConnectionSize}"></property>
+    </bean>
+    <!--    SQL 会话工厂-->
+    <bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--        SQL 会话工厂注入驱动程序管理器数据源-->
+        <property name="DataSource" ref="datasource"></property>
+        <!--        映射器引入 mybatis-config.xml配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--        动态映射器绑定 mapper.xml-->
+        <property name="mapperLocations" value="classpath:com/cn/mapper/*.xml"></property>
+    </bean>
+    <!--    配置mapper接口扫码包 动态实现mapper接口可以注入到Spring容器中 (同等于注入SqlSessionTemplate会话模板到实现类中 /**同等于下面的代码*/)-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--   注入SqlSessionFactory  SQL 会话工厂-->
+        <property name="sqlSessionFactoryBeanName" value="SqlSessionFactory"/>
+        <!--   要扫描的包-->
+        <property name="basePackage" value="com.cn.mapper"></property>
+    </bean>
+    <!--    &lt;!&ndash;   创建sql会话对象*/&ndash;&gt;-->
+    <!--    <bean id="SqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">-->
+    <!--        &lt;!&ndash;        只能用构造器注入会话工厂对象&ndash;&gt;-->
+    <!--        <constructor-arg index="0" ref="SqlSessionFactory"></constructor-arg>-->
+    <!--    </bean>-->
+    <!--    实现方法一建议使用-->
+    <!--    创建接口的实现类-->
+    <!--    <bean id="UserMapperImpl_1" class="com.cn.mapper.UserMapperImpl_1">-->
+    <!--        &lt;!&ndash;   用set注入sql会话对象&ndash;&gt;-->
+    <!--        <property name="sqlSessionTemplate" ref="SqlSessionTemplate"></property>-->
+    <!--    </bean>-->
+</beans>

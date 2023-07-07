@@ -1,0 +1,33 @@
+<script language="JavaScript">
+<!--
+function MArray() {
+  this.length = MArray.arguments.length
+  for (var i = 0; i < this.length; i++)
+  this[i+1] = MArray.arguments[i]}
+  var fArray = new MArray;
+  fArray[0]="欢迎大家学习javascript这门语言！";
+  fArray[1]="欢迎大家学习html这门语言！"
+  fArray[2]="欢迎大家学习asp这门语言！"
+  fArray[3]="欢迎大家学习vbscript这门语言！"
+	var x = 1;
+	var y = 0;
+	var msg1 = fArray[y];
+function newsSee() {
+if (x==msg1.length+1) {
+	y+=1;
+	if (y > 3) y=0;
+	document.form1.news2.value=' ';
+	msg1 = fArray[y];
+	x=0;}
+	document.form1.news2.value=msg1.substring(0,x);  
+	x+=1;
+	setTimeout("newsSee() ",100);
+	}
+// -->
+</script>
+<body onLoad="newsSee()">
+
+<form name="form1">
+<p align=center><input type="text" name="news2" size=40></p>
+</form>
+</body>

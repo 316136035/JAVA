@@ -1,0 +1,55 @@
+<script language="JavaScript">
+<!--
+function validate_form() { 
+  validity = true;                      
+  if (!check_email(document.form.EMAIL.value))      
+        { 
+        validity = false; 
+        alert('请填入正确Email地址。'); 
+        }
+  if (document.form.sub1.value == "")   
+        { 
+        validity = false; 
+        alert('请输入留言主题。'); 
+        }
+
+  if (validity)                          
+        alert ("谢谢你的来信." + "你所填的信息将以Email形式发送给我");
+  document.form.action='mailto:'+document.form.EMAIL.value +'?subject='+document.form.sub1.value 
+  return validity; 
+}
+
+function check_email(address) {
+  if ((address == "") || (address.indexOf ('@') == -1) || (address.indexOf ('.') == -1))
+      return false;
+  return true;
+}
+
+// -->
+</script>
+<form name="form" method="post" enctype="text/plain" onSubmit="return validate_form()">
+<table width="90%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="77%"> 
+      <div align="left">
+        <b><font size="3">收件地址: </font></b> 
+        <input type="text" size=30 name="EMAIL">
+        <br>
+        <b><font size="3">留言主题: </font></b> 
+        <input type="text" size=30 name="sub1">
+        <br><font size="3"><b>姓名:</b></font> 
+        <input type="text" size=30 name="NAME">
+        <br>
+        <b><font size="3">留言内容:</font></b><br>
+        <textarea name="DESCRIPTION" rows=4 cols=40></textarea>
+      </div>
+    </td>
+  </tr>
+  <tr> 
+    <td> <br>
+        <input type="submit" name="submit" value="发送">
+        <input type="reset" value="清除" name="reset">
+    </td>
+  </tr>
+</table>
+</form>

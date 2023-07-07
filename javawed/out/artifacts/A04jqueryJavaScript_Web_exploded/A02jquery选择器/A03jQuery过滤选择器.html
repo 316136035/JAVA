@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery过滤选择器</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+
+        <!--这个是主方法-->
+        $(function () {
+            /////////////////////获取第一次出现的li元素对象////////////////////////
+            var first = $("li :first");
+            $("#span").append(first.text()+"<br>");
+            /////////////////////获取最后出现的li元素对象////////////////////////
+            var last = $("li :last");
+            $("#span").append(last.text()+"<br>");
+            /////////////////////获取基数的元素对象////////////////////////
+            $("li:even").each(function () {
+               // 把基数的元素对象设置字体颜色
+               $(this).css("color","#880000");
+            });
+            /////////////////////获取偶数的元素对象////////////////////////
+            $("li:odd").each(function () {
+                // 把偶数的元素对象底色设置
+                $(this).css("backgroundColor","#FF0000");
+            });
+
+        });
+
+        /////////////////////获取选中的(checked)的对象元素////////////////////////
+
+        function 获取选中元素对象() {
+            var checkbox2=$("input[type=checkbox]:checked");
+            checkbox2.each(function (){
+                $("div[class=class2]").append( $(this).val());
+            })
+
+
+        }
+
+
+        /////////////////////获取没有选中的(checked)的对象元素////////////////////////
+
+        function 获取没有选中元素对象(){
+            var checkbox1=$("input[type=checkbox]:not(:checked)");
+            checkbox1.each(function (){
+                $("div[class=class2]").append($(this).val());
+            })
+
+
+        }
+
+
+
+        function 获取指定索引出的元素对象(){
+           // alert( $("li:eq(1)").text())
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+<ul>
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+<span id="span"></span><br>
+奥迪<input type="checkbox" name="aodi" value="奥迪"/>
+宝马<input type="checkbox" name="baoma" checked="checked"  value="宝马"/>
+宝马<input type="checkbox" name="bentian" checked="checked"  value="本田"/><br>
+
+
+
+<div class="class1"></div><hr>
+<div class="class2"></div><hr>
+
+
+<input type="button" value=" 获取选中元素对象" onclick=" 获取选中元素对象()"><hr>
+<input type="button" value=" 获取没有选中元素对象" onclick=" 获取没有选中元素对象()"><hr>
+<input type="button" value=" 获取指定索引出的元素对象" onclick=" 获取指定索引出的元素对象()"><hr>
+
+
+</body>
+</html>

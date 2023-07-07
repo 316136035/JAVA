@@ -1,0 +1,25 @@
+<style>
+#leftright, #topdown{
+position:absolute;
+left:0;
+top:0;
+width:1px;
+height:1px;
+layer-background-color:#cccccc;
+background-color:#cccccc;
+z-index:100;
+font-size:1px;
+}
+</style>
+<script language="JavaScript">
+<!--
+function followmouse(){
+leftright.style.pixelTop=event.clientY
+topdown.style.pixelLeft=event.clientX
+}
+document.onmousemove=followmouse
+//-->
+</script>
+<div id="leftright" style="width:expression(document.body.clientWidth)"></div>
+<div id="topdown" style="height:expression(document.body.clientHeight)"></div>
+

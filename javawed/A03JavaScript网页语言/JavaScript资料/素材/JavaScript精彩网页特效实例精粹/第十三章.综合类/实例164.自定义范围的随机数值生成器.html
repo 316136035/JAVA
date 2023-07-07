@@ -1,0 +1,11 @@
+<SCRIPT language=javascript >
+<!--
+function rand(){    
+form1.rand1.value=parseInt(Math.random()*(parseInt(form1.over.value)-parseInt(form1.start.value)+1)+parseInt(form1.start.value));
+}
+//-->
+</SCRIPT>
+<form id=form1>
+从<input type=text name=start size=8>到<input type=text name=over size=8><br><br>
+数值:<input type=text name=rand1 size=10><input type=button value=随机生成数值 onclick="rand()">
+</form>

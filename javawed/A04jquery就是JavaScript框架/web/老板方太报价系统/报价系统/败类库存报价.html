@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>败类库存报价</title>
+
+    <!--    CSS-->
+    <style>
+
+        .header {
+            text-align: center;
+            font-size: 40px;
+            font-style: oblique;
+            color: red;
+
+        }
+
+
+        .class2 {
+            width: 1200px;
+
+        }
+
+        .check {
+            width: 50px;
+
+        }
+        .money{
+
+            width:200px;
+        }
+
+
+    </style>
+
+
+    <!--  jquery-->
+    <script src="../报价系统/jquery-1.8.3.min.js"></script>
+
+    <script>
+
+
+        $(function () {
+
+        })
+
+
+
+
+      function 双击事件(v){
+         var vv=$(v)
+          vv.empty()
+          var input1="<input  type='text'>";
+          vv.append(input1)
+
+         var input=$(".money input")
+          input.blur(function () {
+             var text= input.val()
+              input.remove()
+              vv.text(text)
+          })
+
+      }
+
+
+      function 添加() {
+            var sku = $("#sku").val()
+            var name = $("#name").val()
+            var money = $("#money").val()
+            $("#body").append(
+                " <tr class=\"tr\">\n" +
+                "            <td class=\"check\"><input type=\"checkbox\"></td>\n" +
+                "            <td>"+sku+"</td>\n" +
+                "            <td>"+name+"</td>\n" +
+                "            <td class=\"money\"  ondblclick=\"双击事件(this)\">"+money+"</td>\n" +
+                "            <td><a href=\"#\" onclick=\"删除(this)\">删除</a></td>\n" +
+                "        </tr>"
+
+            )
+        }
+
+        function 删除(v){
+            $(v).parent().parent().remove();/*获取父元素*/
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+<div class="header">败类库存报价</div>
+
+<table>
+    <table class="class1">
+        <tr>
+
+            <td> SKU:<input id="sku" type="text"></td>
+            <td> 商品名称:<input id="name" type="text"></td>
+            <td > 价格: <input id="money" type="text"></td>
+            <td><input class="添加" type="button" value="添加" onclick=添加()></td>
+
+        </tr>
+
+    </table>
+
+
+    <table border="1" class=class2>
+        <!--这个是框的顶部-->
+        <thead>
+        <tr>
+            <td class="check">请选择</td>
+            <td>SKU</td>
+            <td>商品名称</td>
+            <td>价格</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+
+
+        <tbody id="body">
+        <tr class="tr">
+            <td class="check"><input type="checkbox"></td>
+            <td>1</td>
+            <td>老板</td>
+            <td class="money"  ondblclick="双击事件(this)">19</td>
+            <td><a href="#" onclick="删除(this)">删除</a></td>
+        </tr>
+
+        </tbody>
+
+
+    </table>
+
+
+</table>
+
+
+</body>
+</html>

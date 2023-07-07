@@ -1,0 +1,1 @@
+alert("A02javascript结合html的第二种方式")

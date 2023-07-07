@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location对象就是记录浏览器地址栏</title>
+    <script type="text/javascript">
+        function shor() {
+            //返回完整的 URL
+            window.document.write(location.href);}
+
+        function shor1() {
+            //设置并跳转到 URL地址（当前跳转页面）
+           window.location.href="https://bhome.jd.com/";
+           }
+    </script>
+</head>
+<body>
+<input type="button" value="回完整的 URL"  onclick="shor()">
+<input type="button" value="设置并跳转到 URL地址"  onclick="shor1()">
+
+</body>
+</html>
+<!--Location 对象的属性
+属性 描述 IE F O
+hash 设置或返回从井号 (#) 开始的 URL（锚）。 4 1 9
+host 设置或返回主机名和当前 URL 的端口号。 4 1 9
+hostname 设置或返回当前 URL 的主机名。 4 1 9
+href 设置或返回完整的 URL。 4 1 9
+pathname 设置或返回当前 URL 的路径部分。 4 1 9
+port 设置或返回当前 URL 的端口号。 4 1 9
+protocol 设置或返回当前 URL 的协议。 4 1 9
+search 设置或返回从问号 (?) 开始的 URL（查询部分）。 4 1 9
+Location 对象的方法
+方法 描述 IE F O
+assign() 加载新的文档。 4 1 9
+reload() 重新加载当前文档。 4 1 9
+replace() 用新的文档替换当前文档。 4 1 9
+-->

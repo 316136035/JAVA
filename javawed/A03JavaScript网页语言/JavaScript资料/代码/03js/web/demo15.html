@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选/全不选操作</title>
+
+    <script type="text/javascript">
+        // 全选
+        function selAll(){
+            var hobbys = document.getElementsByName("hobby");
+            // 遍历
+            for(var i=0;i<hobbys.length;i++){
+                // 获取到每一个复选框
+                var hobby = hobbys[i];
+                // 给checked属性设置成true
+                hobby.checked = true;
+            }
+        }
+
+        // 全不选
+        function selNo(){
+            var hobbys = document.getElementsByName("hobby");
+            // 遍历
+            for(var i=0;i<hobbys.length;i++){
+                // 获取到每一个复选框
+                var hobby = hobbys[i];
+                hobby.checked = false;
+            }
+        }
+
+        // 反选
+        function selOther(){
+            var hobbys = document.getElementsByName("hobby");
+            // 遍历
+            for(var i=0;i<hobbys.length;i++){
+                // 获取到每一个复选框
+                var hobby = hobbys[i];
+                /*
+                // 判断
+                if(hobby.checked == true){
+                    hobby.checked = false;
+                }else{
+                    hobby.checked = true;
+                }
+                */
+                // 简写的方式
+                hobby.checked = !hobby.checked;
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+<input type="checkbox" name="hobby" />篮球<br/>
+<input type="checkbox" name="hobby" />足球<br/>
+<input type="checkbox" name="hobby" />羽毛球<br/>
+<input type="checkbox" name="hobby" />冰球<br/>
+
+<input type="button" value="全选" onclick="selAll()"/>
+<input type="button" value="全不选" onclick="selNo()"/>
+<input type="button" value="反选" onclick="selOther()"/>
+
+</body>
+</html>

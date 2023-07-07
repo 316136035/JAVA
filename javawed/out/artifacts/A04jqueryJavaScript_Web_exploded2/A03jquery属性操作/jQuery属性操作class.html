@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性操作class</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        function 添加class() {
+            $(".class").addClass("class1")
+        }
+
+        function 删除class() {
+            $(".class").removeClass("class1")
+        }
+
+        function toggleClass() {
+            $(".class").toggleClass("class2")
+        }
+
+        function 获取class() {
+
+            var width=$(".class").css("width")
+            var height= $(".class").css("height")
+            alert(width+"   "+height)
+
+        }
+        function 设置class() {
+            $(".class").css("width","800px")
+
+
+        }
+
+
+
+    </script>
+    <style type="text/css">
+        .class{
+            border: lightcoral solid 1px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .class1{
+            border: lightcoral solid 1px;
+            width: 400px;
+            height: 400px;
+        }
+
+        .class2{
+            border: honeydew solid 1px;
+            width: 400px;
+            height: 400px;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="class" id="id"></div>
+
+<input type="button" value="添加class" onclick="添加class()">
+<input type="button" value="删除class" onclick="删除class()">
+<input type="button" value="如果class在的话就删除他,不在的话就添加他" onclick="toggleClass()">
+<input type="button" value="获取class" onclick="获取class()">
+<input type="button" value="设置class" onclick="设置class()">
+
+</body>
+</html>

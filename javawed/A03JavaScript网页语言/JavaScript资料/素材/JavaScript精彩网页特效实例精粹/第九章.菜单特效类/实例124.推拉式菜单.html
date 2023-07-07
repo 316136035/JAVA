@@ -1,0 +1,71 @@
+
+<style>#Cai1 {
+BACKGROUND-COLOR: #336699;
+BORDER-BOTTOM: white 2px outset; 
+BORDER-LEFT: white 2px outset; 
+BORDER-RIGHT: white 2px outset;
+BORDER-TOP: white 2px outset; LEFT: 0px;
+POSITION: absolute; TOP: 70px; VISIBILITY: hidden;
+WIDTH: 200px; layer-background-color: lightblue
+}
+</style>
+<script language="javascript">
+<!--
+function menuIn() {                         // 菜单隐藏
+clearTimeout(out_ID)                        // 清除定时器
+if( menu.pixelLeft > menuW*-1+20 ) {
+	menu.pixelLeft -= 2                 // 菜单位置递减
+	in_ID = setTimeout("menuIn()", 1)   // 启动定时器
+}
+}
+
+function menuOut() {                        // 菜单出现
+clearTimeout(in_ID)                         // 清除定时器
+if( menu.pixelLeft < 0) {
+	menu.pixelLeft += 2                 // 菜单位置递增
+	out_ID = setTimeout("menuOut()", 1) // 启动定时器
+}
+}
+
+
+function cOver() { 
+clearTimeout(F_out)
+F_over = setTimeout("menuOut()", 10)
+}
+
+
+function cOut() { 
+clearTimeout(F_over)
+F_out = setTimeout("menuIn()", 10)
+}
+
+
+function init() {
+menu = Cai1.style
+menuW = Cai1.offsetWidth
+Cai1.style.pixelLeft = menuW*-1+20             // 设置菜单初始位置
+Cai1.onmouseover = cOver                       // 鼠标划过时调用cOver函数
+Cai1.onmouseout = cOut                         // 鼠标离开时调用cOut函数
+Cai1.style.visibility = "visible"              // 显示图层
+}
+F_over=F_out=in_ID=out_ID=null
+//-->
+</script>
+</head>
+<body onload="init()">
+<div id="Cai1"> 
+<table border="0">
+<tr> 
+	<td width=40>&nbsp;</td><td align="center"><font style="COLOR: #ffffff">菜单</font></td>
+</tr>
+<tr> 
+	<td width=40>&nbsp;</td><td><a href="http://www.sina.com.cn"><font color="#cccccc" size=2>新浪网</font></a></td>
+</tr>
+</tr>
+	<td width=40>&nbsp;</td><td><a href="http://www.sohu.com"><font color="#cccccc" size=2>搜狐</font></a></td>
+</tr>
+<tr>
+	<td width=40>&nbsp;</td><td><a href="http://www.163.com"><font color="#cccccc" size=2>网易</font></a></td>
+</tr>
+</table>
+</div>

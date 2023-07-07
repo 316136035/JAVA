@@ -1,0 +1,17 @@
+<style type="text/css">
+.select{background: #888888;border-color:"#cccccc";color:"#000000";font-size:10pt;font-weight: bold;}
+</STYLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var message="   欢迎大家学习Javascript这门语言！ ";         // 输入滚动的文字
+function buttonscroll()
+{
+  message = message.substring(1,message.length) + message.substring(0,1);                // 给message赋值
+  document.bs.bs.value = message;                                                        // 在按钮上显示message文字
+  setTimeout("buttonscroll()",140);                                                      // 每140毫秒调用函数一次
+}
+//-->
+</script>
+<body onload="buttonscroll();">
+<form name=bs><INPUT class="select" TYPE="button" NAME="bs" onclick="location.href('http://www.sina.com.cn')"></FORM>
+</body>

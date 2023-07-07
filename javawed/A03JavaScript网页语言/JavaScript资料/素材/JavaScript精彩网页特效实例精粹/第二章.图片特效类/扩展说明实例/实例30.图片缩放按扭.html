@@ -1,0 +1,18 @@
+<SCRIPT language=JavaScript>
+<!--
+function bimg(){ 
+var zoom=parseInt(pic.style.zoom, 10)||100;
+zoom+=zoom/12;
+pic.style.zoom=zoom+'%';       // 重新设置比例
+return false;
+}
+function simg(){ 
+var zoom=parseInt(pic.style.zoom, 10)||100;
+zoom-=zoom/12;
+if (zoom>0) 
+pic.style.zoom=zoom+'%';     // 重新设置放大比例
+return false;
+}
+//-->
+</script>
+<img SRC="010.jpg" id=pic border=0><a href="#" onclick="return bimg();">放大</a>&nbsp;<a href="#" onclick="return simg();">缩小</a>

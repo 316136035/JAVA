@@ -1,0 +1,50 @@
+<script janguage="javascript">
+<!--
+function goFtpSite() {
+document.location.href = "ftp://" + document.ftp.login.value + ":" + document.ftp.password.value + "@" + document.ftp.url.value;
+}
+//-->
+</script>
+
+<form name="ftp">
+<table border="0" cellpadding="1" cellspacing="1" bgcolor="#000000" align="center">
+<tr>
+<td>
+<table border="0" cellspacing=0 cellpadding=5 align="center">
+<tr bgcolor="#cccccc">
+<td width="75" align="right">
+Ftp://
+</td>
+<td>
+<input type="text" size=15 name="url">
+</td>
+</tr>
+<tr bgcolor="#dddddd">
+<td align="right">
+用户名：
+</td>
+<td>
+<input type="text" size="15" name="login" maxlength="20">
+</td>
+</tr>
+<tr bgcolor="#cccccc">
+<td align="right">
+密码：
+</td>
+<td>
+<input type="password" size="15" name="password" maxlength="20">
+</td>
+</tr>
+<tr bgcolor="#ffffff">
+<td colspan="2" align="center">
+<font size="-2">
+<input type=button onclick="goFtpSite();" value="登录">
+<input type=reset value="清空">
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>

@@ -1,0 +1,12 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var filePath = location.href.substring(0, location.href.indexOf("实例197.连接Access数据库.html"));    //以当前页面文件为基础，找到文件所在的绝对路径
+var path = filePath + "197.mdb";
+path = path.substring(8);          
+var objdbConn = new ActiveXObject("ADODB.Connection");       
+var strdsn = "driver={Microsoft Access Driver (*.mdb)};dbq=" + path;   
+objdbConn.Open(strdsn);                     
+document.write("连接ACCESS数据库成功!<br>");
+objdbConn.Close();                        
+//-->
+</SCRIPT>

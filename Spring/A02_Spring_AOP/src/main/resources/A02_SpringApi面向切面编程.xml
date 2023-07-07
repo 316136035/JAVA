@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 使用Spring容器创建对象，在Spring容器成为Bean  id="类名"  class="类路径" scope="是否为单例/其他"-->
+    <bean id="A02_UserImpl" class="vip.tao.A02_SpringApi面向切面编程.Service.A02_UserImpl"></bean>
+    <bean id="methodBeforeAdvice" class="vip.tao.A02_SpringApi面向切面编程.Log.methodBeforeAdvice"></bean>
+    <bean id="afterReturningAdvice" class="vip.tao.A02_SpringApi面向切面编程.Log.afterReturningAdvice"></bean>
+
+
+<!--配置aop 需要导入AOP的约束-->
+<aop:config  >
+<!--pointcut切入点  定义ID    expression="要执行的对象"  -->
+    <aop:pointcut id="pointcut" expression="execution(* vip.tao.A02_SpringApi面向切面编程.Service.A02_UserImpl.*(..))"/>
+<!--    执行环绕增加advice-ref=（执行前的对象）pointcut-ref=“切入点”-->
+    <aop:advisor advice-ref="methodBeforeAdvice" pointcut-ref="pointcut"></aop:advisor>
+    <!--    执行环绕增加advice-ref=（执行后的对象）pointcut-ref=“切入点”-->
+    <aop:advisor advice-ref="afterReturningAdvice" pointcut-ref="pointcut"></aop:advisor>
+</aop:config>
+
+
+</beans>

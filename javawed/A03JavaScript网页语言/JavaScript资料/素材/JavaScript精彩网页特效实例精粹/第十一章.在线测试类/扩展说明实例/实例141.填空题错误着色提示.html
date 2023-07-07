@@ -1,0 +1,51 @@
+<script language="JavaScript">
+<!--
+score=100;                                   // 初始化总成绩
+mscored=25;                                  // 每题的分值
+var text="";
+function check1(){
+if(document.form1.u1.value != "华盛顿")      // 判断第一题是否正确
+{
+	text="第一题错误！\n"                    // 错误提示
+	score=score-mscored                      // 计算成绩
+	document.form1.u1.style.backgroundColor='#ff0000'   // 错误着色
+}
+if(document.form1.u2.value != "1949")        // 判断第二题是否正确
+{
+	text=text+"第二题错误！\n"               // 错误提示
+	score=score-mscored                      // 计算成绩
+	document.form1.u2.style.backgroundColor='#ff0000'   // 错误着色
+}
+if(document.form1.u3.value != "欧")          // 判断第三题是否正确
+{
+	text=text+"第三题错误！\n"               // 错误提示
+	score=score-mscored                      // 计算成绩
+	document.form1.u3.style.backgroundColor='#ff0000'   // 错误着色
+}
+if(document.form1.u4.value != "南美")        // 判断第四题是否正确
+{
+	text=text+"第四题错误！\n"               // 错误提示
+	score=score-mscored                      // 计算成绩
+	document.form1.u4.style.backgroundColor='#ff0000'   // 错误着色
+	
+}
+if (text == "")                              // 满分判断
+{
+	alert("恭喜您，您全回答正确，得分100分！");   // 满分提示
+}
+else
+{
+	alert(text);
+	alert("您的得分是"+score);
+}
+}
+//-->
+</script>
+在body区域加入以下代码:
+<form name="form1" method="post">
+1、美国第一任总统是<input name="u1" type="text">。<br>
+2、中华人民共和国是<input name="u2" type="text">年成立的。<br>
+3、英国是<input name="u3" type="text">洲的国家。<br>
+4、阿根廷是<input name="u4" type="text">洲的国家。<br>
+<input type="button" name="submit" value="提交" onclick="check1()">
+</form>

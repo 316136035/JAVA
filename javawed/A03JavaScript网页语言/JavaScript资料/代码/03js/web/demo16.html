@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM编程一些方法</title>
+
+    <script type="text/javascript">
+        // 点击，添加li的节点
+        function addLi(){
+            // 创建li节点
+            var li = document.createElement("li");
+            // 创建广州文本的节点(字符串)
+            var textNode = document.createTextNode("广州");
+            // 把广州文本节点添加到li节点下
+            li.appendChild(textNode);
+            // 再把li节点添加到ul节点下
+            document.getElementById("ulid").appendChild(li);
+        }
+
+        // 点击深圳节点，删除该节点
+        function del(obj){
+            // obj = this 指的是对象，指当前li对象
+            // alert(obj);
+            // 删除掉obj
+
+            // 获取到当前节点的父节点
+            obj.parentNode.removeChild(obj);
+        }
+
+    </script>
+
+</head>
+<body>
+
+<ul id="ulid">
+    <li>北京</li>
+    <li>上海</li>
+    <li onclick="del(this)">深圳</li>
+</ul>
+
+<input type="button" value="添加" onclick="addLi()"/>
+
+</body>
+</html>

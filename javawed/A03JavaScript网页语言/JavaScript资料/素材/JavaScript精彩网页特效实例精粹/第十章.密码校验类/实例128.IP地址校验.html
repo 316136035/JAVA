@@ -1,0 +1,23 @@
+
+<script language="javascript"> 
+<!--
+function checkIP() 
+{ 
+obj=document.check.ip.value      
+var exp=/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
+var reg = obj.match(exp); 
+if(reg==null) 
+{ 
+alert("IP地址不合法!"); 
+} 
+else 
+{ 
+alert("IP地址合法!"); 
+} 
+} 
+//-->
+</script> 
+<form name=check>
+<input type=text id="ip"> 
+<input type=button onclick="checkIP()" value="检测IP"> 
+</form>

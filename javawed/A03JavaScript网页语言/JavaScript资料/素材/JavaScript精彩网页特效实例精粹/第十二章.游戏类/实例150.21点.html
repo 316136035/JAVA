@@ -1,0 +1,83 @@
+<body>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function random(maxValue)
+{
+return Math.round(Math.random()*maxValue)+1;    
+}
+function cardValue(card)
+{
+   if(card == 1)               
+      return 11;
+   if(card > 10)                       
+      return 10;
+   return card;
+}
+function pickcard(strWho)
+{
+   card = random(12);              
+   return cardValue(card);
+}
+function NewHand(form)
+{
+   form.dealer.value = 0;                            
+   form.you.value = 0;      
+   form.dealer.value = eval(form.dealer.value) + pickcard("Dealer"); 
+   form.you.value = eval(form.you.value) + pickcard("You");  
+}
+function Dealer(form)
+{
+   while(form.dealer.value < 17)                          
+   {
+      form.dealer.value = eval(form.dealer.value) + pickcard("Dealer");
+   }
+}
+function User(form)
+{
+   form.you.value = eval(form.you.value) + pickcard("You");
+   if(form.you.value > 21)                                
+   {
+      alert("对不起你输了，你已经超过21点了!");
+   }
+}
+function LookAtHands(form)
+{
+   if(form.dealer.value > 21)                 
+   {
+      alert("恭喜，庄家已经超过21点了，你赢了!");
+   }
+   else if(form.you.value > form.dealer.value)     
+   {
+      alert("恭喜，你赢了!");
+   }
+   else
+   if(form.dealer.value == form.you.value) 
+   {
+      alert("平手!");
+   }
+   else  
+   {
+      alert("庄家赢了，再接再励!");
+   }
+}
+//-->
+</SCRIPT>
+<form>
+<p align=center>21点游戏</p>
+<table border=1 align="center">
+<TR>
+      <TD width="79" align=center>庄家点数</TD>
+      <TD width="155"><input type=text name=dealer></TD>
+</TR>
+<TR>
+      <TD width="79" height="17" align=center>玩家点数</TD>
+      <TD width="155"><input type=text name=you></TD>
+</TR>
+</table>
+<p align=center>
+      <input type=button value="要牌" onClick="User(this.form)">
+      <input type=button value="开牌" onClick="Dealer(this.form);LookAtHands(this.form);">
+      <input type=button value="新游戏" onClick="NewHand(this.form)">
+</p>
+</form>
+</body>

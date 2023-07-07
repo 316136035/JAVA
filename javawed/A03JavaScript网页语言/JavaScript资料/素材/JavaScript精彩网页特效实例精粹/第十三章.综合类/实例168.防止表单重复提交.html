@@ -1,0 +1,51 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function GetCookie (name) {             
+  var arg = name + "=";
+  var alen = arg.length;                
+  var clen = document.cookie.length;  
+  var i = 0;
+  while (i < clen) {       
+    var j = i + alen;
+    if (document.cookie.substring(i, j) == arg)
+      return getCookieVal (j);
+    i = document.cookie.indexOf(" ", i) + 1;
+    if (i == 0) break; 
+  }
+  return null;
+}
+
+function getCookieVal (offset) {     
+  var endstr = document.cookie.indexOf (";", offset);
+  if (endstr == -1)
+    endstr = document.cookie.length;
+  return unescape(document.cookie.substring(offset, endstr));
+}
+
+function SetCookie (name, value) {   
+  document.cookie = name + "=" + escape (value)
+}
+
+function mysubmit()
+{
+if(GetCookie("times")<1)  
+{
+alert("谢谢您参与");            
+SetCookie("times",1);     
+document.myform.submit();   
+}
+else
+{
+alert("不要重复提交");  
+}
+}
+//-->
+</script> 
+<form name=myform action="#">
+<p>标识：<input type=text size=20 name=username></p>
+<p>口令：<input type=password size=20 name=pwd></p>
+<input type=button onclick=mysubmit() value="提交按钮">
+</form>
+ 
+
+ 

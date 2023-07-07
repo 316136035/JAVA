@@ -1,0 +1,22 @@
+<form name=forms action="http://www.sina.com.cn" method=post> 
+考试时间:<input type=text name=input1 size=9>          
+<script language=javascript>
+<!--          
+var sec=0;min=0;
+var hou=0;flag=0;
+function update(){
+sec++;
+if(sec==60){sec=0;min+=1;}
+if(min==60){min=0;hou+=1;}
+document.forms.input1.value=hou+"时"+min+"分"+sec+"秒";
+window.setTimeout("update();",1000);
+if((hou==1)&&(min==0)&&(sec==0))
+{
+alert("考试时间已到，请点确定自动提交试卷！");
+forms.submit();
+}
+}       
+update()
+//-->
+</script>         
+</form>    

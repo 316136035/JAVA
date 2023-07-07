@@ -1,0 +1,59 @@
+<BODY>
+<SCRIPT language=JavaScript>
+<!--
+var des=new Array()
+des[0]="<style>\nbody {scrollbar-3dlight-color:green}\n</style>"
+des[1]="<style>\nbody {scrollbar-arrow-color:green}\n</style>"
+des[2]="<style>\nbody {scrollbar-base-color:green}\n</style>"
+des[3]="<style>\nbody {scrollbar-darkshadow-color:green}\n</style>"
+des[4]="<style>\nbody {scrollbar-face-color:green}\n</style>"
+des[5]="<style>\nbody {scrollbar-highlight-color:green}\n</style>"
+des[6]="<style>\nbody {scrollbar-shadow-color:green}\n</style>"
+des[7]="<style>\nbody {scrollbar-track-color:green}\n</style>"
+
+function showdetail(cur,which){         
+cur.style.color="green"                 
+cur.style.cursor="hand"                 
+document.scroll.scroll2.value=des[which]
+if (document.all){
+if (which==0)
+document.body.style.cssText="scrollbar-3dlight-color='green'"  
+else if (which==1)
+document.body.style.cssText="scrollbar-arrow-color='green'"    
+else if (which==2)
+document.body.style.cssText="scrollbar-base-color='green'"     
+else if (which==3)
+document.body.style.cssText="scrollbar-darkshadow-color='green'" 
+else if (which==4)
+document.body.style.cssText="scrollbar-face-color='green'"       
+else if (which==5)
+document.body.style.cssText="scrollbar-highlight-color='green'"  
+else if (which==6)
+document.body.style.cssText="scrollbar-shadow-color='green'"     
+else if (which==7)
+document.body.style.cssText="scrollbar-track-color='green'" 
+}
+}
+//-->
+</SCRIPT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+         <TR>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TR>
+                <TD width="40%"><FONT face=Arial size=2>1)<SPAN 
+                  onclick=showdetail(this,0)>
+                  scrollbar-3dlight-color</SPAN><BR>2) <SPAN 
+                  onclick=showdetail(this,1)>scrollbar-arrow-color</SPAN><BR>3) 
+                  <SPAN onclick=showdetail(this,2)>scrollbar-base-color</SPAN><BR>4) 
+                  <SPAN onclick=showdetail(this,3)>scrollbar-darkshadow-color</SPAN><BR>5) 
+                  <SPAN onclick=showdetail(this,4)>scrollbar-face-color</SPAN><BR>6) 
+                  <SPAN onclick=showdetail(this,5)>scrollbar-highlight-color</SPAN><BR>7) 
+                  <SPAN onclick=showdetail(this,6)>scrollbar-shadow-color</SPAN><BR>8) 
+                  <SPAN onclick=showdetail(this,7)>scrollbar-track-color</SPAN> 
+                  </FONT></TD>
+                <TD vAlign=center align=left width="100%">
+                  <FORM name=scroll method=post>
+                  <P><TEXTAREA name=scroll2 rows=5 wrap=virtual cols=39></TEXTAREA></P>
+                  </FORM></TD></TR></TABLE></TD></TR></TABLE>         
+</BODY>

@@ -1,0 +1,86 @@
+<script language="javascript">
+<!--
+function getresultcheck(form,score_per_problem,show)
+{var mykeys=new Array();       
+mykeys[0]="ABD";
+mykeys[1]="ABCD";
+mykeys[2]="ABC";
+var score=new Array();
+var totalscore=0;
+var flag=1;
+var answer=new Array();
+for(var i=0;i<mykeys.length;i++) answer[i]="";
+
+var every=form.elements;
+var lastname="";
+for(var i=0;i<every.length;i++)       
+{
+	if(every[i].checked)         
+	{	
+		var item=parseInt(every[i].name.substr(1,1));
+		answer[item-1]+=every[i].value;   
+	}
+}
+for(var i=0;i<answer.length;i++)         
+{
+	if(answer[i]=="") answer[i]="未答";    
+}
+var message="<html><head><title>测试结果</title></head>";
+message+="<body><div align=center class=p2><center><font color=red><h2>测试结果</h2></font><br>";
+var returnvalue="<table width=360 border=1  class=e1 vspace=0 hspace=0 cellspacing=0><tr align=center valign=center><th>题号</th><th>正确答案</th><th>您的答案</th><th>得分</th></tr>";
+for(var i=0;i<answer.length;i++)
+{
+		
+	if(answer[i]==mykeys[i])            
+	{
+		score[i]=score_per_problem;  
+		totalscore+=score[i];        
+	}else
+	{
+		flag=0;     
+		score[i]=0;   
+	}
+	var temp="<tr align=center valign=center><td>"+(i+1)+"</td><td>"+mykeys[i]+"</td><td>"+answer[i]+"</td><td><font color=red>"+score[i]+"</font></td></tr>";
+	returnvalue+=temp
+}
+returnvalue+="<tr align=center valign=center><td colspan=2>您本题的得分</td><td colspan=2><font size=+1 color=red><b>";
+returnvalue+=totalscore;
+returnvalue+="</font></b></td></tr></table>";
+message+=returnvalue;
+if(flag==1) message+="<br><h2>恭喜您！您的答案完全正确！</h2>";
+message+="<a href='javascript:close()'>关闭窗口</a></center></div></body></html>";
+newwin=window.open("","","height=300,width=400,scrollbars=yes,top=0,left=0,x=0,y=0");   
+newwin.document.write(message);       
+}
+function getanswers(){
+window.alert("参考答案 1.ABD 2.ABCD 3.ABC ") 
+}
+//-->
+</script>
+
+<BODY>
+<form>
+1.计算机病毒的主要传播途径有______<br>
+<input type=checkbox name=c1 value=A>A.光盘和软盘  <br>
+<input type=checkbox name=c1 value=B>B.OICQ和BBS    <br>  
+<input type=checkbox name=c1 value=C>C.网络浏览            <br>  
+<input type=checkbox name=c1 value=D>D.电子邮件和网络<p> 
+<p>  
+2.被感染病毒后，计算机可能出现的异常现象或症状有______<br>  
+<input type=checkbox name=c2 value=A>A.计算机系统出现异常死机或死机频繁<br>  
+<input type=checkbox name=c2 value=B>B.系统被非法远程控制 <br>  
+<input type=checkbox name=c2 value=C>C.文件的内容和文件属性无故改变<br>  
+<input type=checkbox name=c2 value=D>D.自动发送邮件<p>  
+3.下列病毒发作时，能够破坏硬盘数据的有______<br>  
+<input type=checkbox name=c3 value=A>A.求职信 <br>  
+<input type=checkbox name=c3 value=B>B.SirCam <br>  
+<input type=checkbox name=c3 value=C>C.CIH  <br>  
+<input type=checkbox name=c3 value=D>D.Sulfnbk<p>
+<hr width="60%">
+<center>
+<input type=button value=提交 onclick="getresultcheck(this.form,6,1)">&nbsp;&nbsp;&nbsp;  
+<input type=reset value=重做>&nbsp;&nbsp;&nbsp;  
+<input type=button value=答案 onclick="getanswers()">  
+</center>  
+</form>  
+</BODY>  

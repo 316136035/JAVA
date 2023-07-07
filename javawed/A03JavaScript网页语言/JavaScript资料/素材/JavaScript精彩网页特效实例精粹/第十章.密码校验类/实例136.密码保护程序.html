@@ -1,0 +1,23 @@
+<script language="JavaScript">
+<!--
+function checkpass(){
+if((document.form1.username.value == "zt")&&((document.form1.pwd.value>>2) == "27777"))
+{
+	alert("验证成功！")
+	return true
+}
+else{
+	alert("您输入的用户名或密码错误，请重新输入！")
+	return false
+}
+}
+//-->
+</script>
+</head>
+<body>
+<form name="form1" method="post">
+姓名：<input name="username" type="text"><br>
+密码：<input name="pwd" type="password"><br>
+<input type="button" name="submit" value="确定" onclick="checkpass()"><br><br>注意：密码设定需要是0-9的数字
+</form>
+</body>

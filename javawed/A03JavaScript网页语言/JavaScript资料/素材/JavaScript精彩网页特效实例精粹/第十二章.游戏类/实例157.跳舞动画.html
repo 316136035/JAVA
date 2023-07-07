@@ -1,0 +1,145 @@
+<body bgcolor="#ffffff" OnLoad="tick()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var a="\n";
+var max=0;
+function tlist() {
+max=tlist.arguments.length;  
+for (i=0; i<max; i++)        
+this[i]=tlist.arguments[i];
+}
+tl = new tlist(              
+"   o"+a+
+"  /|\\"+a+
+" &/ \\&        ÌøÎè"+a,
+
+"   o_"+a+
+"  \<| &"+a+
+"  &\>\\         ÌøÎè"+a,
+
+"  _o/&"+a+
+" & |"+a+
+"  / \\         ÌøÎè"+a,
+
+" &\o_"+a+
+"  /  &"+a+
+" \<\\           ÌøÎè"+a,
+
+"  _o/&"+a+
+" & |"+a+
+"  / \\         ÌøÎè"+a,
+
+" &\\c/&"+a+
+"   )"+a+
+"  / \>         ÌøÎè"+a,
+
+"     &"+a+
+"  \\__/c"+a+
+"   \> \\&       ÌøÎè"+a,
+
+"   __/"+a+
+"    (o_&"+a+
+"     \\&       ÌøÎè"+a,
+
+"      \\ /"+a+
+"       |"+a+
+"     &/o\\&    ÌøÎè"+a,
+
+"       \\_"+a+
+"       ("+a+
+"     &/o\\&    ÌøÎè"+a,
+
+"        \<_"+a+
+"      __("+a+
+"     & o|&    ÌøÎè"+a,
+
+"         /_"+a+
+"      __("+a+
+"     & o|&   ÌøÎè"+a,
+
+"         ___"+a+
+"      &\/ \>"+a+
+"       o|&    ÌøÎè"+a,
+
+"        &"+a+
+"       o|_/"+a+
+"      &/  \\   ÌøÎè"+a,
+
+"        &"+a+
+"      _o|_"+a+
+"     &   \>\\   ÌøÎè"+a,
+
+"       _o/&"+a+
+"      & |"+a+
+"       / \\    ÌøÎè"+a,
+
+"      &\\o/&"+a+
+"        |"+a+
+"       / \\    ÌøÎè"+a,
+
+"      c/&"+a+
+"      \<\\"+a+
+"      &/\\     ÌøÎè"+a,
+
+"      c__"+a+
+"      \<\ &"+a+
+"      &/\\     ÌøÎè"+a,
+
+"      c__"+a+
+"      /\ &"+a+
+"     & /\>     ÌøÎè"+a,
+
+"      c/&"+a+
+"     /(__"+a+
+"    & /       ÌøÎè"+a,
+
+"    __o/&"+a+
+"    & (__"+a+
+"      \<       ÌøÎè"+a,
+
+"      __o_"+a+
+"     & /  &"+a+
+"      \<\\      ÌøÎè"+a,
+
+"     &_o_"+a+
+"       | &"+a+
+"      \< \\     ÌøÎè"+a,
+
+"     &_c_&"+a+
+"       |"+a+
+"       \>\\     ÌøÎè"+a,
+
+"     &_c_&"+a+
+"       |__"+a+
+"       \>      ÌøÎè"+a,
+
+"     &_c_&"+a+
+"     __|__"+a+
+"              ÌøÎè"+a,
+
+" "+a+
+"     &_c_&"+a+
+"     __)__    ÌøÎè"+a,
+
+" "+a+
+"     &\\c/&"+a+
+"     __)__    ÌøÎè"+a
+
+);
+var x=0;
+function tick() {
+document.animation.cheerleader.value = " " + a + tl[x];  
+x++;
+if (x != max)
+setTimeout("tick()", 200);
+else
+x = 0;
+}
+//-->
+</script>
+<form name=animation>
+<textarea name=cheerleader rows=5 cols=20></textarea>
+<br>
+<input type=button value="ÖØÐÂ¿ªÊ¼" onClick = "javascript:tick()">
+</form>
+</body>

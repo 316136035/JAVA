@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery基本选择器 </title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        slave_addr
+        $(function () {
+
+            //  $("#username")代表的是ID选择器
+            var val = $("#username").val();
+            // jquery的append 追加
+            $("#span1").append(val);
+            //////////////////////////////////////////////////////////////////////////////////////////
+            //$("input")代表获取全部的span元素对象
+            var inputs = $("input");
+            //遍历全部span元素对象
+            for (var i = 0; i < inputs.size(); i++) {
+                // 遍历出来的是doM对象要转成jq对象
+                var jqval = $(inputs[i]).val();
+                //jquery的append 追加
+                $("#span2").append(jqval)
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //$(".myclass")代表获取全部类是myClass的元素对象
+           var classs=$(".myClass");
+            for(var i=0;i<classs.size();i++){
+               var classtext=  $(classs[i]).text();
+                 $("#span3").append(classtext)
+             }
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //代表获取全部元素对象
+             $("*")
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //   组合选择器（选择多个元素）
+           var 组合= $("#username,.notMe,span");
+            //遍历jquery元素集合
+            组合.each(function () {
+                //this代表每一个元素对象
+                var 组合text=   $(this).text();
+                $("#span4").append(组合text)
+            });
+
+
+
+
+
+
+        })
+
+    </script>
+</head>
+<body>
+用户名：<input type="text" id="username" value="用户名"><br>
+密码：<input type="password" id="password" value="密码"><br>
+验证码：<input type="text" id="yzm" value="验证码"><br>
+<div class="notMe">div class="notMe"</div>
+<div class="myClass">div class="myClass"</div>
+<span class="myClass">span class="myClass"</span><br>
+<hr>
+
+<span id="span1"></span><hr>
+<span id="span2"></span><hr>
+<span id="span3"></span><hr>
+<span id="span4"></span><hr>
+</body>
+</html>

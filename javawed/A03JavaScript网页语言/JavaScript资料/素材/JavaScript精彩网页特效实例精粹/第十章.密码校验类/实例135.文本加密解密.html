@@ -1,0 +1,40 @@
+
+<SCRIPT language=JavaScript>
+<!--
+var Words;
+function SetWords(word)
+{
+Words = word.value;                  
+}
+
+function SetNewWords(form)        
+{
+var NewWords;
+NewWords = unescape(Words);          
+form.NewWords.value = NewWords;       
+}
+function SetNewWords1(form)      
+{
+var NewWords;
+NewWords = escape(Words);            
+form.NewWords.value = NewWords; 
+}
+// -->
+</SCRIPT>
+<body>
+<table align=center>
+<TR>
+<form method=post>
+<TD align=center>
+
+<P><textarea cols=65 name=Word onchange=SetWords(this) rows=5></textarea></P>
+
+<P><input name=uncode onclick=SetNewWords(this.form) type=button value="½âÃÜ">
+<input name=encode onclick=SetNewWords1(this.form) type=button value="¼ÓÃÜ">
+</P>
+<P><textarea cols=65 name=NewWords rows=5></textarea></P>
+</form>
+</td>
+</tr>
+</table>
+</body>

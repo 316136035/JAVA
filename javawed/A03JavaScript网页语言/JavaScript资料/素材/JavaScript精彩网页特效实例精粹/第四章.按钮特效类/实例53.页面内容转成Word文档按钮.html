@@ -1,0 +1,16 @@
+<script language=javascript>
+<!--
+function word00(){
+var word=new ActiveXObject("Word.Application")
+word.visible=true
+alert("您的"+word.Application.Caption+"安装路径为：\n"+word.Application.Path+"\n版本号是："+word.Application.version+"\n注册使用者是："+word.Application.UserName)
+word.Documents.Open("e:/论文/JavaScript实战技巧精解200例/第四章.按钮特效类/html.doc")
+word.Selection.TypeText("JavaScript实战技巧精解200例。")
+word.Selection.TypeText("欢迎大家学习。")
+word.Application.Activate()
+word.ActiveDocument.SaveAs("e:/论文/JavaScript实战技巧精解200例/第四章.按钮特效类/html.doc")
+word=null
+}
+//-->
+</script>
+<p align=center><input type=button value="  页面内容转成WORD文件  " onclick="word00()"></p>

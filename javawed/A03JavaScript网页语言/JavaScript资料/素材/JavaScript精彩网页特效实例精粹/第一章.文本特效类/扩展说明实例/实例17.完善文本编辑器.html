@@ -1,0 +1,62 @@
+<script language="javascript">
+<!--
+function wenben()
+{
+  Editor.document.designMode = "On";
+}
+
+function add_jy(theform)
+{
+	theform.xxnr.value=Editor.frames.document.body.innerHTML;
+		if (confirm("你确定要发布信息吗?\n\n")){
+			return(true);
+		}else{
+			return(false);
+		}
+}
+function doclick(str)
+{
+var m_objTextRange = Editor.document.selection.createRange();
+m_objTextRange.execCommand(str) ;
+} 
+// -->
+</script>
+<body onload="wenben();">
+<form method="POST" action="" onSubmit="return add_jy(this)">
+  <table width="300" cellspacing="0" cellpadding="1" border="0" bgcolor="buttonface">
+   <tr>
+    <td  height="20px" width="22px"  onclick='doclick("Bold")'>
+     <img align="absmiddle" id="e_bold" src='bold.gif' width="20px" height="20px" border="0">
+    </td>
+    <td height="20px" width="22px" onclick='doclick("Italic")'>
+     <img  align="absmiddle" id="e_italic" src='italic.gif' width="20" height="20" border=0>
+    </td>
+    <td height="20px" width="22px" onclick='doclick("underline")'>
+     <img align="absmiddle" id="e_underline" src='underline.gif' width="20" height="20" border=0>
+    </td>
+     <td  height="20px" width="22px" onclick='doclick("cut")'>
+     <img align="absmiddle" id="e_cut" src='cut.gif' width="20px" height="20px" border="0">
+    </td>
+    <td height="20px" width="22px" onclick='doclick("copy")'>
+     <img  align="absmiddle" id="e_copy" src='copy.gif' width="20" height="20" border=0>
+    </td>
+    <td height="20px" width="22px" onclick='doclick("paste")'>
+     <img  align="absmiddle" id="e_paste" src='paste.gif' width="20" height="20" border=0>
+    </td>
+    <td height="20px" width="22px" onclick='doclick("delete")'>
+     <img align="absmiddle" id="e_delete" src='delete.gif' width="20" height="20" border=0>
+    </td>
+    <td width=234>&nbsp;</td>
+   </tr>
+   <tr>
+    <td colspan="7">
+     <iframe id="Editor" name="Editor" border="0" scroll="no" width="300" height="200" style="margin:0px"></iframe><input name="xxnr" type="hidden">
+    </td>
+   </tr>
+   <tr>
+   <td colspan="4" align=center height=25><input type="submit" name=b1></td>
+   </tr>
+ </table></form>
+ </body>
+ 
+ 

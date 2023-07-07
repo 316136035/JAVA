@@ -1,0 +1,56 @@
+<style type="text/css">
+.textcolor {
+COLOR: #ff0000; FONT-SIZE: 10pt; POSITION: absolute; VISIBILITY: visible
+}
+</style>
+<script language="JavaScript">
+<!--
+var x,y
+var step=18                         
+var flag=0
+var message="欢迎大家学习JavaScript这门语言 "    
+
+message=message.split("")                    
+var xpos=new Array()
+for (i=0;i<=message.length-1;i++) {
+xpos[i]=-50
+}
+
+var ypos=new Array()
+for (i=0;i<=message.length-1;i++) {
+ypos[i]=-200
+}
+
+function handler(e){
+x = document.body.scrollLeft+event.clientX                  
+y = document.body.scrollTop+event.clientY                  
+flag=1
+}
+
+function mouseflow() {
+if (flag==1 && document.all) {
+for (i=message.length-1; i>=1; i--) {
+xpos[i]=xpos[i-1]+step                                     
+ypos[i]=ypos[i-1]
+}
+xpos[0]=x+step
+ypos[0]=y
+
+for (i=0; i<message.length-1; i++) {
+eval("span"+(i)+".style").posLeft=xpos[i]        
+eval("span"+(i)+".style").posTop=ypos[i]
+}
+}
+setTimeout("mouseflow()",30)                    
+}
+
+for (i=0;i<=message.length-1;i++) {
+document.write("<span id='span"+i+"' class='textcolor'>")
+document.write(message[i])
+document.write("</span>")
+}
+document.onmousemove = handler;                  
+mouseflow();
+//-->
+</script>
+

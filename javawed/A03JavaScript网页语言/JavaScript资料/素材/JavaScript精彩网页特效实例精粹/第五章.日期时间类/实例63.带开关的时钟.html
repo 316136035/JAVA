@@ -1,0 +1,31 @@
+<table align=center>
+	<tr>
+		<td><div id="clock"></div></td>
+	</tr>
+</table>
+
+<SCRIPT language="JavaScript">
+<!--
+var enabled=1;
+function onclock()
+{
+var dataobj=new Date()   
+var hours=dataobj.getHours() 
+var minutes=dataobj.getMinutes()
+var seconds=dataobj.getSeconds()
+var years=dataobj.getYear()     
+var Months=dataobj.getMonth()   
+var dates=dataobj.getDate()     
+if(minutes<=9)
+minutes="0"+minutes  
+if(seconds<=9)
+seconds="0"+seconds                  
+myclock="<font size='5' face='Arial black'>" + years  + "年" + (Months + 1 ) + "月" + dates + "日" +hours+":"+minutes+":"+seconds+"</font>"
+clock.innerHTML=myclock; 
+if(enabled==1)
+setTimeout("onclock()",1000)
+}
+onclock();                                     
+//-->
+</SCRIPT>
+<p align=center>时钟开关:<input type="radio" name="rad" value="off" onclick="enabled =0;onclock();">关<input type="radio" name="rad" value="on" checked  onclick="enabled =1;onclock();">开</p>

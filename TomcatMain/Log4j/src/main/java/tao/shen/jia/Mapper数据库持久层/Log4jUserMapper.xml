@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 绑定接口-->
+<mapper namespace="tao.shen.jia.Mapper数据库持久层.Log4jUserMapper">
+    <!-- 查询全部用户-->
+    <!--    id="接口的方法名 resultType="返回类型"  parameterType="传参数类型"-->
+    <select id="getUserList" resultType="Log4jUser">#  使用别名请先在mybatis-config.xml中配置
+        select * from MyBatis.user  LIMIT 0,100
+    </select>
+
+</mapper>
+

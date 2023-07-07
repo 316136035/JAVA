@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         https://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         https://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/mvc
+         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!--    自动扫描包,让指定包下的注解生效，统一由StringIOC容器管理-->
+    <context:component-scan base-package="vip.tao.controller"/>
+    <!--    让sqringmvn不处理静态资源css.js.html.ma3.mp4-->
+    <mvc:default-servlet-handler/>
+    <!--  开启注解生效 Stringmvc注解驱动
+  在spring中一般采用@RequestMapping来注解
+  完成映射关员奖想仪@RequestMapping注解生效
+  必须向上下文中注册DefaultAnnotationHandLerMapping和一个AnnotationMethodHandLerAdapter这两个实例分别在类级别刑方法级别处理。
+  （ <mvc:annotation-driven/>）annotation-driven帮助我们白动完成上达两个实例的注入-->
+    <mvc:annotation-driven/>
+
+
+
+    <!--    视图解释器:DispatcherServlet可调度的Servlet（控制器）给他的 ModelAndView-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="InternalResourceViewResolver">
+        <!--        字符串拼接前缀-->
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <!--        字符串拼接后缀-->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!-- 创建后端处理id="/请求地址" class="创建后端处理路径"  使用注解@Controller就不再使用-->
+    <!--    <bean id="/HelloController" class="vip.tao.Spring_执行原理_xml.controller.HelloController"></bean>-->
+
+
+
+</beans>

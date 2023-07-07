@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery事件的定义关于复制的</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        /**这种复制是可以复制他的方法的*/
+        function 复制() {
+         var clone1=   $(".div").clone();
+            $(".div").after(clone1)
+        }
+        /**这种复制是复制不了他的方法的*/
+       $( function 复制不了他的方法() {
+           /**给元素一个点击事件*/
+            $(".div1").click(function () {
+                var clone1=   $(".div1").clone();
+                $(".div1").after(clone1)
+            })
+
+        })
+
+
+
+    </script>
+</head>
+<body>
+
+<div class="div" ><a  onclick="复制()">可以复制他的方法</a> </div>
+<div class="div1" ><a >复制不了他的方法</a> </div>
+
+
+
+</body>
+</html>

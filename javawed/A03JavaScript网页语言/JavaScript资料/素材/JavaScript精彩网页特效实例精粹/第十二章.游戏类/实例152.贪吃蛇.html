@@ -1,0 +1,103 @@
+<style type="text/css">
+.food{background-color:#0000ff;}            
+.snake{background-color:ff0000;}            
+</style>
+<script language="javascript">
+<!--
+var Rows=20;                                 // 设置行
+var Cells=20;                                // 设置列
+var Num=15;                                  // 地图的大小
+var BorderWidth=5;                           // 地图的边框
+var Speed=5000;                              // 设置蛇的速度
+var timeobj=100;                             // 设置延迟时间
+var stat=0;
+function CMap(){                        // 创建地图
+var BW=eval(Cells*Num+2*BorderWidth);        // 设置列的边框宽度
+var BH=eval(Rows*Num+2*BorderWidth);         // 设置行的边框宽度
+document.body.innerHTML='<div id=MainMap style=position:absolute;left:'+(document.body.clientWidth-BW)/2+';top:'+(document.body.clientHeight-BH)/2+';width:'+BW+';height:'+BH+';border-width:'+BorderWidth+';border-style:inset;border-color:#0000cc></div>';
+Map=new Array();                             // 设置地图数组
+for(y=0;y<Rows;y++){
+Map[y]=new Array();
+for(x=0;x<Cells;x++){
+Map[y][x]='0';
+}
+}
+Sx=parseInt(Math.random()*Cells);            // 设置蛇的X轴位置
+Sy=parseInt(Math.random()*Rows);             // 设置蛇的Y轴位置
+cSnake();
+createFood();
+AllDiv=MainMap.all.tags('DIV');
+AllSpan=MainMap.all.tags('SPAN');
+}
+
+function cSnake(){                      // 创建蛇
+MainMap.innerHTML+='<div x='+Sx+' y='+Sy+' style=position:absolute;left:'+Sx*Num+';top:'+Sy*Num+';width:'+Num+';height:'+Num+';overflow:hidden class=Snake></div>'
+Map[Sy][Sx]='S'
+}
+
+function createFood(){                       // 创建食物
+Fx=parseInt(Math.random()*Cells);            // 设置食物的位置
+Fy=parseInt(Math.random()*Rows);             // 设置食物的位置
+if(Map[Fy][Fx]=='0'){
+MainMap.innerHTML+='<span style=position:absolute;left:'+Fx*Num+';top:'+Fy*Num+';width:'+Num+';height:'+Num+';overflow:hidden class=Food></span>';
+Map[Fy][Fx]='F';
+}
+else createFood();                           // 创建食物
+}
+
+function Move()                              // 设置移动
+{
+  Sx+=GoX;
+  Sy+=GoY;
+  if((Sy<0||Sy>=Rows)||(Sx<0||Sx>=Cells))
+  	{restartGame();}                    // 判断蛇头前面撞到边界后重新开始游戏
+  else
+  {
+    if(Map[Sy][Sx]=="F") MoveEateFood();
+    else  MoveNoFood(); 
+  }
+}
+function restartGame()                       // 重新开始游戏
+{
+   var msg=confirm("游戏失败!确定重新开始吗?");
+   if(msg) window.location.reload();
+}
+function MoveNoFood()                        // 前面是空白地方
+{
+  Map[AllDiv[0].y][AllDiv[0].x]='0';
+  AllDiv[0].removeNode(true);
+  cSnake();
+  setTimeout('Move();',timeobj);
+}
+
+function MoveEateFood()                      // 前面是食物
+{ cSnake();
+  AllSpan[0].removeNode(true);
+  createFood();
+  setTimeout('Move();',timeobj);
+}
+  
+document.onkeydown=KeyDown;
+function KeyDown(){                          // 操作键盘
+Key=event.keyCode
+switch(Key){
+case 37:Dir(-1,0);break                      // 向左移动
+case 39:Dir(1,0);break                       // 向右移动
+case 38:Dir(0,-1);break                      // 向上移动
+case 40:Dir(0,1);break}                      // 向下移动
+return false
+}
+
+function Dir(x,y)                            // 方向控制
+{
+  GoX=x;
+  GoY=y;
+  if(stat==0)
+  {
+   stat=1;
+   Move();
+  }
+}
+onload=CMap;
+//-->
+</script>

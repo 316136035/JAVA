@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式使用</title>
+    <script type="text/javascript"src="../lib/jquery-1.8.3.js"></script>
+</head>
+<body>
+<form method="post" action="#">
+
+   账户名： <input type="text" id="username" name="username"  onchange="域改变事件()"><samp id="samp"></samp><br>
+   密码： <input type="password" id=password"  name="password" >
+
+</form><br>
+
+<input type="button" id="idid"  value="测试字符串正则表达式" onclick="测试字符串正则表达式()" ><samp id="samp1"></samp><br>
+
+<script>
+    function 域改变事件() {
+        //通过ID获取文本中的内容
+        var va1=  $("#username").val();
+        alert(va1);
+
+        // var reg = /^a$/; // 第二种方式 在js中推荐使用
+        //创建正则表达式
+        var  reg= new RegExp("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
+        //测试字符串是否符合
+        var regb=reg.test( va1);
+      var regb= regb?"可用!":"不符合条件";
+        //通过id获取这个对象 添加html内容
+        $("#samp").html(regb)
+    }
+
+
+    //测试字符串正则表达式
+    function 测试字符串正则表达式() {
+       // 字符类匹配
+//     [abc] a、b 或 c 任意一个字符
+// [^abc] 任何字符，除了 a、b 或 c ,单个字符
+// [a-zA-Z] a 到 z 或 A 到 Z，两头的字母包括在内
+// [0-9] 0-9之间的任意字符
+        var vv=  $("username").val();
+       var v=/abc/;
+       var vvv= v.test(vv);
+       alert( vvv);
+
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

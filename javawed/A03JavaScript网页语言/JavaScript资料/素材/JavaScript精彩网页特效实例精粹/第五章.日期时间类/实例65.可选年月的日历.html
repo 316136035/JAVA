@@ -1,0 +1,107 @@
+
+<STYLE TYPE="text/css"> 
+.normal{BACKGROUND: #ffffff; font-size: 10pt;} 
+.today {font-weight:bold;BACKGROUND: #6699cc; font-size: 10pt; color:#ffffff;} 
+.satday{color:#0000ff; font-size: 10pt;} 
+.sunday{color:#ff0000; font-size: 10pt;} 
+.days {font-weight:bold; font-size: 10pt;} 
+</STYLE> 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var months = new Array("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"); 
+var daysInMonth = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);  
+var days = new Array("日","一", "二", "三", "四", "五", "六"); 
+today = new Date();  
+function get_Days(month, year) 
+{ 
+if (month == 1) 
+return ((year % 4 == 0) && ((year % 100) != 0 )) || (year % 400 == 0 ) ? 29 : 28;
+else 
+return daysInMonth[month]; 
+} 
+
+function newCalendar() 
+{ 
+var parseYear = parseInt(document.all.year[document.all.year.selectedIndex].text); 
+var newCal = new Date(parseYear,document.all.month.selectedIndex, 1); 
+var day = -1; 
+var startDay = newCal.getDay(); 
+var daily = 0; 
+if ((today.getYear() == newCal.getYear()) &&(today.getMonth() == newCal.getMonth()))  
+day = today.getDate(); 
+var tableCal = document.all.calendar.tBodies.dayList; 
+var intDaysInMonth =get_Days(newCal.getMonth(), newCal.getYear());
+for (var intWeek = 0; intWeek < tableCal.rows.length;intWeek++)              
+for (var intDay = 0;intDay < tableCal.rows[intWeek].cells.length;intDay++)
+{ 
+var cell = tableCal.rows[intWeek].cells[intDay]; 
+if ((intDay == startDay) && (daily == 0)) 
+daily = 1; 
+if(day==daily) 
+	cell.className = "today"; 
+else if(intDay==6) 
+	cell.className = "satday"; 
+else if (intDay==0) 
+	cell.className ="sunday";  
+else 
+	cell.className="normal";   
+
+if ((daily > 0) && (daily <= intDaysInMonth))   
+{ 
+cell.innerText = daily; 
+daily++; 
+} 
+else 
+cell.innerText = ""; 
+} 
+} 
+//-->
+</SCRIPT>
+<body ONLOAD="newCalendar()"> 
+<TABLE ID="calendar" cellspacing="2" cellpadding="2" align=center border=0> 
+<TR> 
+<TD COLSPAN=7 ALIGN=CENTER> 
+<SELECT ID="year" ONCHANGE="newCalendar()"> 
+<SCRIPT LANGUAGE="JavaScript"> 
+<!--
+for (var intLoop = 1900; intLoop <= 2100; intLoop++)                
+document.write("<OPTION VALUE= " + intLoop + " " + (today.getYear() == intLoop ? "Selected" : "") + ">" + intLoop + "年"); 
+//-->
+</SCRIPT>
+</SELECT>&nbsp;&nbsp;<SELECT ID="month" ONCHANGE="newCalendar()"> 
+<SCRIPT LANGUAGE="JavaScript"> 
+<!--
+for (var intLoop = 0; intLoop < months.length;                      
+intLoop++) 
+document.write("<OPTION VALUE= " + (intLoop + 1) + " " + (today.getMonth() == intLoop ? "Selected" : "") + ">" + months[intLoop]); 
+//-->
+</SCRIPT> 
+</SELECT> 
+</TD> 
+</TR> 
+<TR CLASS="days"> 
+<SCRIPT LANGUAGE="JavaScript"> 
+<!--
+document.write("<TD class=sunday>" + days[0] + "</TD>");             
+for (var intLoop = 1; intLoop < days.length-1; 
+intLoop++) 
+document.write("<TD>" + days[intLoop] + "</TD>"); 
+document.write("<TD class=satday>" + days[intLoop] + "</TD>"); 
+//-->
+</SCRIPT> 
+</TR> 
+<TBODY border=1 cellspacing="0" cellpadding="0" ID="dayList"ALIGN=CENTER> 
+<SCRIPT LANGUAGE="JavaScript"> 
+<!--
+for (var intWeeks = 0; intWeeks < 6; intWeeks++) {                    
+document.write("<TR style=''cursor:hand''>"); 
+for (var intDays = 0; intDays < days.length; 
+intDays++) 
+document.write("<TD></TD>"); 
+document.write("</TR>"); 
+} 
+//-->
+</SCRIPT> 
+</TBODY> 
+</TABLE> 
+</body>
